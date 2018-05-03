@@ -13,3 +13,7 @@ print("efeferfrtbvt")
 var a = 6
 
 print (a)
+
+var b = "L"
+
+
