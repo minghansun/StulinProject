@@ -10,3 +10,6 @@ import Foundation
 
 print("efeferfrtbvt")
 
+var a = 6
+
+print (a)
