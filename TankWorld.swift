@@ -16,4 +16,3 @@ class TankWorld {
         grid = Array(repeating: Array(repeating: nil, count: 15), count: 15)
     }
 }
-

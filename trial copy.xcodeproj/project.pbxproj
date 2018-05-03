@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09467C04209A958100320194 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C03209A958100320194 /* Actions.swift */; };
-		09467C06209A95A200320194 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C05209A95A200320194 /* Constants.swift */; };
-		09467C12209A95B300320194 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C07209A95B100320194 /* GameObject.swift */; };
-		09467C13209A95B300320194 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C08209A95B200320194 /* Direction.swift */; };
-		09467C14209A95B300320194 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C09209A95B200320194 /* main.swift */; };
-		09467C15209A95B300320194 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C0A209A95B200320194 /* Position.swift */; };
-		09467C16209A95B300320194 /* Tank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C0C209A95B200320194 /* Tank.swift */; };
-		09467C17209A95B300320194 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C0D209A95B200320194 /* Package.swift */; };
-		09467C18209A95B300320194 /* TankWorldSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C0E209A95B200320194 /* TankWorldSupport.swift */; };
-		09467C19209A95B300320194 /* TankWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C0F209A95B200320194 /* TankWorld.swift */; };
-		09467C1A209A95B300320194 /* TankWorldDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C10209A95B300320194 /* TankWorldDisplay.swift */; };
-		09467C1B209A95B300320194 /* TankWorldActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C11209A95B300320194 /* TankWorldActions.swift */; };
-		09467C1D209A98A000320194 /* r.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C1C209A98A000320194 /* r.swift */; };
+		09467C42209A9ADD00320194 /* TankWorldDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C37209A9ADC00320194 /* TankWorldDisplay.swift */; };
+		09467C43209A9ADD00320194 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C38209A9ADC00320194 /* GameObject.swift */; };
+		09467C44209A9ADD00320194 /* TankWorldSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C39209A9ADC00320194 /* TankWorldSupport.swift */; };
+		09467C45209A9ADD00320194 /* TankWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C3A209A9ADC00320194 /* TankWorld.swift */; };
+		09467C46209A9ADD00320194 /* Tank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C3B209A9ADC00320194 /* Tank.swift */; };
+		09467C47209A9ADD00320194 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C3C209A9ADC00320194 /* Direction.swift */; };
+		09467C48209A9ADD00320194 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C3D209A9ADC00320194 /* Position.swift */; };
+		09467C49209A9ADD00320194 /* TankWorldActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C3E209A9ADC00320194 /* TankWorldActions.swift */; };
+		09467C4A209A9ADD00320194 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C3F209A9ADD00320194 /* main.swift */; };
+		09467C4B209A9ADD00320194 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C40209A9ADD00320194 /* Constants.swift */; };
+		09467C4C209A9ADD00320194 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C41209A9ADD00320194 /* Actions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,20 +34,17 @@
 
 /* Begin PBXFileReference section */
 		09467BF8209A93CB00320194 /* trial */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = trial; sourceTree = BUILT_PRODUCTS_DIR; };
-		09467C03209A958100320194 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Actions.swift; path = ../../../Documents/Tankland/Actions.swift; sourceTree = "<group>"; };
-		09467C05209A95A200320194 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../Documents/Tankland/Constants.swift; sourceTree = "<group>"; };
-		09467C07209A95B100320194 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameObject.swift; path = ../../../Documents/Tankland/GameObject.swift; sourceTree = "<group>"; };
-		09467C08209A95B200320194 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Direction.swift; path = ../../../Documents/Tankland/Direction.swift; sourceTree = "<group>"; };
-		09467C09209A95B200320194 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = ../../../Documents/Tankland/main.swift; sourceTree = "<group>"; };
-		09467C0A209A95B200320194 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Position.swift; path = ../../../Documents/Tankland/Position.swift; sourceTree = "<group>"; };
-		09467C0B209A95B200320194 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../Documents/Tankland/README.md; sourceTree = "<group>"; };
-		09467C0C209A95B200320194 /* Tank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tank.swift; path = ../../../Documents/Tankland/Tank.swift; sourceTree = "<group>"; };
-		09467C0D209A95B200320194 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../../../Documents/Tankland/Package.swift; sourceTree = "<group>"; };
-		09467C0E209A95B200320194 /* TankWorldSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TankWorldSupport.swift; path = ../../../Documents/Tankland/TankWorldSupport.swift; sourceTree = "<group>"; };
-		09467C0F209A95B200320194 /* TankWorld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TankWorld.swift; path = ../../../Documents/Tankland/TankWorld.swift; sourceTree = "<group>"; };
-		09467C10209A95B300320194 /* TankWorldDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TankWorldDisplay.swift; path = ../../../Documents/Tankland/TankWorldDisplay.swift; sourceTree = "<group>"; };
-		09467C11209A95B300320194 /* TankWorldActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TankWorldActions.swift; path = ../../../Documents/Tankland/TankWorldActions.swift; sourceTree = "<group>"; };
-		09467C1C209A98A000320194 /* r.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = r.swift; sourceTree = "<group>"; };
+		09467C37209A9ADC00320194 /* TankWorldDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TankWorldDisplay.swift; sourceTree = "<group>"; };
+		09467C38209A9ADC00320194 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		09467C39209A9ADC00320194 /* TankWorldSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TankWorldSupport.swift; sourceTree = "<group>"; };
+		09467C3A209A9ADC00320194 /* TankWorld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TankWorld.swift; sourceTree = "<group>"; };
+		09467C3B209A9ADC00320194 /* Tank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tank.swift; sourceTree = "<group>"; };
+		09467C3C209A9ADC00320194 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		09467C3D209A9ADC00320194 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		09467C3E209A9ADC00320194 /* TankWorldActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TankWorldActions.swift; sourceTree = "<group>"; };
+		09467C3F209A9ADD00320194 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		09467C40209A9ADD00320194 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		09467C41209A9ADD00320194 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +61,18 @@
 		09467BEF209A93CB00320194 = {
 			isa = PBXGroup;
 			children = (
-				09467BFA209A93CB00320194 /* trial */,
 				09467BF9209A93CB00320194 /* Products */,
+				09467C41209A9ADD00320194 /* Actions.swift */,
+				09467C40209A9ADD00320194 /* Constants.swift */,
+				09467C3C209A9ADC00320194 /* Direction.swift */,
+				09467C38209A9ADC00320194 /* GameObject.swift */,
+				09467C3F209A9ADD00320194 /* main.swift */,
+				09467C3D209A9ADC00320194 /* Position.swift */,
+				09467C3B209A9ADC00320194 /* Tank.swift */,
+				09467C3A209A9ADC00320194 /* TankWorld.swift */,
+				09467C3E209A9ADC00320194 /* TankWorldActions.swift */,
+				09467C37209A9ADC00320194 /* TankWorldDisplay.swift */,
+				09467C39209A9ADC00320194 /* TankWorldSupport.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,27 +82,6 @@
 				09467BF8209A93CB00320194 /* trial */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		09467BFA209A93CB00320194 /* trial */ = {
-			isa = PBXGroup;
-			children = (
-				09467C09209A95B200320194 /* main.swift */,
-				09467C1C209A98A000320194 /* r.swift */,
-				09467C05209A95A200320194 /* Constants.swift */,
-				09467C08209A95B200320194 /* Direction.swift */,
-				09467C07209A95B100320194 /* GameObject.swift */,
-				09467C0D209A95B200320194 /* Package.swift */,
-				09467C0A209A95B200320194 /* Position.swift */,
-				09467C0B209A95B200320194 /* README.md */,
-				09467C0C209A95B200320194 /* Tank.swift */,
-				09467C0F209A95B200320194 /* TankWorld.swift */,
-				09467C11209A95B300320194 /* TankWorldActions.swift */,
-				09467C10209A95B300320194 /* TankWorldDisplay.swift */,
-				09467C0E209A95B200320194 /* TankWorldSupport.swift */,
-				09467C03209A958100320194 /* Actions.swift */,
-			);
-			path = trial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,11 +116,12 @@
 				TargetAttributes = {
 					09467BF7209A93CB00320194 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 09467BF3209A93CB00320194 /* Build configuration list for PBXProject "trial" */;
+			buildConfigurationList = 09467BF3209A93CB00320194 /* Build configuration list for PBXProject "trial copy" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -158,19 +143,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09467C15209A95B300320194 /* Position.swift in Sources */,
-				09467C12209A95B300320194 /* GameObject.swift in Sources */,
-				09467C17209A95B300320194 /* Package.swift in Sources */,
-				09467C16209A95B300320194 /* Tank.swift in Sources */,
-				09467C1A209A95B300320194 /* TankWorldDisplay.swift in Sources */,
-				09467C1D209A98A000320194 /* r.swift in Sources */,
-				09467C14209A95B300320194 /* main.swift in Sources */,
-				09467C04209A958100320194 /* Actions.swift in Sources */,
-				09467C13209A95B300320194 /* Direction.swift in Sources */,
-				09467C1B209A95B300320194 /* TankWorldActions.swift in Sources */,
-				09467C19209A95B300320194 /* TankWorld.swift in Sources */,
-				09467C18209A95B300320194 /* TankWorldSupport.swift in Sources */,
-				09467C06209A95A200320194 /* Constants.swift in Sources */,
+				09467C49209A9ADD00320194 /* TankWorldActions.swift in Sources */,
+				09467C48209A9ADD00320194 /* Position.swift in Sources */,
+				09467C4A209A9ADD00320194 /* main.swift in Sources */,
+				09467C45209A9ADD00320194 /* TankWorld.swift in Sources */,
+				09467C43209A9ADD00320194 /* GameObject.swift in Sources */,
+				09467C4C209A9ADD00320194 /* Actions.swift in Sources */,
+				09467C4B209A9ADD00320194 /* Constants.swift in Sources */,
+				09467C46209A9ADD00320194 /* Tank.swift in Sources */,
+				09467C44209A9ADD00320194 /* TankWorldSupport.swift in Sources */,
+				09467C42209A9ADD00320194 /* TankWorldDisplay.swift in Sources */,
+				09467C47209A9ADD00320194 /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,8 +269,11 @@
 		09467C00209A93CB00320194 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -295,7 +281,9 @@
 		09467C01209A93CB00320194 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -304,7 +292,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09467BF3209A93CB00320194 /* Build configuration list for PBXProject "trial" */ = {
+		09467BF3209A93CB00320194 /* Build configuration list for PBXProject "trial copy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09467BFD209A93CB00320194 /* Debug */,
