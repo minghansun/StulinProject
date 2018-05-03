@@ -9,6 +9,7 @@
 import Foundation
 
 struct Constants {
+    static let sun = 700
     static let initialTankEnergy = 100000
     static let costOfRadarByUnitDistance = [0,100,200,400,800,1600,6400,12400]
     static let costOfSendingMessage = 100
