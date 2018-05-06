@@ -62,12 +62,12 @@
 			isa = PBXGroup;
 			children = (
 				09467BF9209A93CB00320194 /* Products */,
-				09467C41209A9ADD00320194 /* Actions.swift */,
+				09467C3F209A9ADD00320194 /* main.swift */,
 				09467C40209A9ADD00320194 /* Constants.swift */,
 				09467C3C209A9ADC00320194 /* Direction.swift */,
-				09467C38209A9ADC00320194 /* GameObject.swift */,
-				09467C3F209A9ADD00320194 /* main.swift */,
 				09467C3D209A9ADC00320194 /* Position.swift */,
+				09467C41209A9ADD00320194 /* Actions.swift */,
+				09467C38209A9ADC00320194 /* GameObject.swift */,
 				09467C3B209A9ADC00320194 /* Tank.swift */,
 				09467C3A209A9ADC00320194 /* TankWorld.swift */,
 				09467C3E209A9ADC00320194 /* TankWorldActions.swift */,
@@ -121,7 +121,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 09467BF3209A93CB00320194 /* Build configuration list for PBXProject "testing" */;
+			buildConfigurationList = 09467BF3209A93CB00320194 /* Build configuration list for PBXProject "StulinProject" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -292,7 +292,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09467BF3209A93CB00320194 /* Build configuration list for PBXProject "testing" */ = {
+		09467BF3209A93CB00320194 /* Build configuration list for PBXProject "StulinProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09467BFD209A93CB00320194 /* Debug */,

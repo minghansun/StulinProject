@@ -40,6 +40,6 @@ struct Position : CustomStringConvertible {
     
     
     var description: String {
-        return "(\(row), \(col)"
+        return "(\(row), \(col))"
     }
 }

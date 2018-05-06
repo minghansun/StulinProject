@@ -8,12 +8,10 @@
 
 import Foundation
 
-print("efeferfrtbvt")
+var x = TankWorld()
 
-var a = 6
+print (x.isValidPosition(Position(2,15)))
 
-print (a)
+print (x.distance(Position(2,2), Position(5,5)))
 
-var b = "L"
-
-
+print (x.newPosition(position: Position(0,0), direction: .southeast, magnitude: 5))
