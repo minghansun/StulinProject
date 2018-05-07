@@ -17,10 +17,6 @@ struct Position : CustomStringConvertible {
         self.col = col
     }
     
-    func checker () {
-        //a helper method to check whether the destination is out of the grid.
-    }
-    
     /*mutating func move (orientation: direction, distance: Int) {
         switch orientation {
         case direction.north : x -= distance

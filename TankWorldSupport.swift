@@ -61,16 +61,44 @@ extension TankWorld {
         return result
     }
     
-    /*func getLegalSurroundingPositions (_ position: Position) -> [Position] {
+    func getLegalSurroundingPositions (_ position: Position) -> [Position] {
         var result = [Position]()
-        result[0] = newPosition(position: position, direction: .north, magnitude: 1)
-        result[1] = newPosition(position: position, direction: .south, magnitude: 1)
-        result[2] = newPosition(position: position, direction: .east, magnitude: 1)
-        result[3] = newPosition(position: position, direction: .west, magnitude: 1)
-        result[4] = newPosition(position: position, direction: .northwest, magnitude: 1)
-        result[5] = newPosition(position: position, direction: .northeast, magnitude: 1)
-        result[6] = newPosition(position: position, direction: .southwest, magnitude: 1)
-        result[7] = newPosition(position: position, direction: .southeast, magnitude: 1)
+        result.append(newPosition(position: position, direction: .north, magnitude: 1))
+        result.append(newPosition(position: position, direction: .south, magnitude: 1))
+        result.append(newPosition(position: position, direction: .east, magnitude: 1))
+        result.append(newPosition(position: position, direction: .west, magnitude: 1))
+        result.append(newPosition(position: position, direction: .northwest, magnitude: 1))
+        result.append(newPosition(position: position, direction: .northeast, magnitude: 1))
+        result.append(newPosition(position: position, direction: .southwest, magnitude: 1))
+        result.append(newPosition(position: position, direction: .southeast, magnitude: 1))
         return result.filter{isValidPosition($0)}
-    }*/
+    }
+    
+    func findObjectsWithinRange (_ position: Position, range: Int) -> [Position] {
+        var result = [Position]()
+        for e in 0...14 {
+            for h in 0...14 {
+                if grid[e][h] != nil && distance(position, Position(e,h)) <= range {
+                    result.append(grid[e][h]!.position)
+                }
+            }
+        }
+        return result
+    }
+    
+    func findAllTanks () -> [Tank] {
+        return findAllGameObjects().filter{$0.objectType == .Tank} as! [Tank]
+    }
+    
+    func findAllRovers () -> [Mine] {
+        return findAllGameObjects().filter{$0.objectType == .Rover} as! [Mine]
+    }
+    
+    func findWinner () -> Tank? {
+        if findAllTanks().count == 1 {
+            return findAllTanks()[0]
+        }
+        return nil
+    }
+    
 }
