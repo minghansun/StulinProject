@@ -7,12 +7,7 @@
 //
 
 import Foundation
-extension TankWorld{
-    
-}
-/*
-class Grid{
-    var grid = [[GameObject?]](repeating: [GameObject?](repeating: nil, count: 15), count: 15)
+extension TankWorld {
     func formatToGrid(_ value: String)-> String{
         var yes = ""
         for _ in 0..<10 - value.count{
@@ -21,11 +16,12 @@ class Grid{
         yes += value + "|"
         return yes
     }
+    
     func printGrid(){
         for _ in 0...164{
-            print("_", terminator: "")
+            print("-", terminator: "")
         }
-        print("_")
+        print("-")
         for y in 0...14{
             var row0 = "|"
             var row1 = "|"
@@ -33,12 +29,12 @@ class Grid{
             var row3 = "|"
             var row4 = "|"
             for x in 0...14{
-                row4 += "__________|"
+                row4 += "----------|"
                 if let thing = grid[y][x]{
-                    row0 += formatToGrid(thing.name)
+                    row0 += formatToGrid(thing.id)
                     row1 += formatToGrid(String(thing.energy))
                     row2 += formatToGrid("(\(y), \(x))")
-                    row3 += formatToGrid(thing.type)
+                    row3 += formatToGrid(String(describing: thing.objectType))
                 }
                 else{
                     row0 += "          |"
@@ -55,5 +51,4 @@ class Grid{
         }
     }
 }
-*/
 
