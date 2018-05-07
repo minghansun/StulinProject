@@ -9,7 +9,7 @@
 import Foundation
 
 extension TankWorld {
-    func newPosition (position: Position, direction: Direction, magnitude k: Int) -> Position{
+    func newPosition (position: Position, direction: Direction, magnitude k: Int) -> Position {
         let x = position.row
         let y = position.col
         switch direction {
@@ -100,5 +100,22 @@ extension TankWorld {
         }
         return nil
     }
+    
+    func randomizeDirection () -> Direction {
+        var x = Set<Direction>()
+        x.insert(.north)
+        x.insert(.south)
+        x.insert(.east)
+        x.insert(.west)
+        x.insert(.southeast)
+        x.insert(.southwest)
+        x.insert(.northeast)
+        x.insert(.northwest)
+
+        let y = Array(x)
+        return y[0]
+    }
+    
+    
     
 }

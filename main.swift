@@ -35,3 +35,5 @@ print (x.findObjectsWithinRange(Position(6,6), range: 3))
 print (x.findAllTanks())
 
 print (x.findAllRovers())
+
+print (x.randomizeDirection())
