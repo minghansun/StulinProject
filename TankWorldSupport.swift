@@ -10,8 +10,10 @@ import Foundation
 
 extension TankWorld {
     func newPosition (position: Position, direction: Direction, magnitude k: Int) -> Position {
+        
         let x = position.row
         let y = position.col
+        
         switch direction {
         case .north: return Position(x - k, y)
         case .south: return Position(x + k, y)
@@ -116,6 +118,12 @@ extension TankWorld {
         return y[0]
     }
     
+    func getRandomInt (range: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(range)))
+    }
     
-    
+    /*func getRandomInt (range: Int) -> Int {
+        return Int(rand()) % range
+    }*/
+
 }
