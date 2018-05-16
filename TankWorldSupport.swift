@@ -15,8 +15,10 @@ extension TankWorld {
 
 
     func newPosition (position: Position, direction: Direction, magnitude k: Int) -> Position {
+        
         let x = position.row
         let y = position.col
+        
         switch direction {
         case .north: return Position(x - k, y)
         case .south: return Position(x + k, y)
@@ -28,7 +30,15 @@ extension TankWorld {
         case .southwest: return Position(x + k, y - k)
         }
     }
+<<<<<<< HEAD
 
+=======
+    
+    func applyCost (_ object: GameObject, amount: Int) {
+        object.useEnergy(amount: amount)
+    }
+    
+>>>>>>> ff058f8845563dedda01f76b21f8cfc1e3601d95
     func isGoodIndex (_ row: Int, _ col: Int) -> Bool {
         return row <= 14 && col <= 14 && row >= 0 && col >= 0
     }
@@ -107,20 +117,30 @@ extension TankWorld {
     }
 
     func randomizeDirection () -> Direction {
-        var x = Set<Direction>()
-        x.insert(.north)
-        x.insert(.south)
-        x.insert(.east)
-        x.insert(.west)
-        x.insert(.southeast)
-        x.insert(.southwest)
-        x.insert(.northeast)
-        x.insert(.northwest)
-
-        let y = Array(x)
-        return y[0]
+       var directions = [Direction]()
+        directions.append(.north)
+        directions.append(.south)
+        directions.append(.east)
+        directions.append(.west)
+        directions.append(.northwest)
+        directions.append(.northeast)
+        directions.append(.southeast)
+        directions.append(.southeast)
+        return directions[getRandomInt(range: 7)]
     }
+<<<<<<< HEAD
 
 
 
+=======
+    
+    func getRandomInt (range: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(range)))
+    }
+    
+    /*func getRandomInt (range: Int) -> Int {
+        return Int(rand()) % range
+    }*/
+    //this code is for Linux
+>>>>>>> ff058f8845563dedda01f76b21f8cfc1e3601d95
 }

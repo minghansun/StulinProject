@@ -37,3 +37,5 @@ print (x.findAllTanks())
 print (x.findAllRovers())
 
 print (x.randomizeDirection())
+
+print (x.randomizeDirection())

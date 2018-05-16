@@ -9,6 +9,7 @@
 import Foundation
 
 extension TankWorld {
+<<<<<<< HEAD
     func actionSendMessage(tank: Tank, sendMessageAction: SendMessageAction){
         if isDead(tank){return}
         //logger.addLog(tank, "Sending Message \(sendMessageAction")
@@ -36,4 +37,7 @@ extension TankWorld {
         //tank.setReceivedMessage(receivedMessage: message)
 
     }
+=======
+    //code for the implementation of the actions goes here.
+>>>>>>> ff058f8845563dedda01f76b21f8cfc1e3601d95
 }
