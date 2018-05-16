@@ -1,0 +1,83 @@
+{
+  "": {
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/master.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/Actions.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Actions.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Actions.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Actions~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Actions.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/Constants.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Constants.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Constants.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Constants~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Constants.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/Direction.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Direction.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Direction.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Direction~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Direction.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/GameObject.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/GameObject.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/GameObject.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/GameObject~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/GameObject.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/Logger.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Logger.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Logger.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Logger~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Logger.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/main.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/main.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/main.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/main~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/main.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/MessageCenter.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/MessageCenter.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/MessageCenter.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/MessageCenter~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/MessageCenter.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/Position.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Position.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Position.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Position~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Position.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/Tank.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tank.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tank.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tank~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tank.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/TankWorld.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorld.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorld.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorld~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorld.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/TankWorldActions.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldActions.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldActions.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldActions~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldActions.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/TankWorldDisplay.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldDisplay.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldDisplay.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldDisplay~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldDisplay.swiftdeps"
+  },
+  "/home/learnswift/Programs/StulinProject/TankWorldSupport.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldSupport.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldSupport.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldSupport~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorldSupport.swiftdeps"
+  }
+}

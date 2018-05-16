@@ -1,0 +1,43 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Constants"
+provides-nominal:
+- "13StulinProject9ConstantsV"
+provides-member:
+- ["13StulinProject9ConstantsV", ""]
+depends-top-level:
+- "Array"
+- "Constants"
+- "FloatLiteralType"
+- "IntegerLiteralType"
+depends-member:
+- ["13StulinProject9ConstantsV", "costLiveSupportMine"]
+- ["13StulinProject9ConstantsV", "costLiveSupportRover"]
+- ["13StulinProject9ConstantsV", "costLiveSupportTank"]
+- ["13StulinProject9ConstantsV", "costOfFMovingTanksPerUnitDistance"]
+- ["13StulinProject9ConstantsV", "costOfFlyingMisslePerUnitDistance"]
+- ["13StulinProject9ConstantsV", "costOfLaunchingMissle"]
+- ["13StulinProject9ConstantsV", "costOfMovingRover"]
+- ["13StulinProject9ConstantsV", "costOfRadarByUnitDistance"]
+- ["13StulinProject9ConstantsV", "costOfReceivingMessage"]
+- ["13StulinProject9ConstantsV", "costOfReleasingMine"]
+- ["13StulinProject9ConstantsV", "costOfReleasingRover"]
+- ["13StulinProject9ConstantsV", "costOfSendingMessage"]
+- ["13StulinProject9ConstantsV", "init"]
+- ["13StulinProject9ConstantsV", "initialTankEnergy"]
+- ["13StulinProject9ConstantsV", "mineStrikeMultiple"]
+- ["13StulinProject9ConstantsV", "missileStrikeEnergyTransferFraction"]
+- ["13StulinProject9ConstantsV", "missileStrikeMultiple"]
+- ["13StulinProject9ConstantsV", "missileStrikeMultipleCollateral"]
+- ["13StulinProject9ConstantsV", "shieldPowerMultiple"]
+depends-nominal:
+- "13StulinProject9ConstantsV"
+depends-dynamic-lookup:
+depends-external:
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+interface-hash: "a5551fe797ffaab30527773719e4ac7a"

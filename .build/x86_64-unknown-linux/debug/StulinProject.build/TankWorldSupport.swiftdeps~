@@ -1,0 +1,395 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["13StulinProject9TankWorldC", ""]
+- ["13StulinProject9TankWorldC", "applyCost"]
+- ["13StulinProject9TankWorldC", "newPosition"]
+- ["13StulinProject9TankWorldC", "isGoodIndex"]
+- ["13StulinProject9TankWorldC", "isValidPosition"]
+- ["13StulinProject9TankWorldC", "distance"]
+- ["13StulinProject9TankWorldC", "isDead"]
+- ["13StulinProject9TankWorldC", "isEnergyAvailable"]
+- ["13StulinProject9TankWorldC", "isPositionEmpty"]
+- ["13StulinProject9TankWorldC", "findAllGameObjects"]
+- ["13StulinProject9TankWorldC", "getLegalSurroundingPositions"]
+- ["13StulinProject9TankWorldC", "findObjectsWithinRange"]
+- ["13StulinProject9TankWorldC", "findAllTanks"]
+- ["13StulinProject9TankWorldC", "findAllRovers"]
+- ["13StulinProject9TankWorldC", "findWinner"]
+- ["13StulinProject9TankWorldC", "randomizeDirection"]
+depends-top-level:
+- !private "!="
+- !private "&&"
+- !private "*"
+- !private "+"
+- !private "-"
+- !private "..."
+- !private "<"
+- !private "<="
+- !private "=="
+- !private ">"
+- !private ">="
+- !private "Array"
+- "Bool"
+- "CastingPrecedence"
+- "Direction"
+- !private "Double"
+- !private "FloatLiteralType"
+- "GameObject"
+- "Int"
+- !private "IntegerLiteralType"
+- "Mine"
+- "Position"
+- !private "Set"
+- "Tank"
+- "TankWorld"
+- !private "sqrt"
+depends-member:
+- !private ["Sa", "append"]
+- !private ["Sa", "count"]
+- !private ["Sa", "filter"]
+- !private ["Sa", "init"]
+- !private ["Sa", "subscript"]
+- !private ["s10ArraySliceV", "subscript"]
+- !private ["s23BidirectionalCollectionP", "append"]
+- !private ["s23BidirectionalCollectionP", "count"]
+- !private ["s23BidirectionalCollectionP", "filter"]
+- !private ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "subscript"]
+- !private ["s19BinaryFloatingPointP", "init"]
+- !private ["s13BinaryIntegerP", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s10CollectionP", "append"]
+- !private ["s10CollectionP", "count"]
+- !private ["s10CollectionP", "filter"]
+- !private ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "insert"]
+- !private ["s10CollectionP", "subscript"]
+- !private ["s10ComparableP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "Rover"]
+- !private ["s28CustomDebugStringConvertibleP", "Tank"]
+- !private ["s28CustomDebugStringConvertibleP", "append"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "filter"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "insert"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "Rover"]
+- !private ["s17CustomReflectableP", "Tank"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "append"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "filter"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "insert"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "append"]
+- !private ["s23CustomStringConvertibleP", "col"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "energy"]
+- !private ["s23CustomStringConvertibleP", "filter"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "insert"]
+- !private ["s23CustomStringConvertibleP", "objectType"]
+- !private ["s23CustomStringConvertibleP", "position"]
+- !private ["s23CustomStringConvertibleP", "row"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "useEnergy"]
+- !private ["s9DecodableP", "Rover"]
+- !private ["s9DecodableP", "Tank"]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "append"]
+- !private ["s9DecodableP", "count"]
+- !private ["s9DecodableP", "filter"]
+- !private ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "insert"]
+- !private ["s9DecodableP", "subscript"]
+- ["13StulinProject9DirectionO", "deinit"]
+- ["13StulinProject9DirectionO", "east"]
+- ["13StulinProject9DirectionO", "north"]
+- ["13StulinProject9DirectionO", "northeast"]
+- ["13StulinProject9DirectionO", "northwest"]
+- ["13StulinProject9DirectionO", "south"]
+- ["13StulinProject9DirectionO", "southeast"]
+- ["13StulinProject9DirectionO", "southwest"]
+- ["13StulinProject9DirectionO", "west"]
+- !private ["Sd", "init"]
+- !private ["s9EncodableP", "Rover"]
+- !private ["s9EncodableP", "Tank"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "append"]
+- !private ["s9EncodableP", "count"]
+- !private ["s9EncodableP", "filter"]
+- !private ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "insert"]
+- !private ["s9EncodableP", "subscript"]
+- !private ["s9EquatableP", "Rover"]
+- !private ["s9EquatableP", "Tank"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- ["s9EquatableP", "east"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "insert"]
+- ["s9EquatableP", "north"]
+- ["s9EquatableP", "northeast"]
+- ["s9EquatableP", "northwest"]
+- ["s9EquatableP", "south"]
+- ["s9EquatableP", "southeast"]
+- ["s9EquatableP", "southwest"]
+- ["s9EquatableP", "west"]
+- !private ["s25ExpressibleByArrayLiteralP", "append"]
+- !private ["s25ExpressibleByArrayLiteralP", "count"]
+- !private ["s25ExpressibleByArrayLiteralP", "filter"]
+- !private ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "insert"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s25ExpressibleByFloatLiteralP", "init"]
+- !private ["s27ExpressibleByIntegerLiteralP", "init"]
+- !private ["s23ExpressibleByNilLiteralP", "Rover"]
+- !private ["s23ExpressibleByNilLiteralP", "Tank"]
+- !private ["s17FixedWidthIntegerP", "init"]
+- !private ["s13FloatingPointP", "init"]
+- !private ["13StulinProject10GameObjectC", "energy"]
+- !private ["13StulinProject10GameObjectC", "objectType"]
+- !private ["13StulinProject10GameObjectC", "position"]
+- !private ["13StulinProject10GameObjectC", "useEnergy"]
+- !private ["13StulinProject14GameObjectTypeO", "Rover"]
+- !private ["13StulinProject14GameObjectTypeO", "Tank"]
+- !private ["13StulinProject14GameObjectTypeO", "deinit"]
+- !private ["s8HashableP", "Rover"]
+- !private ["s8HashableP", "Tank"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- ["s8HashableP", "east"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "insert"]
+- ["s8HashableP", "north"]
+- ["s8HashableP", "northeast"]
+- ["s8HashableP", "northwest"]
+- ["s8HashableP", "south"]
+- ["s8HashableP", "southeast"]
+- ["s8HashableP", "southwest"]
+- ["s8HashableP", "west"]
+- !private ["Si", "init"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s17MutableCollectionP", "append"]
+- !private ["s17MutableCollectionP", "count"]
+- !private ["s17MutableCollectionP", "filter"]
+- !private ["s17MutableCollectionP", "init"]
+- !private ["s17MutableCollectionP", "subscript"]
+- !private ["s7NumericP", "init"]
+- !private ["Sq", "Rover"]
+- !private ["Sq", "Tank"]
+- !private ["13StulinProject8PositionV", "col"]
+- !private ["13StulinProject8PositionV", "init"]
+- !private ["13StulinProject8PositionV", "row"]
+- !private ["s22RandomAccessCollectionP", "append"]
+- !private ["s22RandomAccessCollectionP", "count"]
+- !private ["s22RandomAccessCollectionP", "filter"]
+- !private ["s22RandomAccessCollectionP", "init"]
+- !private ["s22RandomAccessCollectionP", "subscript"]
+- !private ["s26RangeReplaceableCollectionP", "append"]
+- !private ["s26RangeReplaceableCollectionP", "count"]
+- !private ["s26RangeReplaceableCollectionP", "filter"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "subscript"]
+- !private ["s8SequenceP", "append"]
+- !private ["s8SequenceP", "count"]
+- !private ["s8SequenceP", "filter"]
+- !private ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "insert"]
+- !private ["s8SequenceP", "subscript"]
+- !private ["s3SetV", "init"]
+- !private ["s3SetV", "insert"]
+- !private ["s10SetAlgebraP", "init"]
+- !private ["s10SetAlgebraP", "insert"]
+- !private ["s13SignedIntegerP", "init"]
+- !private ["s13SignedNumericP", "init"]
+- !private ["s10StrideableP", "init"]
+- !private ["13StulinProject4TankC", "useEnergy"]
+- !private ["13StulinProject9TankWorldC", "Array"]
+- ["13StulinProject9TankWorldC", "Bool"]
+- ["13StulinProject9TankWorldC", "Direction"]
+- !private ["13StulinProject9TankWorldC", "Double"]
+- ["13StulinProject9TankWorldC", "GameObject"]
+- ["13StulinProject9TankWorldC", "Int"]
+- ["13StulinProject9TankWorldC", "Mine"]
+- ["13StulinProject9TankWorldC", "Position"]
+- !private ["13StulinProject9TankWorldC", "Set"]
+- ["13StulinProject9TankWorldC", "Tank"]
+- ["13StulinProject9TankWorldC", "applyCost"]
+- ["13StulinProject9TankWorldC", "distance"]
+- ["13StulinProject9TankWorldC", "findAllGameObjects"]
+- ["13StulinProject9TankWorldC", "findAllRovers"]
+- ["13StulinProject9TankWorldC", "findAllTanks"]
+- ["13StulinProject9TankWorldC", "findObjectsWithinRange"]
+- ["13StulinProject9TankWorldC", "findWinner"]
+- ["13StulinProject9TankWorldC", "getLegalSurroundingPositions"]
+- !private ["13StulinProject9TankWorldC", "grid"]
+- ["13StulinProject9TankWorldC", "isDead"]
+- ["13StulinProject9TankWorldC", "isEnergyAvailable"]
+- ["13StulinProject9TankWorldC", "isGoodIndex"]
+- ["13StulinProject9TankWorldC", "isPositionEmpty"]
+- ["13StulinProject9TankWorldC", "isValidPosition"]
+- ["13StulinProject9TankWorldC", "newPosition"]
+- ["13StulinProject9TankWorldC", "randomizeDirection"]
+- !private ["13StulinProject9TankWorldC", "sqrt"]
+- !private ["s14_ArrayProtocolP", "append"]
+- !private ["s14_ArrayProtocolP", "count"]
+- !private ["s14_ArrayProtocolP", "filter"]
+- !private ["s14_ArrayProtocolP", "init"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s23_BidirectionalIndexableP", "append"]
+- !private ["s23_BidirectionalIndexableP", "count"]
+- !private ["s23_BidirectionalIndexableP", "filter"]
+- !private ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "subscript"]
+- !private ["s18_BitwiseOperationsP", "init"]
+- !private ["10Foundation13_CFBridgeableP", "_getBuiltinLogicValue"]
+- !private ["10Foundation13_CFBridgeableP", "append"]
+- !private ["10Foundation13_CFBridgeableP", "count"]
+- !private ["10Foundation13_CFBridgeableP", "filter"]
+- !private ["10Foundation13_CFBridgeableP", "init"]
+- !private ["10Foundation13_CFBridgeableP", "insert"]
+- !private ["10Foundation13_CFBridgeableP", "subscript"]
+- !private ["s15_CVarArgAlignedP", "init"]
+- !private ["s22_CVarArgPassedAsDoubleP", "init"]
+- !private ["s24_DestructorSafeContainerP", "append"]
+- !private ["s24_DestructorSafeContainerP", "count"]
+- !private ["s24_DestructorSafeContainerP", "filter"]
+- !private ["s24_DestructorSafeContainerP", "init"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s33_ExpressibleByBuiltinFloatLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s10_IndexableP", "append"]
+- !private ["s10_IndexableP", "count"]
+- !private ["s10_IndexableP", "filter"]
+- !private ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "insert"]
+- !private ["s10_IndexableP", "subscript"]
+- !private ["s14_IndexableBaseP", "append"]
+- !private ["s14_IndexableBaseP", "count"]
+- !private ["s14_IndexableBaseP", "filter"]
+- !private ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "insert"]
+- !private ["s14_IndexableBaseP", "subscript"]
+- !private ["s17_MutableIndexableP", "append"]
+- !private ["s17_MutableIndexableP", "count"]
+- !private ["s17_MutableIndexableP", "filter"]
+- !private ["s17_MutableIndexableP", "init"]
+- !private ["s17_MutableIndexableP", "subscript"]
+- !private ["10Foundation13_NSBridgeableP", "append"]
+- !private ["10Foundation13_NSBridgeableP", "count"]
+- !private ["10Foundation13_NSBridgeableP", "filter"]
+- !private ["10Foundation13_NSBridgeableP", "init"]
+- !private ["10Foundation13_NSBridgeableP", "insert"]
+- !private ["10Foundation13_NSBridgeableP", "subscript"]
+- !private ["10Foundation17_ObjectBridgeableP", "_getBuiltinLogicValue"]
+- !private ["10Foundation17_ObjectBridgeableP", "append"]
+- !private ["10Foundation17_ObjectBridgeableP", "count"]
+- !private ["10Foundation17_ObjectBridgeableP", "filter"]
+- !private ["10Foundation17_ObjectBridgeableP", "init"]
+- !private ["10Foundation17_ObjectBridgeableP", "insert"]
+- !private ["10Foundation17_ObjectBridgeableP", "subscript"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "_getBuiltinLogicValue"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "append"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "count"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "filter"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "init"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "insert"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "subscript"]
+- !private ["s26_OptionalNilComparisonTypeV", "Rover"]
+- !private ["s26_OptionalNilComparisonTypeV", "Tank"]
+- !private ["s22_RandomAccessIndexableP", "append"]
+- !private ["s22_RandomAccessIndexableP", "count"]
+- !private ["s22_RandomAccessIndexableP", "filter"]
+- !private ["s22_RandomAccessIndexableP", "init"]
+- !private ["s22_RandomAccessIndexableP", "subscript"]
+- !private ["s26_RangeReplaceableIndexableP", "append"]
+- !private ["s26_RangeReplaceableIndexableP", "count"]
+- !private ["s26_RangeReplaceableIndexableP", "filter"]
+- !private ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "subscript"]
+- !private ["s11_StrideableP", "init"]
+depends-nominal:
+- !private "Sa"
+- !private "s10ArraySliceV"
+- !private "s23BidirectionalCollectionP"
+- !private "s19BinaryFloatingPointP"
+- !private "s13BinaryIntegerP"
+- !private "Sb"
+- !private "s7CVarArgP"
+- !private "s10CollectionP"
+- !private "s10ComparableP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- "13StulinProject9DirectionO"
+- !private "Sd"
+- !private "s9EncodableP"
+- "s9EquatableP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s25ExpressibleByFloatLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "s17FixedWidthIntegerP"
+- !private "s13FloatingPointP"
+- !private "13StulinProject10GameObjectC"
+- !private "13StulinProject14GameObjectTypeO"
+- "s8HashableP"
+- !private "Si"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "s17MutableCollectionP"
+- !private "s7NumericP"
+- !private "Sq"
+- !private "13StulinProject8PositionV"
+- !private "s22RandomAccessCollectionP"
+- !private "s26RangeReplaceableCollectionP"
+- !private "s8SequenceP"
+- !private "s3SetV"
+- !private "s10SetAlgebraP"
+- !private "s13SignedIntegerP"
+- !private "s13SignedNumericP"
+- !private "s10StrideableP"
+- !private "13StulinProject4TankC"
+- "13StulinProject9TankWorldC"
+- !private "s14_ArrayProtocolP"
+- !private "s23_BidirectionalIndexableP"
+- !private "s18_BitwiseOperationsP"
+- !private "10Foundation13_CFBridgeableP"
+- !private "s15_CVarArgAlignedP"
+- !private "s22_CVarArgPassedAsDoubleP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s33_ExpressibleByBuiltinFloatLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s10_IndexableP"
+- !private "s14_IndexableBaseP"
+- !private "s17_MutableIndexableP"
+- !private "10Foundation13_NSBridgeableP"
+- !private "10Foundation17_ObjectBridgeableP"
+- !private "10Foundation21_ObjectTypeBridgeableP"
+- !private "s26_OptionalNilComparisonTypeV"
+- !private "s22_RandomAccessIndexableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s11_StrideableP"
+depends-dynamic-lookup:
+depends-external:
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+interface-hash: "18f02d852ef7a933962f7c8b794c065c"
