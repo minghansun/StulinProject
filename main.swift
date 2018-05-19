@@ -39,3 +39,7 @@ print (x.findAllRovers())
 print (x.randomizeDirection())
 
 print (x.randomizeDirection())
+print (x.randomizeGameObjects(gameObjects: [z,y,w]))
+for _ in 1..<100 {
+    print (x.getRandomInt(range: 30))
+}

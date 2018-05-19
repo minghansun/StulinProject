@@ -124,6 +124,21 @@ extension TankWorld {
         return Int(arc4random_uniform(UInt32(range)))
     }
     
+    func randomizeGameObjects<T: GameObject> (gameObjects : [T]) -> [T] {
+        
+        var objects = gameObjects
+        let x = gameObjects.count
+        var result = [T]()
+        
+        for e in 0..<x {
+            let index = getRandomInt(range: x - e - 1)
+            result[e] = objects[index]
+            objects.remove(at: index)
+        }
+        
+        return result
+    }
+    
     /*func getRandomInt (range: Int) -> Int {
         return Int(rand()) % range
     }*/
