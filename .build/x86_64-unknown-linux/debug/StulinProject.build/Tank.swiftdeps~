@@ -1,0 +1,160 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Tank"
+- "Mine"
+provides-nominal:
+- "13StulinProject4TankC"
+- "13StulinProject4MineC"
+provides-member:
+- ["13StulinProject4TankC", ""]
+- ["13StulinProject4MineC", ""]
+depends-top-level:
+- "Actions"
+- "AssignmentPrecedence"
+- "FloatLiteralType"
+- "GameObject"
+- "GameObjectType"
+- "Int"
+- "IntegerLiteralType"
+- "Mine"
+- "PostAction"
+- "PreAction"
+- "String"
+- !private "StringLiteralType"
+- "Tank"
+depends-member:
+- !private ["13StulinProject6ActionP", "action"]
+- ["13StulinProject7ActionsO", "deinit"]
+- ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- ["s23CustomStringConvertibleP", "Actions"]
+- ["s23CustomStringConvertibleP", "PostAction"]
+- ["s23CustomStringConvertibleP", "PreAction"]
+- !private ["s23CustomStringConvertibleP", "action"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "initialInstructions"]
+- !private ["s23CustomStringConvertibleP", "postActions"]
+- !private ["s23CustomStringConvertibleP", "preActions"]
+- !private ["s23CustomStringConvertibleP", "receiveMessage"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "subscript"]
+- ["s10DictionaryV", "init"]
+- !private ["s10DictionaryV", "subscript"]
+- ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "subscript"]
+- !private ["s9EquatableP", "Tank"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["13StulinProject10GameObjectC", "Actions"]
+- ["13StulinProject10GameObjectC", "GameObjectType"]
+- ["13StulinProject10GameObjectC", "Int"]
+- ["13StulinProject10GameObjectC", "PostAction"]
+- ["13StulinProject10GameObjectC", "PreAction"]
+- ["13StulinProject10GameObjectC", "String"]
+- ["13StulinProject10GameObjectC", "addPostAction"]
+- ["13StulinProject10GameObjectC", "addPreAction"]
+- ["13StulinProject10GameObjectC", "clearActions"]
+- ["13StulinProject10GameObjectC", "computePostActions"]
+- ["13StulinProject10GameObjectC", "computePreActions"]
+- ["13StulinProject10GameObjectC", "init"]
+- ["13StulinProject10GameObjectC", "initialInstructions"]
+- ["13StulinProject10GameObjectC", "postActions"]
+- ["13StulinProject10GameObjectC", "preActions"]
+- ["13StulinProject10GameObjectC", "receiveMessage"]
+- ["13StulinProject10GameObjectC", "shield"]
+- ["13StulinProject10GameObjectC", ""]
+- !private ["13StulinProject14GameObjectTypeO", "Tank"]
+- !private ["s8HashableP", "Tank"]
+- ["13StulinProject4MineC", "GameObjectType"]
+- ["13StulinProject4MineC", "Int"]
+- ["13StulinProject4MineC", "String"]
+- ["13StulinProject4MineC", "deinit"]
+- ["13StulinProject4MineC", "init"]
+- !private ["13StulinProject10PostActionP", "action"]
+- !private ["13StulinProject9PreActionP", "action"]
+- ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "subscript"]
+- !private ["s12StaticStringV", "init"]
+- ["13StulinProject4TankC", "Actions"]
+- ["13StulinProject4TankC", "Int"]
+- ["13StulinProject4TankC", "PostAction"]
+- ["13StulinProject4TankC", "PreAction"]
+- ["13StulinProject4TankC", "String"]
+- ["13StulinProject4TankC", "addPostAction"]
+- ["13StulinProject4TankC", "addPreAction"]
+- ["13StulinProject4TankC", "clearActions"]
+- ["13StulinProject4TankC", "computePostActions"]
+- ["13StulinProject4TankC", "computePreActions"]
+- ["13StulinProject4TankC", "deinit"]
+- ["13StulinProject4TankC", "init"]
+- ["13StulinProject4TankC", "initialInstructions"]
+- ["13StulinProject4TankC", "postActions"]
+- ["13StulinProject4TankC", "preActions"]
+- ["13StulinProject4TankC", "receiveMessage"]
+- ["13StulinProject4TankC", "shield"]
+- ["10Foundation13_CFBridgeableP", "init"]
+- !private ["10Foundation13_CFBridgeableP", "subscript"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "subscript"]
+- ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "subscript"]
+- ["10Foundation13_NSBridgeableP", "init"]
+- !private ["10Foundation13_NSBridgeableP", "subscript"]
+- ["10Foundation17_ObjectBridgeableP", "init"]
+- !private ["10Foundation17_ObjectBridgeableP", "subscript"]
+- ["10Foundation21_ObjectTypeBridgeableP", "init"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "subscript"]
+depends-nominal:
+- !private "13StulinProject6ActionP"
+- "13StulinProject7ActionsO"
+- "s10CollectionP"
+- "s28CustomDebugStringConvertibleP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "s9DecodableP"
+- "s10DictionaryV"
+- "s9EncodableP"
+- !private "s9EquatableP"
+- "s30ExpressibleByDictionaryLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "13StulinProject10GameObjectC"
+- !private "13StulinProject14GameObjectTypeO"
+- !private "s8HashableP"
+- "13StulinProject4MineC"
+- !private "13StulinProject10PostActionP"
+- !private "13StulinProject9PreActionP"
+- "s8SequenceP"
+- !private "s12StaticStringV"
+- "13StulinProject4TankC"
+- "10Foundation13_CFBridgeableP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "10Foundation13_NSBridgeableP"
+- "10Foundation17_ObjectBridgeableP"
+- "10Foundation21_ObjectTypeBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+interface-hash: "732dcfbbda0f0f745c97c0d8d2e4ba8a"

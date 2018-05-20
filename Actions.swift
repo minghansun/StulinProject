@@ -14,22 +14,22 @@ protocol Action: CustomStringConvertible {
 }
 
 protocol PreAction: Action {
-    
+
 }
 
 protocol PostAction: Action {
-    
+
 }
 
 struct MoveAction : PostAction {
     let action: Actions
     let distance : Int
     let direction : Direction
-    
+
     var description: String {
         return "\(action) \(distance) \(direction)"
     }
-    
+
     init(distance: Int, direction: Direction) {
         action = .Move
         self.distance = distance
@@ -41,11 +41,11 @@ struct FireMissileAction : PostAction {
     let action: Actions
     let energy : Int
     let absoluteDestination : Position
-    
+
     var description: String {
         return "\(absoluteDestination) \(energy)"
     }
-    
+
     init (energy: Int, destination: Position) {
         action = .FireMissle
         self.energy = energy
@@ -53,43 +53,43 @@ struct FireMissileAction : PostAction {
     }
 }
 
-struct SetShieldsPreAction : PreAction {
+struct SetShieldsAction : PreAction {
     let energy : Int
     let action : Actions
 
     var description: String {
         return "\(energy)"
     }
-    
+
     init (energy: Int) {
         action = .SetShields
         self.energy = energy
     }
 }
 
-struct runRadarPreAction : PreAction {
+struct runRadarAction : PreAction {
     let radius : Int
     let action : Actions
-    
+
     var description: String {
         return "\(radius)"
     }
-    
+
     init (radius: Int) {
         action = .RunRadar
         self.radius = radius
     }
 }
 
-struct sendMessagePreAction : PreAction {
+struct SendMessageAction : PreAction {
     let idCode : String
     let text : String
     let action: Actions
-    
+
     var description: String {
         return "\(idCode) \(text)."
     }
-    
+
     init (id: String, text: String) {
         action = .SendMessage
         idCode = id
@@ -97,8 +97,17 @@ struct sendMessagePreAction : PreAction {
     }
 }
 
+struct ReceiveMessageAction : PreAction{
+    let action: Actions
+    let key: String
+    var description: String{
+        return key
+    }
+    init (key: String){
+        action = .ReceiveMessage
+        self.key = key
+    }
+}
 enum Actions {
     case SendMessage, ReceiveMessage, RunRadar, SetShields, DropMine, DropRover, FireMissle, Move
 }
-
-
