@@ -81,6 +81,10 @@ struct runRadarAction : PreAction {
     }
 }
 
+struct RadarResult {
+    var information = [(Position,String,Int)]()
+}
+
 struct SendMessageAction : PreAction {
     let idCode : String
     let text : String
@@ -97,7 +101,7 @@ struct SendMessageAction : PreAction {
     }
 }
 
-struct ReceiveMessageAction : PreAction{
+struct ReceiveMessageAction : PreAction {
     let action: Actions
     let key: String
     var description: String{
@@ -108,6 +112,7 @@ struct ReceiveMessageAction : PreAction{
         self.key = key
     }
 }
+
 enum Actions {
     case SendMessage, ReceiveMessage, RunRadar, SetShields, DropMine, DropRover, FireMissle, Move
 }

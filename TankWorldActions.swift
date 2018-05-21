@@ -18,7 +18,7 @@ extension TankWorld {
             return
         }
 
-        //applyCost(tank, amount: Constants.costOfSendingMessage)
+        applyCost(tank, amount: Constants.costOfSendingMessage)
         //MessageCenter.sendMessage()
     }
 
@@ -31,10 +31,47 @@ extension TankWorld {
             return
         }
 
-        //applyCost(tank, amount: Constants.costOfReceivingMessage)
+        applyCost(tank, amount: Constants.costOfReceivingMessage)
         //let message = MessageCenter.receiveMessage(id: receiveMessageAction.id)
         //tank.setReceivedMessage(receivedMessage: message)
-
     }
-    //code for the implementation of the actions goes here.
+    
+    func actionRunRadar (tank: Tank, runRadarAction: runRadarAction) {
+        let r = runRadarAction.radius //for simplicity
+        if isDead(tank){return}
+        
+        if !isEnergyAvailable(tank, amount: Constants.costOfRadarByUnitDistance[r]) {
+            return
+        }
+        
+        applyCost(tank, amount: Constants.costOfRadarByUnitDistance[r])
+        
+        var result = RadarResult()
+        for e in findObjectsWithinRange(tank.position, range: r) {
+            result.information.append((position:e.position,id:e.id, energy:e.energy))
+        }
+    }
+    
+    func actionSetShield (tank: Tank, setShieldsAction: SetShieldsAction) {
+        if isDead(tank) {return}
+        
+        if !isEnergyAvailable(tank, amount: setShieldsAction.energy) {
+            return
+        }
+        
+        tank.addEnergyToShield(amount: setShieldsAction.energy)
+    }
+    
+    func actionMove (tank: Tank, moveAction: MoveAction) {
+        if isDead(tank) {return}
+        
+        if !isEnergyAvailable(tank, amount: Constants.costOfFMovingTanksPerUnitDistance[moveAction.distance]) {
+            return
+        }
+        
+        tank.setPosition(newPosition: newPosition(position: tank.position, direction: moveAction.direction, magnitude: moveAction.distance))
+    }
+    
+    
 }
+

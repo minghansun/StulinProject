@@ -9,9 +9,9 @@
 import Foundation
 
 extension TankWorld {
-    func applyCost (tank: Tank, amount: Int){
+    /*func applyCost (tank: Tank, amount: Int){
         tank.useEnergy(amount: amount)
-    }
+    }*/
 
 
     func newPosition (position: Position, direction: Direction, magnitude k: Int) -> Position {
@@ -83,15 +83,15 @@ extension TankWorld {
         result.append(newPosition(position: position, direction: .northeast, magnitude: 1))
         result.append(newPosition(position: position, direction: .southwest, magnitude: 1))
         result.append(newPosition(position: position, direction: .southeast, magnitude: 1))
-        return result.filter{isValidPosition($0)}
+        return result.filter{isValidPosition($0)}.filter{isPositionEmpty($0)}
     }
 
-    func findObjectsWithinRange (_ position: Position, range: Int) -> [Position] {
-        var result = [Position]()
+    func findObjectsWithinRange (_ position: Position, range: Int) -> [GameObject] {
+        var result = [GameObject]()
         for e in 0...14 {
             for h in 0...14 {
                 if grid[e][h] != nil && distance(position, Position(e,h)) <= range {
-                    result.append(grid[e][h]!.position)
+                    result.append(grid[e][h]!)
                 }
             }
         }
@@ -137,12 +137,17 @@ extension TankWorld {
         var result = [T]()
         
         for e in 0..<x {
-            let index = getRandomInt(range: x - e - 1)
-            result[e] = objects[index]
+            let index = getRandomInt(range: x - e)
+            result.append(objects[index])
             objects.remove(at: index)
         }
         
         return result
+    }
+    
+    func findFreeAdjacent (_ position: Position) -> Position? {
+        let x = getLegalSurroundingPositions(position)
+        return x[getRandomInt(range: x.count)] // could be a source of error
     }
     
     /*func getRandomInt (range: Int) -> Int {

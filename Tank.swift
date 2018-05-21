@@ -9,16 +9,24 @@
 import Foundation
 
 class Tank : GameObject {
-    private (set) var shield = 0
-    private var receiveMessage: String?
+    var shield = 0
+    private var receivedMessage: String?
     private (set) var preActions = [Actions: PreAction]()
     private (set) var postActions = [Actions: PostAction]()
     let initialInstructions: String?
-    /*private var radarResults: [RadarResult]?*/
+    var radarResults: [RadarResult]?
     
     init(row: Int, col: Int, energy: Int, id: String, instructions: String) {
         initialInstructions = instructions
         super.init(row: row, col: col, objectType: .Tank, energy: energy, id: id)
+    }
+    
+    final func addEnergyToShield (amount: Int) {
+        shield += amount
+    }
+    
+    final func clearShieldEnergy () {
+        shield = 0
     }
     
     final func clearActions () {
@@ -27,7 +35,7 @@ class Tank : GameObject {
     }
     
     final func receiveMessage (message: String) {
-        receiveMessage = message
+        receivedMessage = message
     }
     
     func computePreActions () {

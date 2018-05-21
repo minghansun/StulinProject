@@ -28,3 +28,5 @@ struct Constants {
     static let shieldPowerMultiple = 8
     static let missileStrikeEnergyTransferFraction = 4
 }
+
+

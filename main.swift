@@ -10,36 +10,17 @@ import Foundation
 
 var x = TankWorld()
 
-print (x.isValidPosition(Position(2,15)))
+var tank1 = Tank(row: 3, col: 3, energy: 10000, id: "454", instructions: "")
+var tank2 = Tank(row: 4, col: 6, energy: 15000, id: "564", instructions: "")
+var mine1 = Mine(mineorRover: .Mine, row: 10, col: 10, energy: 200, id: "465")
+var rover1 = Mine(mineorRover: .Rover, row: 7, col: 4, energy: 50, id: "123")
 
-print (x.distance(Position(2,2), Position(5,5)))
+x.addGameObject(adding: tank1)
+x.addGameObject(adding: tank2)
+x.addGameObject(adding: mine1)
+x.addGameObject(adding: rover1)
 
-print (x.newPosition(position: Position(0,0), direction: .southeast, magnitude: 5))
-
-let y = Tank(row: 3, col: 3, energy: 2000, id: "tank1", instructions: " ")
-let z = GameObject(row: 5, col: 5, objectType: .Mine, energy: 20000, id: "mine123")
-let w = Mine(mineorRover: .Rover, row: 6, col: 7, energy: 2000000, id: "pernicious")
-x.addGameObject(adding: y)
-x.addGameObject(adding: z)
-x.addGameObject(adding: w)
+print (x.findObjectsWithinRange(Position(4,4), range: 2))
 x.printGrid()
 
-print (x.isPositionEmpty(Position(4,5)))
 
-print (x.findAllGameObjects())
-
-print (x.getLegalSurroundingPositions(Position(14,14)))
-
-print (x.findObjectsWithinRange(Position(6,6), range: 3))
-
-print (x.findAllTanks())
-
-print (x.findAllRovers())
-
-print (x.randomizeDirection())
-
-print (x.randomizeDirection())
-print (x.randomizeGameObjects(gameObjects: [z,y,w]))
-for _ in 1..<100 {
-    print (x.getRandomInt(range: 30))
-}
