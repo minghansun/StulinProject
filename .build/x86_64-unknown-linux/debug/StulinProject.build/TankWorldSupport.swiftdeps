@@ -5,6 +5,7 @@ provides-member:
 - ["13StulinProject9TankWorldC", ""]
 - ["13StulinProject9TankWorldC", "applyCost"]
 - ["13StulinProject9TankWorldC", "newPosition"]
+- ["13StulinProject9TankWorldC", "applyCost"]
 - ["13StulinProject9TankWorldC", "isGoodIndex"]
 - ["13StulinProject9TankWorldC", "isValidPosition"]
 - ["13StulinProject9TankWorldC", "distance"]
@@ -18,6 +19,8 @@ provides-member:
 - ["13StulinProject9TankWorldC", "findAllRovers"]
 - ["13StulinProject9TankWorldC", "findWinner"]
 - ["13StulinProject9TankWorldC", "randomizeDirection"]
+- ["13StulinProject9TankWorldC", "getRandomInt"]
+- ["13StulinProject9TankWorldC", "randomizeGameObjects"]
 depends-top-level:
 - !private "!="
 - !private "&&"
@@ -25,12 +28,13 @@ depends-top-level:
 - !private "+"
 - !private "-"
 - !private "..."
+- !private "..<"
 - !private "<"
 - !private "<="
 - !private "=="
 - !private ">"
 - !private ">="
-- !private "Array"
+- "AssignmentPrecedence"
 - "Bool"
 - "CastingPrecedence"
 - "Direction"
@@ -41,21 +45,24 @@ depends-top-level:
 - !private "IntegerLiteralType"
 - "Mine"
 - "Position"
-- !private "Set"
 - "Tank"
 - "TankWorld"
+- !private "UInt32"
+- !private "arc4random_uniform"
 - !private "sqrt"
 depends-member:
 - !private ["Sa", "append"]
 - !private ["Sa", "count"]
 - !private ["Sa", "filter"]
 - !private ["Sa", "init"]
+- !private ["Sa", "remove"]
 - !private ["Sa", "subscript"]
 - !private ["s10ArraySliceV", "subscript"]
 - !private ["s23BidirectionalCollectionP", "append"]
 - !private ["s23BidirectionalCollectionP", "count"]
 - !private ["s23BidirectionalCollectionP", "filter"]
 - !private ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "remove"]
 - !private ["s23BidirectionalCollectionP", "subscript"]
 - !private ["s19BinaryFloatingPointP", "init"]
 - !private ["s13BinaryIntegerP", "init"]
@@ -65,7 +72,7 @@ depends-member:
 - !private ["s10CollectionP", "count"]
 - !private ["s10CollectionP", "filter"]
 - !private ["s10CollectionP", "init"]
-- !private ["s10CollectionP", "insert"]
+- !private ["s10CollectionP", "remove"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "Rover"]
@@ -74,7 +81,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "count"]
 - !private ["s28CustomDebugStringConvertibleP", "filter"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
-- !private ["s28CustomDebugStringConvertibleP", "insert"]
+- !private ["s28CustomDebugStringConvertibleP", "remove"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
@@ -85,7 +92,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "count"]
 - !private ["s17CustomReflectableP", "filter"]
 - !private ["s17CustomReflectableP", "init"]
-- !private ["s17CustomReflectableP", "insert"]
+- !private ["s17CustomReflectableP", "remove"]
 - !private ["s17CustomReflectableP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "append"]
@@ -94,9 +101,9 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "energy"]
 - !private ["s23CustomStringConvertibleP", "filter"]
 - !private ["s23CustomStringConvertibleP", "init"]
-- !private ["s23CustomStringConvertibleP", "insert"]
 - !private ["s23CustomStringConvertibleP", "objectType"]
 - !private ["s23CustomStringConvertibleP", "position"]
+- !private ["s23CustomStringConvertibleP", "remove"]
 - !private ["s23CustomStringConvertibleP", "row"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "useEnergy"]
@@ -107,9 +114,8 @@ depends-member:
 - !private ["s9DecodableP", "count"]
 - !private ["s9DecodableP", "filter"]
 - !private ["s9DecodableP", "init"]
-- !private ["s9DecodableP", "insert"]
+- !private ["s9DecodableP", "remove"]
 - !private ["s9DecodableP", "subscript"]
-- ["13StulinProject9DirectionO", "deinit"]
 - ["13StulinProject9DirectionO", "east"]
 - ["13StulinProject9DirectionO", "north"]
 - ["13StulinProject9DirectionO", "northeast"]
@@ -126,14 +132,13 @@ depends-member:
 - !private ["s9EncodableP", "count"]
 - !private ["s9EncodableP", "filter"]
 - !private ["s9EncodableP", "init"]
-- !private ["s9EncodableP", "insert"]
+- !private ["s9EncodableP", "remove"]
 - !private ["s9EncodableP", "subscript"]
 - !private ["s9EquatableP", "Rover"]
 - !private ["s9EquatableP", "Tank"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - ["s9EquatableP", "east"]
 - !private ["s9EquatableP", "init"]
-- !private ["s9EquatableP", "insert"]
 - ["s9EquatableP", "north"]
 - ["s9EquatableP", "northeast"]
 - ["s9EquatableP", "northwest"]
@@ -145,7 +150,7 @@ depends-member:
 - !private ["s25ExpressibleByArrayLiteralP", "count"]
 - !private ["s25ExpressibleByArrayLiteralP", "filter"]
 - !private ["s25ExpressibleByArrayLiteralP", "init"]
-- !private ["s25ExpressibleByArrayLiteralP", "insert"]
+- !private ["s25ExpressibleByArrayLiteralP", "remove"]
 - !private ["s25ExpressibleByArrayLiteralP", "subscript"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s25ExpressibleByFloatLiteralP", "init"]
@@ -166,7 +171,6 @@ depends-member:
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - ["s8HashableP", "east"]
 - !private ["s8HashableP", "init"]
-- !private ["s8HashableP", "insert"]
 - ["s8HashableP", "north"]
 - ["s8HashableP", "northeast"]
 - ["s8HashableP", "northwest"]
@@ -182,6 +186,7 @@ depends-member:
 - !private ["s17MutableCollectionP", "count"]
 - !private ["s17MutableCollectionP", "filter"]
 - !private ["s17MutableCollectionP", "init"]
+- !private ["s17MutableCollectionP", "remove"]
 - !private ["s17MutableCollectionP", "subscript"]
 - !private ["s7NumericP", "init"]
 - !private ["Sq", "Rover"]
@@ -193,27 +198,24 @@ depends-member:
 - !private ["s22RandomAccessCollectionP", "count"]
 - !private ["s22RandomAccessCollectionP", "filter"]
 - !private ["s22RandomAccessCollectionP", "init"]
+- !private ["s22RandomAccessCollectionP", "remove"]
 - !private ["s22RandomAccessCollectionP", "subscript"]
 - !private ["s26RangeReplaceableCollectionP", "append"]
 - !private ["s26RangeReplaceableCollectionP", "count"]
 - !private ["s26RangeReplaceableCollectionP", "filter"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "remove"]
 - !private ["s26RangeReplaceableCollectionP", "subscript"]
 - !private ["s8SequenceP", "append"]
 - !private ["s8SequenceP", "count"]
 - !private ["s8SequenceP", "filter"]
 - !private ["s8SequenceP", "init"]
-- !private ["s8SequenceP", "insert"]
+- !private ["s8SequenceP", "remove"]
 - !private ["s8SequenceP", "subscript"]
-- !private ["s3SetV", "init"]
-- !private ["s3SetV", "insert"]
-- !private ["s10SetAlgebraP", "init"]
-- !private ["s10SetAlgebraP", "insert"]
 - !private ["s13SignedIntegerP", "init"]
 - !private ["s13SignedNumericP", "init"]
 - !private ["s10StrideableP", "init"]
 - !private ["13StulinProject4TankC", "useEnergy"]
-- !private ["13StulinProject9TankWorldC", "Array"]
 - ["13StulinProject9TankWorldC", "Bool"]
 - ["13StulinProject9TankWorldC", "Direction"]
 - !private ["13StulinProject9TankWorldC", "Double"]
@@ -221,9 +223,10 @@ depends-member:
 - ["13StulinProject9TankWorldC", "Int"]
 - ["13StulinProject9TankWorldC", "Mine"]
 - ["13StulinProject9TankWorldC", "Position"]
-- !private ["13StulinProject9TankWorldC", "Set"]
 - ["13StulinProject9TankWorldC", "Tank"]
+- !private ["13StulinProject9TankWorldC", "UInt32"]
 - ["13StulinProject9TankWorldC", "applyCost"]
+- !private ["13StulinProject9TankWorldC", "arc4random_uniform"]
 - ["13StulinProject9TankWorldC", "distance"]
 - ["13StulinProject9TankWorldC", "findAllGameObjects"]
 - ["13StulinProject9TankWorldC", "findAllRovers"]
@@ -231,6 +234,7 @@ depends-member:
 - ["13StulinProject9TankWorldC", "findObjectsWithinRange"]
 - ["13StulinProject9TankWorldC", "findWinner"]
 - ["13StulinProject9TankWorldC", "getLegalSurroundingPositions"]
+- ["13StulinProject9TankWorldC", "getRandomInt"]
 - !private ["13StulinProject9TankWorldC", "grid"]
 - ["13StulinProject9TankWorldC", "isDead"]
 - ["13StulinProject9TankWorldC", "isEnergyAvailable"]
@@ -239,16 +243,19 @@ depends-member:
 - ["13StulinProject9TankWorldC", "isValidPosition"]
 - ["13StulinProject9TankWorldC", "newPosition"]
 - ["13StulinProject9TankWorldC", "randomizeDirection"]
+- ["13StulinProject9TankWorldC", "randomizeGameObjects"]
 - !private ["13StulinProject9TankWorldC", "sqrt"]
 - !private ["s14_ArrayProtocolP", "append"]
 - !private ["s14_ArrayProtocolP", "count"]
 - !private ["s14_ArrayProtocolP", "filter"]
 - !private ["s14_ArrayProtocolP", "init"]
+- !private ["s14_ArrayProtocolP", "remove"]
 - !private ["s14_ArrayProtocolP", "subscript"]
 - !private ["s23_BidirectionalIndexableP", "append"]
 - !private ["s23_BidirectionalIndexableP", "count"]
 - !private ["s23_BidirectionalIndexableP", "filter"]
 - !private ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "remove"]
 - !private ["s23_BidirectionalIndexableP", "subscript"]
 - !private ["s18_BitwiseOperationsP", "init"]
 - !private ["10Foundation13_CFBridgeableP", "_getBuiltinLogicValue"]
@@ -256,7 +263,7 @@ depends-member:
 - !private ["10Foundation13_CFBridgeableP", "count"]
 - !private ["10Foundation13_CFBridgeableP", "filter"]
 - !private ["10Foundation13_CFBridgeableP", "init"]
-- !private ["10Foundation13_CFBridgeableP", "insert"]
+- !private ["10Foundation13_CFBridgeableP", "remove"]
 - !private ["10Foundation13_CFBridgeableP", "subscript"]
 - !private ["s15_CVarArgAlignedP", "init"]
 - !private ["s22_CVarArgPassedAsDoubleP", "init"]
@@ -264,6 +271,7 @@ depends-member:
 - !private ["s24_DestructorSafeContainerP", "count"]
 - !private ["s24_DestructorSafeContainerP", "filter"]
 - !private ["s24_DestructorSafeContainerP", "init"]
+- !private ["s24_DestructorSafeContainerP", "remove"]
 - !private ["s24_DestructorSafeContainerP", "subscript"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s33_ExpressibleByBuiltinFloatLiteralP", "init"]
@@ -272,38 +280,39 @@ depends-member:
 - !private ["s10_IndexableP", "count"]
 - !private ["s10_IndexableP", "filter"]
 - !private ["s10_IndexableP", "init"]
-- !private ["s10_IndexableP", "insert"]
+- !private ["s10_IndexableP", "remove"]
 - !private ["s10_IndexableP", "subscript"]
 - !private ["s14_IndexableBaseP", "append"]
 - !private ["s14_IndexableBaseP", "count"]
 - !private ["s14_IndexableBaseP", "filter"]
 - !private ["s14_IndexableBaseP", "init"]
-- !private ["s14_IndexableBaseP", "insert"]
+- !private ["s14_IndexableBaseP", "remove"]
 - !private ["s14_IndexableBaseP", "subscript"]
 - !private ["s17_MutableIndexableP", "append"]
 - !private ["s17_MutableIndexableP", "count"]
 - !private ["s17_MutableIndexableP", "filter"]
 - !private ["s17_MutableIndexableP", "init"]
+- !private ["s17_MutableIndexableP", "remove"]
 - !private ["s17_MutableIndexableP", "subscript"]
 - !private ["10Foundation13_NSBridgeableP", "append"]
 - !private ["10Foundation13_NSBridgeableP", "count"]
 - !private ["10Foundation13_NSBridgeableP", "filter"]
 - !private ["10Foundation13_NSBridgeableP", "init"]
-- !private ["10Foundation13_NSBridgeableP", "insert"]
+- !private ["10Foundation13_NSBridgeableP", "remove"]
 - !private ["10Foundation13_NSBridgeableP", "subscript"]
 - !private ["10Foundation17_ObjectBridgeableP", "_getBuiltinLogicValue"]
 - !private ["10Foundation17_ObjectBridgeableP", "append"]
 - !private ["10Foundation17_ObjectBridgeableP", "count"]
 - !private ["10Foundation17_ObjectBridgeableP", "filter"]
 - !private ["10Foundation17_ObjectBridgeableP", "init"]
-- !private ["10Foundation17_ObjectBridgeableP", "insert"]
+- !private ["10Foundation17_ObjectBridgeableP", "remove"]
 - !private ["10Foundation17_ObjectBridgeableP", "subscript"]
 - !private ["10Foundation21_ObjectTypeBridgeableP", "_getBuiltinLogicValue"]
 - !private ["10Foundation21_ObjectTypeBridgeableP", "append"]
 - !private ["10Foundation21_ObjectTypeBridgeableP", "count"]
 - !private ["10Foundation21_ObjectTypeBridgeableP", "filter"]
 - !private ["10Foundation21_ObjectTypeBridgeableP", "init"]
-- !private ["10Foundation21_ObjectTypeBridgeableP", "insert"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "remove"]
 - !private ["10Foundation21_ObjectTypeBridgeableP", "subscript"]
 - !private ["s26_OptionalNilComparisonTypeV", "Rover"]
 - !private ["s26_OptionalNilComparisonTypeV", "Tank"]
@@ -311,11 +320,13 @@ depends-member:
 - !private ["s22_RandomAccessIndexableP", "count"]
 - !private ["s22_RandomAccessIndexableP", "filter"]
 - !private ["s22_RandomAccessIndexableP", "init"]
+- !private ["s22_RandomAccessIndexableP", "remove"]
 - !private ["s22_RandomAccessIndexableP", "subscript"]
 - !private ["s26_RangeReplaceableIndexableP", "append"]
 - !private ["s26_RangeReplaceableIndexableP", "count"]
 - !private ["s26_RangeReplaceableIndexableP", "filter"]
 - !private ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "remove"]
 - !private ["s26_RangeReplaceableIndexableP", "subscript"]
 - !private ["s11_StrideableP", "init"]
 depends-nominal:
@@ -357,8 +368,6 @@ depends-nominal:
 - !private "s22RandomAccessCollectionP"
 - !private "s26RangeReplaceableCollectionP"
 - !private "s8SequenceP"
-- !private "s3SetV"
-- !private "s10SetAlgebraP"
 - !private "s13SignedIntegerP"
 - !private "s13SignedNumericP"
 - !private "s10StrideableP"
@@ -392,4 +401,4 @@ depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-interface-hash: "18f02d852ef7a933962f7c8b794c065c"
+interface-hash: "fe6682b1997aaf4f869d775ba20079c1"
