@@ -14,7 +14,7 @@ class Tank : GameObject {
     private (set) var preActions = [Actions: PreAction]()
     private (set) var postActions = [Actions: PostAction]()
     let initialInstructions: String?
-    var radarResults: [RadarResult]?
+    private (set) var radarResults: [RadarResult]?
     
     init(row: Int, col: Int, energy: Int, id: String, instructions: String) {
         initialInstructions = instructions
@@ -27,6 +27,10 @@ class Tank : GameObject {
     
     final func clearShieldEnergy () {
         shield = 0
+    }
+    
+    final func newRadarResult (result:  RadarResult?) {
+        radarResults?.append(result!) //could be a source of error
     }
     
     final func clearActions () {

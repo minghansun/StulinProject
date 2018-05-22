@@ -37,67 +37,76 @@ struct MoveAction : PostAction {
     }
 }
 
-struct FireMissileAction : PostAction {
+struct MissileAction : PostAction {
     let action: Actions
-    let energy : Int
+    let power : Int
     let absoluteDestination : Position
 
     var description: String {
-        return "\(absoluteDestination) \(energy)"
+        return "\(action) \(power) \(absoluteDestination)"
     }
 
-    init (energy: Int, destination: Position) {
-        action = .FireMissle
-        self.energy = energy
+    init (power: Int, destination: Position) {
+        action = .Missle
+        self.power = power
         self.absoluteDestination = destination
     }
 }
 
-struct SetShieldsAction : PreAction {
-    let energy : Int
+struct ShieldAction : PreAction {
+    let power : Int
     let action : Actions
 
     var description: String {
-        return "\(energy)"
+        return "\(action) \(power)"
     }
 
-    init (energy: Int) {
-        action = .SetShields
-        self.energy = energy
+    init (power: Int) {
+        action = .Shields
+        self.power = power
     }
 }
 
-struct runRadarAction : PreAction {
+struct RadarAction : PreAction {
     let radius : Int
     let action : Actions
 
     var description: String {
-        return "\(radius)"
+        return "\(action) \(radius)"
     }
 
     init (radius: Int) {
-        action = .RunRadar
+        action = .Radar
         self.radius = radius
     }
 }
 
-struct RadarResult {
+struct RadarResult : CustomStringConvertible{
     var information = [(Position,String,Int)]()
+    
+    var description: String {
+        var string = ""
+        for e in information {
+            string += "\(e.0) \(e.1) \(e.2)"
+        }
+        return string
+    }
+    //this struct needs to be polished
 }
 
 struct SendMessageAction : PreAction {
-    let idCode : String
-    let text : String
+    let key : String
+    let message : String
     let action: Actions
 
-    var description: String {
-        return "\(idCode) \(text)."
+    var description: String{
+        return "\(key) \(message)."
     }
 
-    init (id: String, text: String) {
+    init (key: String, message: String) {
         action = .SendMessage
-        idCode = id
-        self.text = text
+        self.key = key
+        self.message = message
     }
 }
 
@@ -105,14 +114,36 @@ struct ReceiveMessageAction : PreAction {
     let action: Actions
     let key: String
     var description: String{
-        return key
+        return "\(action) \(key)"
     }
-    init (key: String){
+    init (key: String) {
         action = .ReceiveMessage
         self.key = key
     }
 }
 
+struct DropMineAction {
+    let action : Actions
+    let isRover : Bool
+    let power: Int
+    let dropDirection : Direction?
+    let moveDirection : Direction?
+    
+    var description : String {
+        let dropDirectionMessage = (dropDirection == nil) ? "drop direction is random" : "\(dropDirection!)"
+        let moveDirectionMessage = (moveDirection == nil) ? "move direction is random" : "\(moveDirection!)"
+        return "\(action) \(power) \(dropDirectionMessage) \(isRover) \(moveDirectionMessage)"
+    }
+    
+    init (power: Int, isRover: Bool = false, dropDirection: Direction? = nil, moveDirection: Direction? = nil) {
+        action = .DropMine
+        self.isRover = isRover
+        self.dropDirection = dropDirection
+        self.moveDirection = moveDirection
+        self.power = power
+    }
+}
+
 enum Actions {
-    case SendMessage, ReceiveMessage, RunRadar, SetShields, DropMine, DropRover, FireMissle, Move
+    case SendMessage, ReceiveMessage, Radar, Shields, DropMine, Missle, Move
 }
