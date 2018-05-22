@@ -10,7 +10,8 @@ import Foundation
 
 class TankWorld {
     var grid : [[GameObject?]]
-    var turn: Int = 0
+    var turn = 0
+    var numberLivingTanks = 0
     
     subscript (_ index1: Int, _ index2: Int) -> GameObject? {
         get {
@@ -25,7 +26,71 @@ class TankWorld {
         grid = Array(repeating: Array(repeating: nil, count: 15), count: 15)
     }
     
+    func populateTheTankWorld () {
+        addGameObject(adding: Tank(row: 4, col: 4, energy: 10000, id: "sun1", instructions: "fire"))
+        addGameObject(adding: Tank(row: 2, col: 3, energy: 20000, id: "sun2", instructions: "defend"))
+        addGameObject(adding: Tank(row: 5, col: 6, energy: 25000, id: "sun3", instructions: "donothing"))
+    }
+    
+    
     func addGameObject (adding gameObject: GameObject) {
         grid[gameObject.position.row][gameObject.position.col] = gameObject
+        if gameObject.objectType == .Tank {numberLivingTanks += 1}
+    }
+    
+    func handleRadar (tank: Tank) {
+        guard let radarAction = tank.preActions[.Radar] else {return}
+        actionRunRadar(tank: tank, runRadarAction: radarAction as! RadarAction)
+    }
+    
+    func handleMove (tank: Tank) {
+        guard let moveAction = tank.postActions[.Move] else {return}
+        actionMove(tank: tank, moveAction: moveAction as! MoveAction)
+    }
+    
+    func handleShields(tank: Tank) {
+        guard let shieldAction = tank.preActions[.Shields] else {return }
+        actionSetShield(tank: tank, setShieldsAction: shieldAction as! ShieldAction)
+    }
+    
+    func handleMissle (tank: Tank) {
+        guard let missleAction = tank.postActions[.Missle] else {return}
+        actionFireMissle(tank: tank, fireMissleAction: missleAction as! MissileAction)
+    }
+    
+    func handleSendMessage (tank: Tank) {
+        guard let sendMessageAction = tank.preActions[.SendMessage] else {return}
+        actionSendMessage(tank: tank, sendMessageAction: sendMessageAction as! SendMessageAction)
+    }
+    
+    func handleReceiveMessage (tank: Tank) {
+        guard let receieveMessageAction = tank.preActions[.ReceiveMessage] else {return}
+        actionReceiveMessage(tank: tank, receiveMessageAction: receieveMessageAction as! ReceiveMessageAction)
+    }
+    
+    func handleDropMine (tank: Tank) {
+        guard let dropMineAction = tank.postActions[.DropMine] else {return}
+        actionDropMine(tank: tank, dropMineAction: dropMineAction as! DropMineAction)
+    }
+    
+    func doTurn () {
+        var allObjects = findAllGameObjects()
+        allObjects = randomizeGameObjects(gameObjects: allObjects)
+        // code goes here
+        turn += 1
+    }
+    
+    func runOneTurn () {
+        doTurn()
+        print(gridReport())
+    }
+    
+    func driver () {
+        populateTheTankWorld()
+        print(gridReport())
+        while findWinner() == nil {
+            // the drive for the entire project
+        }
+        //print the winner 
     }
 }

@@ -128,6 +128,7 @@ struct DropMineAction {
     let power: Int
     let dropDirection : Direction?
     let moveDirection : Direction?
+    let id : String
     
     var description : String {
         let dropDirectionMessage = (dropDirection == nil) ? "drop direction is random" : "\(dropDirection!)"
@@ -135,12 +136,13 @@ struct DropMineAction {
         return "\(action) \(power) \(dropDirectionMessage) \(isRover) \(moveDirectionMessage)"
     }
     
-    init (power: Int, isRover: Bool = false, dropDirection: Direction? = nil, moveDirection: Direction? = nil) {
+    init (power: Int, isRover: Bool = false, dropDirection: Direction? = nil, moveDirection: Direction? = nil, id: String) {
         action = .DropMine
         self.isRover = isRover
         self.dropDirection = dropDirection
         self.moveDirection = moveDirection
         self.power = power
+        self.id = id
     }
 }
 

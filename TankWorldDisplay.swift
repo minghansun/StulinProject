@@ -17,7 +17,7 @@ extension TankWorld {
         return yes
     }
     
-    func printGrid(){
+    func gridReport() {
         for _ in 0...164{
             print("-", terminator: "")
         }

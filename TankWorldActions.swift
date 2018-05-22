@@ -75,11 +75,11 @@ extension TankWorld {
         
         switch newPlace {
         case let a where !isValidPosition(a) : return
-        case let b where isPositionEmpty(b) : tank.setPosition(newPosition: newPlace)
+        case let b where isPositionEmpty(b) : doTheMoving(object: tank, destination: newPlace)
         case let c where grid[c.row][c.col]!.objectType == .Tank : return
-        default : let object = grid[newPlace.row][newPlace.col]!
-        tank.useEnergy(amount: object.energy * Constants.mineStrikeMultiple)
-            tank.setPosition(newPosition: newPlace)
+        default : 
+        tank.useEnergy(amount: grid[newPlace.row][newPlace.col]!.energy * Constants.mineStrikeMultiple)
+            doTheMoving(object: tank, destination: newPlace)
             }
         // this switch statement could be a source of error
             
@@ -112,6 +112,24 @@ extension TankWorld {
             }
         }
     }
+    
+    func actionDropMine (tank: Tank, dropMineAction: DropMineAction) {
+        if isDead(tank) {return}
+        
+        if !isEnergyAvailable(tank, amount: Constants.costOfReleasingMine) || findFreeAdjacent(tank.position) == nil {
+            return
+        }
+        
+        if !dropMineAction.isRover  {
+            let dropPosition = findFreeAdjacent(tank.position)!
+            grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Mine, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
+        } else if isEnergyAvailable(tank, amount: Constants.costOfReleasingRover) {
+            let dropPosition = findFreeAdjacent(tank.position)!
+            grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Rover, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection : nil)
+        }
+    } // I assumed that the drop direction is always random
+    
+    
 }
     
     

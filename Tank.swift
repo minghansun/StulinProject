@@ -60,8 +60,16 @@ class Tank : GameObject {
 }
 
 class Mine : GameObject {
-    init(mineorRover: GameObjectType, row: Int, col: Int, energy: Int, id: String) {
+    let moveDirection : Direction?
+    
+    init(mineorRover: GameObjectType, row: Int, col: Int, energy: Int, id: String, moveDirection: Direction?) {
+        self.moveDirection = moveDirection
         super.init(row: row, col: col, objectType: mineorRover, energy: energy, id: id)
+    }
+    
+    final func move () {
+        if objectType == .Mine {fatalError("mines cannot move")}
+        
     }
 }
 

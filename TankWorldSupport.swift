@@ -150,6 +150,14 @@ extension TankWorld {
         return x[getRandomInt(range: x.count)] // could be a source of error
     }
     
+    func doTheMoving (object: GameObject, destination: Position) {
+        grid[destination.row][destination.col] = object
+        grid[object.position.row][object.position.col] = nil
+        object.setPosition(newPosition: destination)
+    } //this can be applied only after all the conditions for a legal move have been met. This changes the grid!!!!!!
+    
+    
+    
     /*func getRandomInt (range: Int) -> Int {
         return Int(rand()) % range
     }*/
