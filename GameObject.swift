@@ -25,6 +25,10 @@ class GameObject : CustomStringConvertible {
         self.position = Position(row, col)
     }
     
+    func liveSupport () {
+        return
+    }
+    
     final func addEnergy (amount: Int) {
         energy += amount
     }

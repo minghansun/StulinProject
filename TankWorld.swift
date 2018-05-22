@@ -76,7 +76,24 @@ class TankWorld {
     func doTurn () {
         var allObjects = findAllGameObjects()
         allObjects = randomizeGameObjects(gameObjects: allObjects)
-        // code goes here
+        
+        for e in allObjects {
+            e.liveSupport()
+        }
+        
+        var allRovers = findAllRovers()
+        allRovers = randomizeGameObjects(gameObjects: allRovers)
+        for e in allRovers where findFreeAdjacent(e.position) != nil {
+            if e.moveDirection == nil {
+                doTheMoving(object: e, destination: findFreeAdjacent(e.position)!)
+            }
+            else {
+                doTheMoving(object: e, destination: newPosition(position: e.position, direction: e.moveDirection!, magnitude: 1))
+            }
+        }
+        
+        //and then the tanks do actions. the code goes here. 
+        
         turn += 1
     }
     

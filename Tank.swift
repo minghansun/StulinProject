@@ -21,6 +21,10 @@ class Tank : GameObject {
         super.init(row: row, col: col, objectType: .Tank, energy: energy, id: id)
     }
     
+    override func liveSupport () {
+        useEnergy(amount: Constants.costLiveSupportTank)
+    }
+    
     final func addEnergyToShield (amount: Int) {
         shield += amount
     }
@@ -67,10 +71,56 @@ class Mine : GameObject {
         super.init(row: row, col: col, objectType: mineorRover, energy: energy, id: id)
     }
     
-    final func move () {
-        if objectType == .Mine {fatalError("mines cannot move")}
-        
+    override func liveSupport () {
+        if objectType == .Mine {
+            useEnergy(amount: Constants.costLiveSupportMine)
+        }
+        else {
+            useEnergy(amount: Constants.costLiveSupportRover)
+        }
     }
 }
 
-//how to combine mine and rover is a tough question. 
+class tankSY : Tank { //this is our tank
+    override init(row: Int, col: Int, energy: Int, id: String, instructions: String) {
+        super.init(row: row, col: col, energy: energy, id: id, instructions: instructions)
+    }
+    
+    func getRandomInt (range: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(range)))
+    }
+    
+    func randomizeDirection () -> Direction {
+        var directions = [Direction]()
+        directions.append(.north)
+        directions.append(.south)
+        directions.append(.east)
+        directions.append(.west)
+        directions.append(.northwest)
+        directions.append(.northeast)
+        directions.append(.southeast)
+        directions.append(.southeast)
+        return directions[getRandomInt(range: 7)]
+    }
+    
+    func chanceOf (percent: Int) -> Bool {
+        let ran = getRandomInt(range: 100)
+        return percent <= ran
+    }
+    
+    override func computePreActions() {
+        addPreAction(adding: ShieldAction(power: 200))
+        addPreAction(adding: RadarAction(range: 4))
+        addPreAction(adding: SendMessageAction(key: "123", message: "hello world"))
+        super.computePreActions()
+    }
+    
+    override func computePostActions() {
+        if chanceOf(percent: 50) {
+            addPostAction(adding: MoveAction(distance: 2, direction: randomizeDirection()))
+        }
+        super.computePostActions()
+        guard let rs = radarResults, rs.count != 0 else {return}
+        if energy < 5000 {return}
+    }
+}

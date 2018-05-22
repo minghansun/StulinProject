@@ -17,24 +17,6 @@ struct Position : CustomStringConvertible {
         self.col = col
     }
     
-    /*mutating func move (orientation: direction, distance: Int) {
-        switch orientation {
-        case direction.north : x -= distance
-        case direction.south : x += distance
-        case direction.east : y += distance
-        case direction.west: y -= distance
-        case direction.northeast : x -= distance
-        y += distance
-        case direction.northwest : x -= distance
-        y -= distance
-        case direction.southeast : x += distance
-        y += distance
-        case direction.southwest : x += distance
-        y += distance
-        }
-    }*/
-    
-    
     var description: String {
         return "(\(row), \(col))"
     }

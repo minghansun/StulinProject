@@ -37,7 +37,7 @@ extension TankWorld {
     }
     
     func actionRunRadar (tank: Tank, runRadarAction: RadarAction) {
-        let r = runRadarAction.radius //for simplicity
+        let r = runRadarAction.range //for simplicity
         if isDead(tank){return}
         
         if !isEnergyAvailable(tank, amount: Constants.costOfRadarByUnitDistance[r]) {

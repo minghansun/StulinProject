@@ -68,16 +68,16 @@ struct ShieldAction : PreAction {
 }
 
 struct RadarAction : PreAction {
-    let radius : Int
+    let range : Int
     let action : Actions
 
     var description: String {
-        return "\(action) \(radius)"
+        return "\(action) \(range)"
     }
 
-    init (radius: Int) {
+    init (range: Int) {
         action = .Radar
-        self.radius = radius
+        self.range = range
     }
 }
 
