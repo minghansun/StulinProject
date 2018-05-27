@@ -1,5 +1,5 @@
 import Foundation
-import Glibc
+/*import Glibc*/
 
 struct Logger{
     var data: [Int : [String]]

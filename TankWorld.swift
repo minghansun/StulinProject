@@ -92,7 +92,24 @@ class TankWorld {
             }
         }
         
-        //and then the tanks do actions. the code goes here. 
+        var allTanks = findAllTanks()
+        func randomize (_ tanks: [Tank] = allTanks)  {
+            allTanks = randomizeGameObjects(gameObjects: tanks)
+        } // just an unneccessary function to make code look nicer
+        
+        randomize()
+        for a in allTanks {
+            handleRadar(tank: a)
+            handleSendMessage(tank: a)
+            handleReceiveMessage(tank: a)
+            handleShields(tank: a)
+        }
+        randomize()
+        for b in allTanks {
+            handleDropMine(tank: b)
+            handleMissle(tank: b)
+            handleMove(tank: b)
+        }
         
         turn += 1
     }
@@ -106,8 +123,8 @@ class TankWorld {
         populateTheTankWorld()
         print(gridReport())
         while findWinner() == nil {
-            // the drive for the entire project
+            runOneTurn()
         }
-        //print the winner 
+        
     }
 }
