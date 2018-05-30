@@ -93,18 +93,15 @@ class TankWorld {
         }
         
         var allTanks = findAllTanks()
-        func randomize (_ tanks: [Tank] = allTanks)  {
-            allTanks = randomizeGameObjects(gameObjects: tanks)
-        } // just an unneccessary function to make code look nicer
+            allTanks = randomizeGameObjects(gameObjects: allTanks)
         
-        randomize()
         for a in allTanks {
             handleRadar(tank: a)
             handleSendMessage(tank: a)
             handleReceiveMessage(tank: a)
             handleShields(tank: a)
         }
-        randomize()
+        allTanks = randomizeGameObjects(gameObjects: allTanks)
         for b in allTanks {
             handleDropMine(tank: b)
             handleMissle(tank: b)
@@ -125,6 +122,6 @@ class TankWorld {
         while findWinner() == nil {
             runOneTurn()
         }
-        
+        print ("game is over")
     }
 }
