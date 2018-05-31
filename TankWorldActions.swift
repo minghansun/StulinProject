@@ -11,36 +11,38 @@ import Foundation
 extension TankWorld {
     func actionSendMessage(tank: Tank, sendMessageAction: SendMessageAction){
         if isDead(tank){return}
-        //logger.addLog(tank, "Sending Message \(sendMessageAction")
+        logger.addLog(tank, "Sending Message \(sendMessageAction)")
 
         if !isEnergyAvailable(tank, amount: Constants.costOfSendingMessage){
-            //logger.addLog(tank, "Insufficient energy to send message")
+            logger.addLog(tank, "Insufficient energy to send message")
             return
         }
 
         applyCost(tank, amount: Constants.costOfSendingMessage)
-        //MessageCenter.sendMessage()
+        MessageCenter.sendMessage(id: sendMessageAction.key, message: sendMessageAction.message)
     }
 
     func actionReceiveMessage(tank: Tank, receiveMessageAction: ReceiveMessageAction){
         if isDead(tank){return}
-        //logger.addLog(tank, "Receiving Message \(receiveMessageAction)")
+        logger.addLog(tank, "Receiving Message \(receiveMessageAction)")
 
         if !isEnergyAvailable(tank, amount: Constants.costOfReceivingMessage){
-            //logger.addLog(tank, "Insufficient energy to send message")
+            logger.addLog(tank, "Insufficient energy to send message")
             return
         }
 
         applyCost(tank, amount: Constants.costOfReceivingMessage)
-        //let message = MessageCenter.receiveMessage(id: receiveMessageAction.id)
-        //tank.setReceivedMessage(receivedMessage: message)
+        let message = MessageCenter.receiveMessage(id: receiveMessageAction.key)
+        tank.setReceivedMessage(message: message)
     }
     
     func actionRunRadar (tank: Tank, runRadarAction: RadarAction) {
         let r = runRadarAction.range //for simplicity
         if isDead(tank){return}
         
+        logger.addLog(tank, "Running radar with radius \(r)")
         if !isEnergyAvailable(tank, amount: Constants.costOfRadarByUnitDistance[r]) {
+            logger.addLog(tank, "Insufficient energy to run radar")
             return
         }
         
@@ -57,7 +59,9 @@ extension TankWorld {
     func actionSetShield (tank: Tank, setShieldsAction: ShieldAction) {
         if isDead(tank) {return}
         
+        logger.addLog(tank, "setting sheild with energy \(setShieldsAction.power)")
         if !isEnergyAvailable(tank, amount: setShieldsAction.power) {
+            logger.addLog(tank, "Insufficient energy to set shield")
             return
         }
         
@@ -67,7 +71,9 @@ extension TankWorld {
     func actionMove (tank: Tank, moveAction: MoveAction) {
         if isDead(tank) {return}
         
+        logger.addLog(tank, "Moving \(moveAction.distance) towards \(moveAction.direction)")
         if !isEnergyAvailable(tank, amount: Constants.costOfFMovingTanksPerUnitDistance[moveAction.distance]) {
+            logger.addLog(tank, "Insufficient energy to move")
             return
         }
         
@@ -90,7 +96,9 @@ extension TankWorld {
         let destination = fireMissleAction.absoluteDestination
         if isDead(tank) {return}
         
+        logger.addLog(tank, "firing missle to \(destination) with \(fireMissleAction.power)")
         if !isEnergyAvailable(tank, amount: Constants.costOfLaunchingMissle * distance(tank.position, destination)) {
+            logger.addLog(tank, "Insufficient energy to fire missile")
             return
         }
         
@@ -115,9 +123,16 @@ extension TankWorld {
     
     func actionDropMine (tank: Tank, dropMineAction: DropMineAction) {
         if isDead(tank) {return}
+        let type = (dropMineAction.isRover) ? "rover" : "mine"
         
-        if !isEnergyAvailable(tank, amount: Constants.costOfReleasingMine) || findFreeAdjacent(tank.position) == nil {
+        logger.addLog(tank, "dropping \(type) with energy \(dropMineAction.power)")
+
+        if !isEnergyAvailable(tank, amount: Constants.costOfReleasingMine) {
+            logger.addLog(tank, "Insufficient energy to drop \(type)")
             return
+        }
+        if findFreeAdjacent(tank.position) == nil{
+            logger.addLog(tank, "no free adjacent space to drop \(type)")
         }
         
         if !dropMineAction.isRover  {

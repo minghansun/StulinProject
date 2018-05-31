@@ -18,6 +18,7 @@
 		09467C4A209A9ADD00320194 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C3F209A9ADD00320194 /* main.swift */; };
 		09467C4B209A9ADD00320194 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C40209A9ADD00320194 /* Constants.swift */; };
 		09467C4C209A9ADD00320194 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09467C41209A9ADD00320194 /* Actions.swift */; };
+		0971343320BF065C00E9B87E /* MessageCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0971343220BF065C00E9B87E /* MessageCenter.swift */; };
 		09A0E14020B63E3F0057CB38 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A0E13F20B63E3F0057CB38 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		09467C3F209A9ADD00320194 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		09467C40209A9ADD00320194 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		09467C41209A9ADD00320194 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		0971343220BF065C00E9B87E /* MessageCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCenter.swift; sourceTree = "<group>"; };
 		09A0E13F20B63E3F0057CB38 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 				09467C3E209A9ADC00320194 /* TankWorldActions.swift */,
 				09467C37209A9ADC00320194 /* TankWorldDisplay.swift */,
 				09467C39209A9ADC00320194 /* TankWorldSupport.swift */,
+				0971343220BF065C00E9B87E /* MessageCenter.swift */,
 				09A0E13F20B63E3F0057CB38 /* Logger.swift */,
 			);
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0971343320BF065C00E9B87E /* MessageCenter.swift in Sources */,
 				09467C49209A9ADD00320194 /* TankWorldActions.swift in Sources */,
 				09467C48209A9ADD00320194 /* Position.swift in Sources */,
 				09467C4A209A9ADD00320194 /* main.swift in Sources */,

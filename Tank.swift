@@ -42,7 +42,7 @@ class Tank : GameObject {
         postActions = [Actions: PostAction]()
     }
     
-    final func receiveMessage (message: String) {
+    final func setReceivedMessage (message: String) {
         receivedMessage = message
     }
     

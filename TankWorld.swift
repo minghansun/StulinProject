@@ -12,6 +12,7 @@ class TankWorld {
     var grid : [[GameObject?]]
     var turn = 0
     var numberLivingTanks = 0
+    var logger = Logger()
     
     subscript (_ index1: Int, _ index2: Int) -> GameObject? {
         get {
@@ -24,6 +25,7 @@ class TankWorld {
 
     init () {
         grid = Array(repeating: Array(repeating: nil, count: 15), count: 15)
+        
     }
     
     func populateTheTankWorld () {

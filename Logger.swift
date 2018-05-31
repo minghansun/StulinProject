@@ -2,7 +2,7 @@ import Foundation
 /*import Glibc*/
 
 struct Logger{
-    var data: [Int : [String]]
+    var data = [Int : [String]]()
     var round = 1
 
     func addLog(_ tank: Tank, _ message: String){
