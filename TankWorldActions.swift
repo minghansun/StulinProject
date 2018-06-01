@@ -80,12 +80,19 @@ extension TankWorld {
         let newPlace = newPosition(position: tank.position, direction: moveAction.direction, magnitude: moveAction.distance)
         
         switch newPlace {
-        case let a where !isValidPosition(a) : return
-        case let b where isPositionEmpty(b) : doTheMoving(object: tank, destination: newPlace)
-        case let c where grid[c.row][c.col]!.objectType == .Tank : return
-        default : 
+        case let a where !isValidPosition(a) : logger.addLog(tank, "the move fails as \(newPlace) is not a valid position")
+            return
+        
+        case let c where isPositionEmpty(c) : doTheMoving(object: tank, destination: newPlace)
+        logger.addLog(tank, "the move has succeeded as \(newPlace) is empty")
+        
+        case let b where grid[b.row][b.col]!.objectType == .Tank : logger.addLog(tank, "the move fails as there is a tank in the destination which is \(newPlace)")
+            return
+        default :
         tank.useEnergy(amount: grid[newPlace.row][newPlace.col]!.energy * Constants.mineStrikeMultiple)
-            doTheMoving(object: tank, destination: newPlace)
+        logger.addLog(tank, "the move has succeeded, but due to the presence of an explosive, it loses \(grid[newPlace.row][newPlace.col]!.energy * Constants.mineStrikeMultiple)")
+        doTheMoving(object: tank, destination: newPlace)
+
             }
         // this switch statement could be a source of error
             

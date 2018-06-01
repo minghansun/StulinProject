@@ -58,7 +58,7 @@ class Tank : GameObject {
         preActions[preAction.action] = preAction
     }
     
-    final func addPostAction (adding postAction: PostAction) {
+    final func addPostAction ( postAction: PostAction) {
         postActions[postAction.action] = postAction
     }
 }
@@ -109,18 +109,13 @@ class tankSY : Tank { //this is our tank
     }
     
     override func computePreActions() {
-        addPreAction(adding: ShieldAction(power: 200))
-        addPreAction(adding: RadarAction(range: 4))
-        addPreAction(adding: SendMessageAction(key: "123", message: "hello world"))
-        super.computePreActions()
+        
     }
     
     override func computePostActions() {
-        if chanceOf(percent: 50) {
-            addPostAction(adding: MoveAction(distance: 2, direction: randomizeDirection()))
-        }
+        
+        addPostAction(postAction: MoveAction(distance: 2, direction: .east))
         super.computePostActions()
-        guard let rs = radarResults, rs.count != 0 else {return}
-        if energy < 5000 {return}
+
     }
 }

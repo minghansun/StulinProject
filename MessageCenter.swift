@@ -10,5 +10,4 @@ struct MessageCenter{
     static func receiveMessage(id: String) -> String{
         return messages[id]!
     }
-    
 }

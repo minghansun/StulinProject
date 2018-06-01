@@ -154,9 +154,8 @@ extension TankWorld {
         grid[destination.row][destination.col] = object
         grid[object.position.row][object.position.col] = nil
         object.setPosition(newPosition: destination)
-    } //this can be applied only after all the conditions for a legal move have been met. This changes the grid!!!!!!
-    
-    
+    }
+    //this can be applied only after all the conditions for a legal move have been met. This changes the grid!!!!!!
     
     /*func getRandomInt (range: Int) -> Int {
         return Int(rand()) % range

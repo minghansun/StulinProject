@@ -10,7 +10,7 @@ import Foundation
 
 class TankWorld {
     var grid : [[GameObject?]]
-    var turn = 0
+    var turn : Int
     var numberLivingTanks = 0
     var logger = Logger()
     
@@ -25,21 +25,20 @@ class TankWorld {
 
     init () {
         grid = Array(repeating: Array(repeating: nil, count: 15), count: 15)
-        
+        turn = 1
     }
-    
-    func populateTheTankWorld () {
-        addGameObject(adding: Tank(row: 4, col: 4, energy: 10000, id: "sun1", instructions: "fire"))
-        addGameObject(adding: Tank(row: 2, col: 3, energy: 20000, id: "sun2", instructions: "defend"))
-        addGameObject(adding: Tank(row: 5, col: 6, energy: 25000, id: "sun3", instructions: "donothing"))
-    }
-    
     
     func addGameObject (adding gameObject: GameObject) {
         grid[gameObject.position.row][gameObject.position.col] = gameObject
         if gameObject.objectType == .Tank {numberLivingTanks += 1}
     }
     
+    func populateTheTankWorld () {
+        addGameObject(adding: tankSY(row: 4, col: 5, energy: 20000, id: "t1", instructions: "none"))
+        addGameObject(adding: tankSY(row: 3, col: 5, energy: 30000, id: "t2", instructions: "none"))
+    }
+    
+    //handling helpers
     func handleRadar (tank: Tank) {
         guard let radarAction = tank.preActions[.Radar] else {return}
         actionRunRadar(tank: tank, runRadarAction: radarAction as! RadarAction)
@@ -75,6 +74,8 @@ class TankWorld {
         actionDropMine(tank: tank, dropMineAction: dropMineAction as! DropMineAction)
     }
     
+    //end of handling helpers
+    
     func doTurn () {
         var allObjects = findAllGameObjects()
         allObjects = randomizeGameObjects(gameObjects: allObjects)
@@ -98,24 +99,30 @@ class TankWorld {
             allTanks = randomizeGameObjects(gameObjects: allTanks)
         
         for a in allTanks {
+            a.computePreActions()
             handleRadar(tank: a)
             handleSendMessage(tank: a)
             handleReceiveMessage(tank: a)
             handleShields(tank: a)
         }
+        
         allTanks = randomizeGameObjects(gameObjects: allTanks)
         for b in allTanks {
+            b.computePostActions()
             handleDropMine(tank: b)
             handleMissle(tank: b)
             handleMove(tank: b)
         }
-        
+        for e in logger.data[turn]! {
+            print (e)
+        }
+        logger.newRound()
         turn += 1
     }
     
     func runOneTurn () {
         doTurn()
-        print(gridReport())
+        gridReport()
     }
     
     func driver () {
