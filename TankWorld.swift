@@ -34,8 +34,8 @@ class TankWorld {
     }
     
     func populateTheTankWorld () {
-        addGameObject(adding: tankSY(row: 4, col: 5, energy: 20000, id: "t1", instructions: "none"))
         addGameObject(adding: tankSY(row: 3, col: 5, energy: 30000, id: "t2", instructions: "none"))
+        addGameObject(adding: moveUp(row: 4, col: 5, energy: 20000, id: "t1", instructions: "none"))
     }
     
     //handling helpers
@@ -118,6 +118,10 @@ class TankWorld {
         }
         logger.newRound()
         turn += 1
+        for e in allTanks {
+            e.clearActions()
+            e.clearShieldEnergy()
+        }
     }
     
     func runOneTurn () {

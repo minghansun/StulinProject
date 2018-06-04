@@ -122,7 +122,7 @@ struct ReceiveMessageAction : PreAction {
     }
 }
 
-struct DropMineAction {
+struct DropMineAction : PostAction{
     let action : Actions
     let isRover : Bool
     let power: Int

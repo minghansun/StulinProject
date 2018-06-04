@@ -109,22 +109,31 @@ extension TankWorld {
             return
         }
         
-        if !isValidPosition(destination) {return}
+        if !isValidPosition(destination) {
+            logger.addLog(tank, "Firing missile failed because \(destination) is not a valid location")
+            return}
         
         if !isPositionEmpty(destination) {
-            let currentEnergy = grid[destination.row][destination.col]!.energy
-            grid[destination.row][destination.col]!.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple)
-            if isDead(grid[destination.row][destination.col]!) {
+            let objective = grid[destination.row][destination.col]!
+            
+            let currentEnergy = objective.energy
+            objective.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple)
+            logger.addLog(tank, "hit \(objective.id) causing \( fireMissleAction.power * Constants.missileStrikeMultiple) damage")
+            if isDead(objective) {
                 tank.addEnergy(amount: currentEnergy / 4)
+                logger.addLog(tank, "took \(currentEnergy / 4) energy from \(objective.id)")
             }
         } // this could be a major source of error
         
         for e in getLegalSurroundingPositions(destination) where grid[e.row][e.col] != nil {
             let currentEnergy = grid[e.row][e.col]!.energy
             grid[e.row][e.col]!.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple / 4)
+            logger.addLog(tank, "hit \(grid[e.row][e.col]!.id) with \(fireMissleAction.power * Constants.missileStrikeMultiple / 4) Splash damage")
             if isDead(grid[e.row][e.col]!) {
                 tank.addEnergy(amount: currentEnergy / 4)
+                logger.addLog(tank, "took \(currentEnergy / 4) energy from \(grid[e.row][e.col]!.id)")
             }
+            
         }
     }
     
@@ -145,9 +154,12 @@ extension TankWorld {
         if !dropMineAction.isRover  {
             let dropPosition = findFreeAdjacent(tank.position)!
             grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Mine, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
+            logger.addLog(tank, "a mine has been dropped at \(dropPosition), with \(dropMineAction.power) units of energy")
         } else if isEnergyAvailable(tank, amount: Constants.costOfReleasingRover) {
             let dropPosition = findFreeAdjacent(tank.position)!
             grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Rover, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection : nil)
+            logger.addLog(tank, "a rover has been dropped, at \(dropPosition), with \(dropMineAction.power) units of power")
+            
         }
     } // I assumed that the drop direction is always random
     

@@ -113,9 +113,17 @@ class tankSY : Tank { //this is our tank
     }
     
     override func computePostActions() {
+        addPostAction(postAction: MoveAction(distance: 1, direction: .south))
         
-        addPostAction(postAction: MoveAction(distance: 2, direction: .east))
         super.computePostActions()
 
     }
 }
+
+class moveUp: Tank{
+    override func computePostActions() {
+        addPostAction(postAction: MissileAction(power: 100, destination: Position(3, 5)))
+    }
+}
+
+
