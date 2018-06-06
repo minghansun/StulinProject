@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import Glibc
+
 
 extension TankWorld {
     /*func applyCost (tank: Tank, amount: Int){
@@ -90,12 +92,12 @@ extension TankWorld {
         return result.filter{isValidPosition($0)}
     }
 
-    func findObjectsWithinRange (_ position: Position, range: Int) -> [GameObject] {
-        var result = [GameObject]()
+    func findObjectsWithinRange (_ position: Position, range: Int) -> [Position] {
+        var result = [Position]()
         for e in 0...14 {
             for h in 0...14 {
-                if grid[e][h] != nil && distance(position, Position(e,h)) <= range {
-                    result.append(grid[e][h]!)
+                if grid[e][h] != nil && distance(position, Position(e,h)) <= range  {
+                    result.append(Position(e,h))
                 }
             }
         }
@@ -162,7 +164,10 @@ extension TankWorld {
     //this can be applied only after all the conditions for a legal move have been met. This changes the grid!!!!!!
 
     func getRandomInt (range: Int) -> Int {
-        return Int(rand()) % range
+        return Int(arc4random_uniform(UInt32(range)))
     }
+    /*func getRandomInt (range: Int) -> Int {
+     return Int(rand()) % range
+     }*/
     //this code is for Linux
 }

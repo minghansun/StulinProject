@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import Glibc
+
 
 struct Constants {
     static let initialTankEnergy = 100000

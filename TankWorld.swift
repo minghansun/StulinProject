@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import Glibc
+
 
 class TankWorld {
     var grid : [[GameObject?]]
@@ -35,8 +37,10 @@ class TankWorld {
 
     func populateTheTankWorld () {
         addGameObject(adding: tankSY(row: 3, col: 5, energy: 100000, id: "t2", instructions: "none"))
-        //addGameObject(adding: moveUp(row: 4, col: 5, energy: 100000, id: "t1", instructions: "none"))
-        //addGameObject(adding: Mine(mineorRover: .Mine, row: 3, col: 7, energy: 1000, id: "mine", moveDirection: nil))
+        addGameObject(adding: tankSY(row: 6, col: 6, energy: 230000, id: "t3", instructions: "none"))
+        addGameObject(adding: fire(row: 4, col: 5, energy: 240000, id: "t1", instructions: "none"))
+        
+        /*addGameObject(adding: Mine(mineorRover: .Mine, row: 3, col: 7, energy: 1000, id: "mine", moveDirection: nil))*/
     }
 
     //handling helpers
@@ -110,14 +114,15 @@ class TankWorld {
 
         for a in allTanks {
             a.computePreActions()
-            handleRadar(tank: a)
             handleSendMessage(tank: a)
             handleReceiveMessage(tank: a)
             handleShields(tank: a)
+            handleRadar(tank: a)
         }
 
         allTanks = randomizeGameObjects(gameObjects: allTanks)
         for b in allTanks {
+            
             b.computePostActions()
             handleDropMine(tank: b)
             handleMissle(tank: b)
@@ -135,6 +140,9 @@ class TankWorld {
     }
 
     func runOneTurn () {
+        print ("")
+        print ("RUNNING TURN \(turn)")
+        print ("")
         doTurn()
         gridReport()
     }

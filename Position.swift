@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import Glibc
+
 
 struct Position : CustomStringConvertible {
     var row: Int
@@ -18,6 +20,6 @@ struct Position : CustomStringConvertible {
     }
     
     var description: String {
-        return "(\(row), \(col))"
+        return "(\(row),\(col))"
     }
 }

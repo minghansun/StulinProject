@@ -1,5 +1,5 @@
 import Foundation
-import Glibc
+//import Glibc
 
 
 class tankSY : Tank { //this is our tank
@@ -7,8 +7,11 @@ class tankSY : Tank { //this is our tank
         super.init(row: row, col: col, energy: energy, id: id, instructions: instructions)
     }
 
-    func getRandomInt (range: Int) -> Int {
+    /*func getRandomInt (range: Int) -> Int {
         return Int(rand()) % range
+    }*/
+    func getRandomInt (range: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(range)))
     }
 
     func randomizeDirection () -> Direction {
@@ -30,7 +33,8 @@ class tankSY : Tank { //this is our tank
     }
 
     override func computePreActions() {
-
+        addPreAction(preAction: RadarAction(range: 3))
+        super.computePreActions()
     }
 
     override func computePostActions() {
@@ -41,8 +45,13 @@ class tankSY : Tank { //this is our tank
     }
 }
 
-class moveUp: Tank{
+class fire: Tank {
+    
+    override func computePreActions() {
+        addPreAction(preAction: RadarAction(range: 3))
+    }
     override func computePostActions() {
         addPostAction(postAction: MissileAction(power: 100, destination: Position(3, 5)))
+        super.computePostActions()
     }
 }

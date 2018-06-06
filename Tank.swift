@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import Glibc
+
 
 class Tank : GameObject {
     var shield = 0
@@ -14,7 +16,7 @@ class Tank : GameObject {
     private (set) var preActions = [Actions: PreAction]()
     private (set) var postActions = [Actions: PostAction]()
     let initialInstructions: String?
-    private (set) var radarResults: [RadarResult]?
+    private (set) var radarResults =  [RadarResult]()
 
     init(row: Int, col: Int, energy: Int, id: String, instructions: String) {
         initialInstructions = instructions
@@ -33,8 +35,8 @@ class Tank : GameObject {
         shield = 0
     }
 
-    final func newRadarResult (result:  RadarResult?) {
-        radarResults?.append(result!) //could be a source of error
+    final func newRadarResult (result:  RadarResult) {
+        radarResults.append(result) //could be a source of error
     }
 
     final func clearActions () {
@@ -54,11 +56,11 @@ class Tank : GameObject {
 
     }
 
-    final func addPreAction (adding preAction: PreAction) {
+    final func addPreAction (preAction: PreAction) {
         preActions[preAction.action] = preAction
     }
 
-    final func addPostAction ( postAction: PostAction) {
+    final func addPostAction (postAction: PostAction) {
         postActions[postAction.action] = postAction
     }
 }
