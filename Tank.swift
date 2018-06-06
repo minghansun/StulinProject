@@ -15,49 +15,49 @@ class Tank : GameObject {
     private (set) var postActions = [Actions: PostAction]()
     let initialInstructions: String?
     private (set) var radarResults: [RadarResult]?
-    
+
     init(row: Int, col: Int, energy: Int, id: String, instructions: String) {
         initialInstructions = instructions
         super.init(row: row, col: col, objectType: .Tank, energy: energy, id: id)
     }
-    
+
     override func liveSupport () {
         useEnergy(amount: Constants.costLiveSupportTank)
     }
-    
+
     final func addEnergyToShield (amount: Int) {
         shield += amount
     }
-    
+
     final func clearShieldEnergy () {
         shield = 0
     }
-    
+
     final func newRadarResult (result:  RadarResult?) {
         radarResults?.append(result!) //could be a source of error
     }
-    
+
     final func clearActions () {
         preActions = [Actions: PreAction]()
         postActions = [Actions: PostAction]()
     }
-    
+
     final func setReceivedMessage (message: String) {
         receivedMessage = message
     }
-    
+
     func computePreActions () {
-        
+
     }
-    
+
     func computePostActions () {
-        
+
     }
-    
+
     final func addPreAction (adding preAction: PreAction) {
         preActions[preAction.action] = preAction
     }
-    
+
     final func addPostAction ( postAction: PostAction) {
         postActions[postAction.action] = postAction
     }
@@ -65,12 +65,12 @@ class Tank : GameObject {
 
 class Mine : GameObject {
     let moveDirection : Direction?
-    
+
     init(mineorRover: GameObjectType, row: Int, col: Int, energy: Int, id: String, moveDirection: Direction?) {
         self.moveDirection = moveDirection
         super.init(row: row, col: col, objectType: mineorRover, energy: energy, id: id)
     }
-    
+
     override func liveSupport () {
         if objectType == .Mine {
             useEnergy(amount: Constants.costLiveSupportMine)
@@ -80,50 +80,3 @@ class Mine : GameObject {
         }
     }
 }
-
-class tankSY : Tank { //this is our tank
-    override init(row: Int, col: Int, energy: Int, id: String, instructions: String) {
-        super.init(row: row, col: col, energy: energy, id: id, instructions: instructions)
-    }
-    
-    func getRandomInt (range: Int) -> Int {
-        return Int(arc4random_uniform(UInt32(range)))
-    }
-    
-    func randomizeDirection () -> Direction {
-        var directions = [Direction]()
-        directions.append(.north)
-        directions.append(.south)
-        directions.append(.east)
-        directions.append(.west)
-        directions.append(.northwest)
-        directions.append(.northeast)
-        directions.append(.southeast)
-        directions.append(.southeast)
-        return directions[getRandomInt(range: 7)]
-    }
-    
-    func chanceOf (percent: Int) -> Bool {
-        let ran = getRandomInt(range: 100)
-        return percent <= ran
-    }
-    
-    override func computePreActions() {
-        
-    }
-    
-    override func computePostActions() {
-        addPostAction(postAction: MoveAction(distance: 1, direction: .south))
-        
-        super.computePostActions()
-
-    }
-}
-
-class moveUp: Tank{
-    override func computePostActions() {
-        addPostAction(postAction: MissileAction(power: 100, destination: Position(3, 5)))
-    }
-}
-
-

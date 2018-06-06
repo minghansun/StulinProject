@@ -29,6 +29,7 @@ depends-top-level:
 - !private "StringLiteralType"
 - "Tank"
 - "TankWorld"
+- "addGameObject"
 - !private "print"
 - !private "tankSY"
 depends-member:
@@ -134,6 +135,7 @@ depends-member:
 - !private ["s9EquatableP", "Tank"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "mine"]
 - !private ["s25ExpressibleByArrayLiteralP", "init"]
 - !private ["s25ExpressibleByArrayLiteralP", "subscript"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
@@ -158,6 +160,7 @@ depends-member:
 - !private ["13StulinProject14GameObjectTypeO", "Rover"]
 - !private ["13StulinProject14GameObjectTypeO", "Tank"]
 - !private ["13StulinProject14GameObjectTypeO", "deinit"]
+- !private ["13StulinProject14GameObjectTypeO", "mine"]
 - !private ["s8HashableP", "DropMine"]
 - !private ["s8HashableP", "Mine"]
 - !private ["s8HashableP", "Missle"]
@@ -170,6 +173,7 @@ depends-member:
 - !private ["s8HashableP", "Tank"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "mine"]
 - !private ["s10DictionaryV5IndexV", "DropMine"]
 - !private ["s10DictionaryV5IndexV", "Missle"]
 - !private ["s10DictionaryV5IndexV", "Move"]
@@ -183,7 +187,7 @@ depends-member:
 - !private ["13StulinProject6LoggerV", "newRound"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
-- !private ["13StulinProject4MineC", "init"]
+- ["13StulinProject4MineC", "init"]
 - !private ["13StulinProject4MineC", "moveDirection"]
 - !private ["13StulinProject4MineC", "position"]
 - !private ["s10MirrorPathP", "init"]
@@ -345,7 +349,7 @@ depends-nominal:
 - !private "s10DictionaryV5IndexV"
 - "13StulinProject6LoggerV"
 - !private "s25LosslessStringConvertibleP"
-- !private "13StulinProject4MineC"
+- "13StulinProject4MineC"
 - !private "s10MirrorPathP"
 - !private "s17MutableCollectionP"
 - !private "Sq"

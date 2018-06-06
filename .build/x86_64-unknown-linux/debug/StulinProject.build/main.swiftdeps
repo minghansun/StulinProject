@@ -1,137 +1,20 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
 - "x"
-- "y"
-- "z"
-- "w"
 provides-nominal:
 provides-member:
 depends-top-level:
-- "..<"
-- "Array"
+- "..."
 - "FloatLiteralType"
-- "GameObject"
 - "IntegerLiteralType"
-- "Mine"
-- "Position"
-- "StringLiteralType"
-- "Tank"
 - "TankWorld"
-- "UnicodeScalarType"
-- "print"
-- "w"
 - "x"
-- "y"
-- "z"
 depends-member:
-- ["s23BidirectionalCollectionP", "init"]
-- ["s10CollectionP", "init"]
-- ["s10ComparableP", "init"]
-- ["s28CustomDebugStringConvertibleP", "init"]
-- ["s29CustomPlaygroundQuickLookableP", "init"]
-- ["s17CustomReflectableP", "init"]
-- ["s23CustomStringConvertibleP", "init"]
-- ["s9DecodableP", "init"]
-- ["13StulinProject9DirectionO", "southeast"]
-- ["s9EncodableP", "init"]
-- ["s9EquatableP", "Mine"]
-- ["s9EquatableP", "Rover"]
-- ["s9EquatableP", "init"]
-- ["s9EquatableP", "southeast"]
-- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- ["s26ExpressibleByStringLiteralP", "init"]
-- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- ["13StulinProject10GameObjectC", "init"]
-- ["13StulinProject14GameObjectTypeO", "Mine"]
-- ["13StulinProject14GameObjectTypeO", "Rover"]
-- ["s8HashableP", "Mine"]
-- ["s8HashableP", "Rover"]
-- ["s8HashableP", "init"]
-- ["s8HashableP", "southeast"]
-- ["s25LosslessStringConvertibleP", "init"]
-- ["13StulinProject4MineC", "init"]
-- ["s10MirrorPathP", "init"]
-- ["13StulinProject8PositionV", "init"]
-- ["s26RangeReplaceableCollectionP", "init"]
-- ["s8SequenceP", "init"]
-- ["SS", "init"]
-- ["s14StringProtocolP", "init"]
-- ["13StulinProject4TankC", "init"]
-- ["13StulinProject9TankWorldC", "addGameObject"]
-- ["13StulinProject9TankWorldC", "distance"]
-- ["13StulinProject9TankWorldC", "findAllGameObjects"]
-- ["13StulinProject9TankWorldC", "findAllRovers"]
-- ["13StulinProject9TankWorldC", "findAllTanks"]
-- ["13StulinProject9TankWorldC", "findObjectsWithinRange"]
-- ["13StulinProject9TankWorldC", "getLegalSurroundingPositions"]
-- ["13StulinProject9TankWorldC", "getRandomInt"]
 - ["13StulinProject9TankWorldC", "init"]
-- ["13StulinProject9TankWorldC", "isPositionEmpty"]
-- ["13StulinProject9TankWorldC", "isValidPosition"]
-- ["13StulinProject9TankWorldC", "newPosition"]
-- ["13StulinProject9TankWorldC", "printGrid"]
-- ["13StulinProject9TankWorldC", "randomizeDirection"]
-- ["13StulinProject9TankWorldC", "randomizeGameObjects"]
-- ["s16TextOutputStreamP", "init"]
-- ["s20TextOutputStreamableP", "init"]
-- ["s23_BidirectionalIndexableP", "init"]
-- ["10Foundation13_CFBridgeableP", "init"]
-- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- ["s33_ExpressibleByStringInterpolationP", "init"]
-- ["s10_IndexableP", "init"]
-- ["s14_IndexableBaseP", "init"]
-- ["10Foundation13_NSBridgeableP", "init"]
-- ["10Foundation17_ObjectBridgeableP", "init"]
-- ["10Foundation21_ObjectTypeBridgeableP", "init"]
-- ["s26_RangeReplaceableIndexableP", "init"]
-- ["s16_SwiftStringViewP", "init"]
+- ["13StulinProject9TankWorldC", "populateTheTankWorld"]
+- ["13StulinProject9TankWorldC", "runOneTurn"]
 depends-nominal:
-- "s23BidirectionalCollectionP"
-- "s10CollectionP"
-- "s10ComparableP"
-- "s28CustomDebugStringConvertibleP"
-- "s29CustomPlaygroundQuickLookableP"
-- "s17CustomReflectableP"
-- "s23CustomStringConvertibleP"
-- "s9DecodableP"
-- "13StulinProject9DirectionO"
-- "s9EncodableP"
-- "s9EquatableP"
-- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
-- "s26ExpressibleByStringLiteralP"
-- "s33ExpressibleByUnicodeScalarLiteralP"
-- "13StulinProject10GameObjectC"
-- "13StulinProject14GameObjectTypeO"
-- "s8HashableP"
-- "s25LosslessStringConvertibleP"
-- "13StulinProject4MineC"
-- "s10MirrorPathP"
-- "13StulinProject8PositionV"
-- "s26RangeReplaceableCollectionP"
-- "s8SequenceP"
-- "SS"
-- "s14StringProtocolP"
-- "13StulinProject4TankC"
 - "13StulinProject9TankWorldC"
-- "s16TextOutputStreamP"
-- "s20TextOutputStreamableP"
-- "s23_BidirectionalIndexableP"
-- "10Foundation13_CFBridgeableP"
-- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
-- "s34_ExpressibleByBuiltinStringLiteralP"
-- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
-- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- "s33_ExpressibleByStringInterpolationP"
-- "s10_IndexableP"
-- "s14_IndexableBaseP"
-- "10Foundation13_NSBridgeableP"
-- "10Foundation17_ObjectBridgeableP"
-- "10Foundation21_ObjectTypeBridgeableP"
-- "s26_RangeReplaceableIndexableP"
-- "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
@@ -140,4 +23,4 @@ depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-interface-hash: "d173c07e3f0ededa284803d24366e697"
+interface-hash: "06dbf91f5221e1ea0aabe9c6df9fd8c9"

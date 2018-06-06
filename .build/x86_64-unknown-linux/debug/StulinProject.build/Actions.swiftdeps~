@@ -40,7 +40,9 @@ depends-top-level:
 - "CustomStringConvertible"
 - "Direction"
 - "FireMissileAction"
+- !private "FloatLiteralType"
 - "Int"
+- !private "IntegerLiteralType"
 - "MoveAction"
 - "Position"
 - "PostAction"
@@ -51,7 +53,6 @@ depends-top-level:
 - "String"
 - !private "StringLiteralType"
 - !private "UnicodeScalarType"
-- !private "idCode"
 - "runRadarAction"
 depends-member:
 - ["13StulinProject6ActionP", "Actions"]
@@ -179,7 +180,6 @@ depends-member:
 - ["13StulinProject20ReceiveMessageActionV", "action"]
 - ["13StulinProject20ReceiveMessageActionV", "deinit"]
 - ["13StulinProject20ReceiveMessageActionV", "description"]
-- !private ["13StulinProject20ReceiveMessageActionV", "idCode"]
 - ["13StulinProject20ReceiveMessageActionV", "init"]
 - ["13StulinProject20ReceiveMessageActionV", "key"]
 - ["13StulinProject17SendMessageActionV", "Actions"]

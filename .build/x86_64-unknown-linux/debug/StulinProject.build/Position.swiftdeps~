@@ -1,108 +1,55 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
-- "GameObjectType"
-- "GameObject"
+- "Position"
 provides-nominal:
-- "13StulinProject14GameObjectTypeO"
-- "13StulinProject10GameObjectC"
+- "13StulinProject8PositionV"
 provides-member:
-- ["13StulinProject14GameObjectTypeO", ""]
-- ["13StulinProject10GameObjectC", ""]
+- ["13StulinProject8PositionV", ""]
 depends-top-level:
-- !private "+="
-- !private "-="
-- "=="
 - "AssignmentPrecedence"
 - "CustomStringConvertible"
-- !private "FloatLiteralType"
-- "GameObject"
-- "GameObjectType"
 - "Int"
-- !private "IntegerLiteralType"
 - "Position"
 - "String"
 - !private "StringLiteralType"
 - !private "UnicodeScalarType"
 depends-member:
 - !private ["s23BidirectionalCollectionP", "init"]
-- !private ["s13BinaryIntegerP", "hashValue"]
-- !private ["s7CVarArgP", "hashValue"]
 - !private ["s10CollectionP", "init"]
-- !private ["s10ComparableP", "hashValue"]
 - !private ["s10ComparableP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
-- !private ["s29CustomPlaygroundQuickLookableP", "hashValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
-- !private ["s17CustomReflectableP", "hashValue"]
 - !private ["s17CustomReflectableP", "init"]
-- !private ["s23CustomStringConvertibleP", "Position"]
+- !private ["s23CustomStringConvertibleP", "col"]
 - ["s23CustomStringConvertibleP", "description"]
-- !private ["s23CustomStringConvertibleP", "energy"]
-- !private ["s23CustomStringConvertibleP", "hashValue"]
-- !private ["s23CustomStringConvertibleP", "id"]
 - !private ["s23CustomStringConvertibleP", "init"]
-- !private ["s23CustomStringConvertibleP", "objectType"]
-- !private ["s23CustomStringConvertibleP", "position"]
+- !private ["s23CustomStringConvertibleP", "row"]
 - ["s23CustomStringConvertibleP", ""]
-- !private ["s9DecodableP", "hashValue"]
 - !private ["s9DecodableP", "init"]
-- !private ["s9EncodableP", "hashValue"]
 - !private ["s9EncodableP", "init"]
-- ["s9EquatableP", "hashValue"]
 - !private ["s9EquatableP", "init"]
-- ["s9EquatableP", ""]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- !private ["s27ExpressibleByIntegerLiteralP", "hashValue"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- !private ["s17FixedWidthIntegerP", "hashValue"]
-- ["13StulinProject10GameObjectC", "GameObjectType"]
-- ["13StulinProject10GameObjectC", "Int"]
-- ["13StulinProject10GameObjectC", "Position"]
-- ["13StulinProject10GameObjectC", "String"]
-- ["13StulinProject10GameObjectC", "addEnergy"]
-- ["13StulinProject10GameObjectC", "deinit"]
-- ["13StulinProject10GameObjectC", "description"]
-- ["13StulinProject10GameObjectC", "energy"]
-- ["13StulinProject10GameObjectC", "id"]
-- ["13StulinProject10GameObjectC", "init"]
-- ["13StulinProject10GameObjectC", "liveSupport"]
-- ["13StulinProject10GameObjectC", "objectType"]
-- ["13StulinProject10GameObjectC", "position"]
-- ["13StulinProject10GameObjectC", "setPosition"]
-- ["13StulinProject10GameObjectC", "useEnergy"]
-- ["13StulinProject14GameObjectTypeO", "GameObject"]
-- ["13StulinProject14GameObjectTypeO", "Mine"]
-- ["13StulinProject14GameObjectTypeO", "Rover"]
-- ["13StulinProject14GameObjectTypeO", "Tank"]
-- ["13StulinProject14GameObjectTypeO", "__derived_enum_equals"]
-- ["13StulinProject14GameObjectTypeO", "deinit"]
-- ["13StulinProject14GameObjectTypeO", "hashValue"]
-- ["s8HashableP", "hashValue"]
 - !private ["s8HashableP", "init"]
-- ["s8HashableP", ""]
-- !private ["Si", "hashValue"]
-- !private ["s25LosslessStringConvertibleP", "hashValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
-- !private ["s10MirrorPathP", "hashValue"]
 - !private ["s10MirrorPathP", "init"]
-- !private ["s7NumericP", "hashValue"]
-- !private ["13StulinProject8PositionV", "deinit"]
-- !private ["13StulinProject8PositionV", "init"]
+- ["13StulinProject8PositionV", "Int"]
+- ["13StulinProject8PositionV", "String"]
+- ["13StulinProject8PositionV", "col"]
+- ["13StulinProject8PositionV", "deinit"]
+- ["13StulinProject8PositionV", "description"]
+- ["13StulinProject8PositionV", "init"]
+- ["13StulinProject8PositionV", "row"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s8SequenceP", "init"]
-- !private ["s13SignedIntegerP", "hashValue"]
-- !private ["s13SignedNumericP", "hashValue"]
-- !private ["s10StrideableP", "hashValue"]
 - !private ["SS", "init"]
 - !private ["s14StringProtocolP", "init"]
 - !private ["s16TextOutputStreamP", "init"]
 - !private ["s20TextOutputStreamableP", "init"]
 - !private ["s23_BidirectionalIndexableP", "init"]
-- !private ["s18_BitwiseOperationsP", "hashValue"]
 - !private ["10Foundation13_CFBridgeableP", "init"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "hashValue"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
@@ -110,17 +57,12 @@ depends-member:
 - !private ["s10_IndexableP", "init"]
 - !private ["s14_IndexableBaseP", "init"]
 - !private ["10Foundation13_NSBridgeableP", "init"]
-- !private ["10Foundation17_ObjectBridgeableP", "hashValue"]
 - !private ["10Foundation17_ObjectBridgeableP", "init"]
-- !private ["10Foundation21_ObjectTypeBridgeableP", "hashValue"]
 - !private ["10Foundation21_ObjectTypeBridgeableP", "init"]
 - !private ["s26_RangeReplaceableIndexableP", "init"]
-- !private ["s11_StrideableP", "hashValue"]
 - !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - !private "s23BidirectionalCollectionP"
-- !private "s13BinaryIntegerP"
-- !private "s7CVarArgP"
 - !private "s10CollectionP"
 - !private "s10ComparableP"
 - !private "s28CustomDebugStringConvertibleP"
@@ -129,34 +71,23 @@ depends-nominal:
 - "s23CustomStringConvertibleP"
 - !private "s9DecodableP"
 - !private "s9EncodableP"
-- "s9EquatableP"
+- !private "s9EquatableP"
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
-- !private "s27ExpressibleByIntegerLiteralP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
-- !private "s17FixedWidthIntegerP"
-- "13StulinProject10GameObjectC"
-- "13StulinProject14GameObjectTypeO"
-- "s8HashableP"
-- !private "Si"
+- !private "s8HashableP"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
-- !private "s7NumericP"
-- !private "13StulinProject8PositionV"
+- "13StulinProject8PositionV"
 - !private "s26RangeReplaceableCollectionP"
 - !private "s8SequenceP"
-- !private "s13SignedIntegerP"
-- !private "s13SignedNumericP"
-- !private "s10StrideableP"
 - !private "SS"
 - !private "s14StringProtocolP"
 - !private "s16TextOutputStreamP"
 - !private "s20TextOutputStreamableP"
 - !private "s23_BidirectionalIndexableP"
-- !private "s18_BitwiseOperationsP"
 - !private "10Foundation13_CFBridgeableP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
-- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
@@ -167,7 +98,6 @@ depends-nominal:
 - !private "10Foundation17_ObjectBridgeableP"
 - !private "10Foundation21_ObjectTypeBridgeableP"
 - !private "s26_RangeReplaceableIndexableP"
-- !private "s11_StrideableP"
 - !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
@@ -177,4 +107,4 @@ depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-interface-hash: "327799597c537f93500068a7dea09caf"
+interface-hash: "5f33ee3c3d827e09e1f1c7fb1ecbe16c"

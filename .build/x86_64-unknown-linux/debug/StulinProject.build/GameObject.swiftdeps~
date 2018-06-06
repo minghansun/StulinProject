@@ -66,7 +66,6 @@ depends-member:
 - ["13StulinProject10GameObjectC", "energy"]
 - ["13StulinProject10GameObjectC", "id"]
 - ["13StulinProject10GameObjectC", "init"]
-- ["13StulinProject10GameObjectC", "liveSupport"]
 - ["13StulinProject10GameObjectC", "objectType"]
 - ["13StulinProject10GameObjectC", "position"]
 - ["13StulinProject10GameObjectC", "setPosition"]
@@ -177,4 +176,4 @@ depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-interface-hash: "327799597c537f93500068a7dea09caf"
+interface-hash: "a5a756cb7d8699ba018baaa69e22a7ab"

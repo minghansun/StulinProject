@@ -1,10 +1,67 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
+- "MessageCenter"
 provides-nominal:
+- "13StulinProject13MessageCenterV"
 provides-member:
+- ["13StulinProject13MessageCenterV", ""]
 depends-top-level:
+- "AssignmentPrecedence"
+- "MessageCenter"
+- "String"
 depends-member:
+- ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "subscript"]
+- ["s10DictionaryV", "init"]
+- !private ["s10DictionaryV", "subscript"]
+- ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "subscript"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- ["13StulinProject13MessageCenterV", "String"]
+- ["13StulinProject13MessageCenterV", "init"]
+- ["13StulinProject13MessageCenterV", "messages"]
+- ["13StulinProject13MessageCenterV", "receiveMessage"]
+- ["13StulinProject13MessageCenterV", "sendMessage"]
+- ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "subscript"]
+- ["10Foundation13_CFBridgeableP", "init"]
+- !private ["10Foundation13_CFBridgeableP", "subscript"]
+- ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "subscript"]
+- ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "subscript"]
+- ["10Foundation13_NSBridgeableP", "init"]
+- !private ["10Foundation13_NSBridgeableP", "subscript"]
+- ["10Foundation17_ObjectBridgeableP", "init"]
+- !private ["10Foundation17_ObjectBridgeableP", "subscript"]
+- ["10Foundation21_ObjectTypeBridgeableP", "init"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "subscript"]
 depends-nominal:
+- "s10CollectionP"
+- "s28CustomDebugStringConvertibleP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "s9DecodableP"
+- "s10DictionaryV"
+- "s9EncodableP"
+- "s30ExpressibleByDictionaryLiteralP"
+- "13StulinProject13MessageCenterV"
+- "s8SequenceP"
+- "10Foundation13_CFBridgeableP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "10Foundation13_NSBridgeableP"
+- "10Foundation17_ObjectBridgeableP"
+- "10Foundation21_ObjectTypeBridgeableP"
 depends-dynamic-lookup:
 depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
@@ -13,4 +70,4 @@ depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-interface-hash: "5aa3c8bd53b20a441a0fcac4bc5d8ccc"
+interface-hash: "1e0efe2a4de1a230c03bb686c808e92c"

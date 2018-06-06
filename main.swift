@@ -13,5 +13,3 @@ x.populateTheTankWorld()
 for _ in 0...4 {
     x.runOneTurn()
 }
-
-

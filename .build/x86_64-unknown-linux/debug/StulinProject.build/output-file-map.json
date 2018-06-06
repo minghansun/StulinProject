@@ -56,6 +56,12 @@
     "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tank~partial.swiftmodule",
     "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tank.swiftdeps"
   },
+  "/home/learnswift/Programs/StulinProject/Tanks.swift": {
+    "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tanks.d",
+    "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tanks.swift.o",
+    "swiftmodule": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tanks~partial.swiftmodule",
+    "swift-dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/Tanks.swiftdeps"
+  },
   "/home/learnswift/Programs/StulinProject/TankWorld.swift": {
     "dependencies": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorld.d",
     "object": "/home/learnswift/Programs/StulinProject/.build/x86_64-unknown-linux/debug/StulinProject.build/TankWorld.swift.o",

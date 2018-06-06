@@ -4,56 +4,68 @@ provides-top-level:
 - "PreAction"
 - "PostAction"
 - "MoveAction"
-- "FireMissileAction"
-- "SetShieldsAction"
-- "runRadarAction"
+- "MissileAction"
+- "ShieldAction"
+- "RadarAction"
+- "RadarResult"
 - "SendMessageAction"
 - "ReceiveMessageAction"
+- "DropMineAction"
 - "Actions"
 provides-nominal:
 - "13StulinProject6ActionP"
 - "13StulinProject9PreActionP"
 - "13StulinProject10PostActionP"
 - "13StulinProject10MoveActionV"
-- "13StulinProject17FireMissileActionV"
-- "13StulinProject16SetShieldsActionV"
-- "13StulinProject14runRadarActionV"
+- "13StulinProject13MissileActionV"
+- "13StulinProject12ShieldActionV"
+- "13StulinProject11RadarActionV"
+- "13StulinProject11RadarResultV"
 - "13StulinProject17SendMessageActionV"
 - "13StulinProject20ReceiveMessageActionV"
+- "13StulinProject14DropMineActionV"
 - "13StulinProject7ActionsO"
 provides-member:
 - ["13StulinProject6ActionP", ""]
 - ["13StulinProject9PreActionP", ""]
 - ["13StulinProject10PostActionP", ""]
 - ["13StulinProject10MoveActionV", ""]
-- ["13StulinProject17FireMissileActionV", ""]
-- ["13StulinProject16SetShieldsActionV", ""]
-- ["13StulinProject14runRadarActionV", ""]
+- ["13StulinProject13MissileActionV", ""]
+- ["13StulinProject12ShieldActionV", ""]
+- ["13StulinProject11RadarActionV", ""]
+- ["13StulinProject11RadarResultV", ""]
 - ["13StulinProject17SendMessageActionV", ""]
 - ["13StulinProject20ReceiveMessageActionV", ""]
+- ["13StulinProject14DropMineActionV", ""]
 - ["13StulinProject7ActionsO", ""]
 depends-top-level:
+- !private "+="
 - "=="
 - "Action"
 - "Actions"
 - "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
 - "CustomStringConvertible"
 - "Direction"
-- "FireMissileAction"
+- "DropMineAction"
 - !private "FloatLiteralType"
 - "Int"
 - !private "IntegerLiteralType"
+- "MissileAction"
 - "MoveAction"
 - "Position"
 - "PostAction"
 - "PreAction"
+- "RadarAction"
+- "RadarResult"
 - "ReceiveMessageAction"
 - "SendMessageAction"
-- "SetShieldsAction"
+- "ShieldAction"
 - "String"
 - !private "StringLiteralType"
+- "TernaryPrecedence"
 - !private "UnicodeScalarType"
-- "runRadarAction"
 depends-member:
 - ["13StulinProject6ActionP", "Actions"]
 - ["13StulinProject6ActionP", "String"]
@@ -62,91 +74,128 @@ depends-member:
 - ["13StulinProject6ActionP", "description"]
 - !private ["13StulinProject6ActionP", "direction"]
 - !private ["13StulinProject6ActionP", "distance"]
-- !private ["13StulinProject6ActionP", "energy"]
-- !private ["13StulinProject6ActionP", "idCode"]
+- !private ["13StulinProject6ActionP", "dropDirection"]
+- !private ["13StulinProject6ActionP", "id"]
+- !private ["13StulinProject6ActionP", "isRover"]
 - !private ["13StulinProject6ActionP", "key"]
-- !private ["13StulinProject6ActionP", "radius"]
-- !private ["13StulinProject6ActionP", "text"]
+- !private ["13StulinProject6ActionP", "message"]
+- !private ["13StulinProject6ActionP", "moveDirection"]
+- !private ["13StulinProject6ActionP", "power"]
+- !private ["13StulinProject6ActionP", "range"]
 - ["13StulinProject6ActionP", ""]
 - ["13StulinProject7ActionsO", "DropMine"]
-- ["13StulinProject7ActionsO", "DropRover"]
-- ["13StulinProject7ActionsO", "FireMissle"]
+- ["13StulinProject7ActionsO", "Missle"]
 - ["13StulinProject7ActionsO", "Move"]
+- ["13StulinProject7ActionsO", "Radar"]
 - ["13StulinProject7ActionsO", "ReceiveMessage"]
-- ["13StulinProject7ActionsO", "RunRadar"]
 - ["13StulinProject7ActionsO", "SendMessage"]
-- ["13StulinProject7ActionsO", "SetShields"]
+- ["13StulinProject7ActionsO", "Shields"]
 - ["13StulinProject7ActionsO", "__derived_enum_equals"]
 - ["13StulinProject7ActionsO", "deinit"]
 - ["13StulinProject7ActionsO", "hashValue"]
-- !private ["s23BidirectionalCollectionP", "init"]
+- ["Sa", "init"]
+- ["s23BidirectionalCollectionP", "init"]
 - !private ["s13BinaryIntegerP", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["s7CVarArgP", "hashValue"]
-- !private ["s10CollectionP", "init"]
+- ["s10CollectionP", "init"]
 - !private ["s10ComparableP", "hashValue"]
 - !private ["s10ComparableP", "init"]
-- !private ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "hashValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - !private ["s17CustomReflectableP", "hashValue"]
-- !private ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
 - ["s23CustomStringConvertibleP", "Actions"]
+- ["s23CustomStringConvertibleP", "Int"]
+- ["s23CustomStringConvertibleP", "Position"]
 - ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "absoluteDestination"]
 - ["s23CustomStringConvertibleP", "action"]
 - ["s23CustomStringConvertibleP", "description"]
 - !private ["s23CustomStringConvertibleP", "direction"]
 - !private ["s23CustomStringConvertibleP", "distance"]
-- !private ["s23CustomStringConvertibleP", "energy"]
+- !private ["s23CustomStringConvertibleP", "dropDirection"]
 - !private ["s23CustomStringConvertibleP", "hashValue"]
-- !private ["s23CustomStringConvertibleP", "idCode"]
-- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "id"]
+- !private ["s23CustomStringConvertibleP", "information"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isRover"]
 - !private ["s23CustomStringConvertibleP", "key"]
-- !private ["s23CustomStringConvertibleP", "radius"]
-- !private ["s23CustomStringConvertibleP", "text"]
+- !private ["s23CustomStringConvertibleP", "message"]
+- !private ["s23CustomStringConvertibleP", "moveDirection"]
+- !private ["s23CustomStringConvertibleP", "power"]
+- !private ["s23CustomStringConvertibleP", "range"]
 - ["s23CustomStringConvertibleP", ""]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9DecodableP", "hashValue"]
-- !private ["s9DecodableP", "init"]
+- ["s9DecodableP", "init"]
+- !private ["13StulinProject9DirectionO", "deinit"]
+- ["13StulinProject14DropMineActionV", "Actions"]
+- ["13StulinProject14DropMineActionV", "Bool"]
+- ["13StulinProject14DropMineActionV", "Direction"]
+- ["13StulinProject14DropMineActionV", "Int"]
+- ["13StulinProject14DropMineActionV", "String"]
+- ["13StulinProject14DropMineActionV", "action"]
+- ["13StulinProject14DropMineActionV", "deinit"]
+- ["13StulinProject14DropMineActionV", "description"]
+- ["13StulinProject14DropMineActionV", "dropDirection"]
+- ["13StulinProject14DropMineActionV", "id"]
+- ["13StulinProject14DropMineActionV", "init"]
+- ["13StulinProject14DropMineActionV", "isRover"]
+- ["13StulinProject14DropMineActionV", "moveDirection"]
+- ["13StulinProject14DropMineActionV", "power"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
 - !private ["s9EncodableP", "hashValue"]
-- !private ["s9EncodableP", "init"]
-- !private ["s9EquatableP", "FireMissle"]
+- ["s9EncodableP", "init"]
+- !private ["s9EquatableP", "DropMine"]
+- !private ["s9EquatableP", "Missle"]
 - !private ["s9EquatableP", "Move"]
+- !private ["s9EquatableP", "Radar"]
 - !private ["s9EquatableP", "ReceiveMessage"]
-- !private ["s9EquatableP", "RunRadar"]
 - !private ["s9EquatableP", "SendMessage"]
-- !private ["s9EquatableP", "SetShields"]
+- !private ["s9EquatableP", "Shields"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - ["s9EquatableP", "hashValue"]
 - !private ["s9EquatableP", "init"]
 - ["s9EquatableP", ""]
+- ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s27ExpressibleByIntegerLiteralP", "hashValue"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- ["13StulinProject17FireMissileActionV", "Actions"]
-- ["13StulinProject17FireMissileActionV", "Int"]
-- ["13StulinProject17FireMissileActionV", "Position"]
-- ["13StulinProject17FireMissileActionV", "String"]
-- ["13StulinProject17FireMissileActionV", "absoluteDestination"]
-- ["13StulinProject17FireMissileActionV", "action"]
-- ["13StulinProject17FireMissileActionV", "deinit"]
-- ["13StulinProject17FireMissileActionV", "description"]
-- ["13StulinProject17FireMissileActionV", "energy"]
-- ["13StulinProject17FireMissileActionV", "init"]
 - !private ["s17FixedWidthIntegerP", "hashValue"]
-- !private ["s8HashableP", "FireMissle"]
+- !private ["s8HashableP", "DropMine"]
+- !private ["s8HashableP", "Missle"]
 - !private ["s8HashableP", "Move"]
+- !private ["s8HashableP", "Radar"]
 - !private ["s8HashableP", "ReceiveMessage"]
-- !private ["s8HashableP", "RunRadar"]
 - !private ["s8HashableP", "SendMessage"]
-- !private ["s8HashableP", "SetShields"]
+- !private ["s8HashableP", "Shields"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
 - ["s8HashableP", "hashValue"]
 - !private ["s8HashableP", "init"]
 - ["s8HashableP", ""]
 - !private ["Si", "hashValue"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "hashValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "hashValue"]
 - !private ["s10MirrorPathP", "init"]
+- ["13StulinProject13MissileActionV", "Actions"]
+- ["13StulinProject13MissileActionV", "Int"]
+- ["13StulinProject13MissileActionV", "Position"]
+- ["13StulinProject13MissileActionV", "String"]
+- ["13StulinProject13MissileActionV", "absoluteDestination"]
+- ["13StulinProject13MissileActionV", "action"]
+- ["13StulinProject13MissileActionV", "deinit"]
+- ["13StulinProject13MissileActionV", "description"]
+- ["13StulinProject13MissileActionV", "init"]
+- ["13StulinProject13MissileActionV", "power"]
 - ["13StulinProject10MoveActionV", "Actions"]
 - ["13StulinProject10MoveActionV", "Direction"]
 - ["13StulinProject10MoveActionV", "Int"]
@@ -157,6 +206,7 @@ depends-member:
 - ["13StulinProject10MoveActionV", "direction"]
 - ["13StulinProject10MoveActionV", "distance"]
 - ["13StulinProject10MoveActionV", "init"]
+- ["s17MutableCollectionP", "init"]
 - !private ["s7NumericP", "hashValue"]
 - !private ["13StulinProject8PositionV", "deinit"]
 - !private ["13StulinProject10PostActionP", "absoluteDestination"]
@@ -164,17 +214,36 @@ depends-member:
 - ["13StulinProject10PostActionP", "description"]
 - !private ["13StulinProject10PostActionP", "direction"]
 - !private ["13StulinProject10PostActionP", "distance"]
-- !private ["13StulinProject10PostActionP", "energy"]
+- !private ["13StulinProject10PostActionP", "dropDirection"]
+- !private ["13StulinProject10PostActionP", "id"]
+- !private ["13StulinProject10PostActionP", "isRover"]
+- !private ["13StulinProject10PostActionP", "moveDirection"]
+- !private ["13StulinProject10PostActionP", "power"]
 - ["13StulinProject10PostActionP", ""]
 - ["13StulinProject9PreActionP", "action"]
 - ["13StulinProject9PreActionP", "description"]
-- !private ["13StulinProject9PreActionP", "energy"]
-- !private ["13StulinProject9PreActionP", "idCode"]
 - !private ["13StulinProject9PreActionP", "key"]
-- !private ["13StulinProject9PreActionP", "radius"]
-- !private ["13StulinProject9PreActionP", "text"]
+- !private ["13StulinProject9PreActionP", "message"]
+- !private ["13StulinProject9PreActionP", "power"]
+- !private ["13StulinProject9PreActionP", "range"]
 - ["13StulinProject9PreActionP", ""]
-- !private ["s26RangeReplaceableCollectionP", "init"]
+- ["13StulinProject11RadarActionV", "Actions"]
+- ["13StulinProject11RadarActionV", "Int"]
+- ["13StulinProject11RadarActionV", "String"]
+- ["13StulinProject11RadarActionV", "action"]
+- ["13StulinProject11RadarActionV", "deinit"]
+- ["13StulinProject11RadarActionV", "description"]
+- ["13StulinProject11RadarActionV", "init"]
+- ["13StulinProject11RadarActionV", "range"]
+- ["13StulinProject11RadarResultV", "Int"]
+- ["13StulinProject11RadarResultV", "Position"]
+- ["13StulinProject11RadarResultV", "String"]
+- ["13StulinProject11RadarResultV", "deinit"]
+- ["13StulinProject11RadarResultV", "description"]
+- ["13StulinProject11RadarResultV", "information"]
+- ["13StulinProject11RadarResultV", "init"]
+- ["s22RandomAccessCollectionP", "init"]
+- ["s26RangeReplaceableCollectionP", "init"]
 - ["13StulinProject20ReceiveMessageActionV", "Actions"]
 - ["13StulinProject20ReceiveMessageActionV", "String"]
 - ["13StulinProject20ReceiveMessageActionV", "action"]
@@ -187,18 +256,18 @@ depends-member:
 - ["13StulinProject17SendMessageActionV", "action"]
 - ["13StulinProject17SendMessageActionV", "deinit"]
 - ["13StulinProject17SendMessageActionV", "description"]
-- ["13StulinProject17SendMessageActionV", "idCode"]
 - ["13StulinProject17SendMessageActionV", "init"]
-- ["13StulinProject17SendMessageActionV", "text"]
-- !private ["s8SequenceP", "init"]
-- ["13StulinProject16SetShieldsActionV", "Actions"]
-- ["13StulinProject16SetShieldsActionV", "Int"]
-- ["13StulinProject16SetShieldsActionV", "String"]
-- ["13StulinProject16SetShieldsActionV", "action"]
-- ["13StulinProject16SetShieldsActionV", "deinit"]
-- ["13StulinProject16SetShieldsActionV", "description"]
-- ["13StulinProject16SetShieldsActionV", "energy"]
-- ["13StulinProject16SetShieldsActionV", "init"]
+- ["13StulinProject17SendMessageActionV", "key"]
+- ["13StulinProject17SendMessageActionV", "message"]
+- ["s8SequenceP", "init"]
+- ["13StulinProject12ShieldActionV", "Actions"]
+- ["13StulinProject12ShieldActionV", "Int"]
+- ["13StulinProject12ShieldActionV", "String"]
+- ["13StulinProject12ShieldActionV", "action"]
+- ["13StulinProject12ShieldActionV", "deinit"]
+- ["13StulinProject12ShieldActionV", "description"]
+- ["13StulinProject12ShieldActionV", "init"]
+- ["13StulinProject12ShieldActionV", "power"]
 - !private ["s13SignedIntegerP", "hashValue"]
 - !private ["s13SignedNumericP", "hashValue"]
 - !private ["s10StrideableP", "hashValue"]
@@ -206,68 +275,78 @@ depends-member:
 - !private ["s14StringProtocolP", "init"]
 - !private ["s16TextOutputStreamP", "init"]
 - !private ["s20TextOutputStreamableP", "init"]
-- !private ["s23_BidirectionalIndexableP", "init"]
+- ["s14_ArrayProtocolP", "init"]
+- ["s23_BidirectionalIndexableP", "init"]
 - !private ["s18_BitwiseOperationsP", "hashValue"]
-- !private ["10Foundation13_CFBridgeableP", "init"]
+- !private ["10Foundation13_CFBridgeableP", "_getBuiltinLogicValue"]
+- ["10Foundation13_CFBridgeableP", "init"]
+- ["s24_DestructorSafeContainerP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "hashValue"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
-- !private ["s10_IndexableP", "init"]
-- !private ["s14_IndexableBaseP", "init"]
-- !private ["10Foundation13_NSBridgeableP", "init"]
+- ["s10_IndexableP", "init"]
+- ["s14_IndexableBaseP", "init"]
+- ["s17_MutableIndexableP", "init"]
+- ["10Foundation13_NSBridgeableP", "init"]
+- !private ["10Foundation17_ObjectBridgeableP", "_getBuiltinLogicValue"]
 - !private ["10Foundation17_ObjectBridgeableP", "hashValue"]
-- !private ["10Foundation17_ObjectBridgeableP", "init"]
+- ["10Foundation17_ObjectBridgeableP", "init"]
+- !private ["10Foundation21_ObjectTypeBridgeableP", "_getBuiltinLogicValue"]
 - !private ["10Foundation21_ObjectTypeBridgeableP", "hashValue"]
-- !private ["10Foundation21_ObjectTypeBridgeableP", "init"]
-- !private ["s26_RangeReplaceableIndexableP", "init"]
+- ["10Foundation21_ObjectTypeBridgeableP", "init"]
+- ["s22_RandomAccessIndexableP", "init"]
+- ["s26_RangeReplaceableIndexableP", "init"]
 - !private ["s11_StrideableP", "hashValue"]
 - !private ["s16_SwiftStringViewP", "init"]
-- ["13StulinProject14runRadarActionV", "Actions"]
-- ["13StulinProject14runRadarActionV", "Int"]
-- ["13StulinProject14runRadarActionV", "String"]
-- ["13StulinProject14runRadarActionV", "action"]
-- ["13StulinProject14runRadarActionV", "deinit"]
-- ["13StulinProject14runRadarActionV", "description"]
-- ["13StulinProject14runRadarActionV", "init"]
-- ["13StulinProject14runRadarActionV", "radius"]
 depends-nominal:
 - "13StulinProject6ActionP"
 - "13StulinProject7ActionsO"
-- !private "s23BidirectionalCollectionP"
+- "Sa"
+- "s23BidirectionalCollectionP"
 - !private "s13BinaryIntegerP"
+- !private "Sb"
 - !private "s7CVarArgP"
-- !private "s10CollectionP"
+- "s10CollectionP"
 - !private "s10ComparableP"
-- !private "s28CustomDebugStringConvertibleP"
+- "s28CustomDebugStringConvertibleP"
 - !private "s29CustomPlaygroundQuickLookableP"
-- !private "s17CustomReflectableP"
+- "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
-- !private "s9DecodableP"
-- !private "s9EncodableP"
+- "s9DecodableP"
+- !private "13StulinProject9DirectionO"
+- "13StulinProject14DropMineActionV"
+- "s9EncodableP"
 - "s9EquatableP"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - !private "s27ExpressibleByIntegerLiteralP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
-- "13StulinProject17FireMissileActionV"
 - !private "s17FixedWidthIntegerP"
 - "s8HashableP"
 - !private "Si"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
+- "13StulinProject13MissileActionV"
 - "13StulinProject10MoveActionV"
+- "s17MutableCollectionP"
 - !private "s7NumericP"
 - !private "13StulinProject8PositionV"
 - "13StulinProject10PostActionP"
 - "13StulinProject9PreActionP"
-- !private "s26RangeReplaceableCollectionP"
+- "13StulinProject11RadarActionV"
+- "13StulinProject11RadarResultV"
+- "s22RandomAccessCollectionP"
+- "s26RangeReplaceableCollectionP"
 - "13StulinProject20ReceiveMessageActionV"
 - "13StulinProject17SendMessageActionV"
-- !private "s8SequenceP"
-- "13StulinProject16SetShieldsActionV"
+- "s8SequenceP"
+- "13StulinProject12ShieldActionV"
 - !private "s13SignedIntegerP"
 - !private "s13SignedNumericP"
 - !private "s10StrideableP"
@@ -275,24 +354,28 @@ depends-nominal:
 - !private "s14StringProtocolP"
 - !private "s16TextOutputStreamP"
 - !private "s20TextOutputStreamableP"
-- !private "s23_BidirectionalIndexableP"
+- "s14_ArrayProtocolP"
+- "s23_BidirectionalIndexableP"
 - !private "s18_BitwiseOperationsP"
-- !private "10Foundation13_CFBridgeableP"
+- "10Foundation13_CFBridgeableP"
+- "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s35_ExpressibleByBuiltinIntegerLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s33_ExpressibleByStringInterpolationP"
-- !private "s10_IndexableP"
-- !private "s14_IndexableBaseP"
-- !private "10Foundation13_NSBridgeableP"
-- !private "10Foundation17_ObjectBridgeableP"
-- !private "10Foundation21_ObjectTypeBridgeableP"
-- !private "s26_RangeReplaceableIndexableP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "s17_MutableIndexableP"
+- "10Foundation13_NSBridgeableP"
+- "10Foundation17_ObjectBridgeableP"
+- "10Foundation21_ObjectTypeBridgeableP"
+- "s22_RandomAccessIndexableP"
+- "s26_RangeReplaceableIndexableP"
 - !private "s11_StrideableP"
 - !private "s16_SwiftStringViewP"
-- "13StulinProject14runRadarActionV"
 depends-dynamic-lookup:
 depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
@@ -301,4 +384,4 @@ depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-interface-hash: "f28df488cf0b88eafe59b9cd257b9f46"
+interface-hash: "85e5c1aaff505a77ca6012b99e88fdb4"

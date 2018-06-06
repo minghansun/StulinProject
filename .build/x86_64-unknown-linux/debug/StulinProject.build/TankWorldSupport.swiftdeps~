@@ -3,7 +3,6 @@ provides-top-level:
 provides-nominal:
 provides-member:
 - ["13StulinProject9TankWorldC", ""]
-- ["13StulinProject9TankWorldC", "applyCost"]
 - ["13StulinProject9TankWorldC", "newPosition"]
 - ["13StulinProject9TankWorldC", "applyCost"]
 - ["13StulinProject9TankWorldC", "isGoodIndex"]
@@ -14,15 +13,19 @@ provides-member:
 - ["13StulinProject9TankWorldC", "isPositionEmpty"]
 - ["13StulinProject9TankWorldC", "findAllGameObjects"]
 - ["13StulinProject9TankWorldC", "getLegalSurroundingPositions"]
+- ["13StulinProject9TankWorldC", "getSurroundingPositions"]
 - ["13StulinProject9TankWorldC", "findObjectsWithinRange"]
 - ["13StulinProject9TankWorldC", "findAllTanks"]
 - ["13StulinProject9TankWorldC", "findAllRovers"]
 - ["13StulinProject9TankWorldC", "findWinner"]
 - ["13StulinProject9TankWorldC", "randomizeDirection"]
-- ["13StulinProject9TankWorldC", "getRandomInt"]
 - ["13StulinProject9TankWorldC", "randomizeGameObjects"]
+- ["13StulinProject9TankWorldC", "findFreeAdjacent"]
+- ["13StulinProject9TankWorldC", "doTheMoving"]
+- ["13StulinProject9TankWorldC", "getRandomInt"]
 depends-top-level:
 - !private "!="
+- !private "%"
 - !private "&&"
 - !private "*"
 - !private "+"
@@ -47,8 +50,7 @@ depends-top-level:
 - "Position"
 - "Tank"
 - "TankWorld"
-- !private "UInt32"
-- !private "arc4random_uniform"
+- !private "rand"
 - !private "sqrt"
 depends-member:
 - !private ["Sa", "append"]
@@ -105,6 +107,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "position"]
 - !private ["s23CustomStringConvertibleP", "remove"]
 - !private ["s23CustomStringConvertibleP", "row"]
+- !private ["s23CustomStringConvertibleP", "setPosition"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "useEnergy"]
 - !private ["s9DecodableP", "Rover"]
@@ -162,6 +165,7 @@ depends-member:
 - !private ["13StulinProject10GameObjectC", "energy"]
 - !private ["13StulinProject10GameObjectC", "objectType"]
 - !private ["13StulinProject10GameObjectC", "position"]
+- !private ["13StulinProject10GameObjectC", "setPosition"]
 - !private ["13StulinProject10GameObjectC", "useEnergy"]
 - !private ["13StulinProject14GameObjectTypeO", "Rover"]
 - !private ["13StulinProject14GameObjectTypeO", "Tank"]
@@ -215,7 +219,6 @@ depends-member:
 - !private ["s13SignedIntegerP", "init"]
 - !private ["s13SignedNumericP", "init"]
 - !private ["s10StrideableP", "init"]
-- !private ["13StulinProject4TankC", "useEnergy"]
 - ["13StulinProject9TankWorldC", "Bool"]
 - ["13StulinProject9TankWorldC", "Direction"]
 - !private ["13StulinProject9TankWorldC", "Double"]
@@ -224,17 +227,18 @@ depends-member:
 - ["13StulinProject9TankWorldC", "Mine"]
 - ["13StulinProject9TankWorldC", "Position"]
 - ["13StulinProject9TankWorldC", "Tank"]
-- !private ["13StulinProject9TankWorldC", "UInt32"]
 - ["13StulinProject9TankWorldC", "applyCost"]
-- !private ["13StulinProject9TankWorldC", "arc4random_uniform"]
 - ["13StulinProject9TankWorldC", "distance"]
+- ["13StulinProject9TankWorldC", "doTheMoving"]
 - ["13StulinProject9TankWorldC", "findAllGameObjects"]
 - ["13StulinProject9TankWorldC", "findAllRovers"]
 - ["13StulinProject9TankWorldC", "findAllTanks"]
+- ["13StulinProject9TankWorldC", "findFreeAdjacent"]
 - ["13StulinProject9TankWorldC", "findObjectsWithinRange"]
 - ["13StulinProject9TankWorldC", "findWinner"]
 - ["13StulinProject9TankWorldC", "getLegalSurroundingPositions"]
 - ["13StulinProject9TankWorldC", "getRandomInt"]
+- ["13StulinProject9TankWorldC", "getSurroundingPositions"]
 - !private ["13StulinProject9TankWorldC", "grid"]
 - ["13StulinProject9TankWorldC", "isDead"]
 - ["13StulinProject9TankWorldC", "isEnergyAvailable"]
@@ -242,6 +246,7 @@ depends-member:
 - ["13StulinProject9TankWorldC", "isPositionEmpty"]
 - ["13StulinProject9TankWorldC", "isValidPosition"]
 - ["13StulinProject9TankWorldC", "newPosition"]
+- !private ["13StulinProject9TankWorldC", "rand"]
 - ["13StulinProject9TankWorldC", "randomizeDirection"]
 - ["13StulinProject9TankWorldC", "randomizeGameObjects"]
 - !private ["13StulinProject9TankWorldC", "sqrt"]
@@ -371,7 +376,6 @@ depends-nominal:
 - !private "s13SignedIntegerP"
 - !private "s13SignedNumericP"
 - !private "s10StrideableP"
-- !private "13StulinProject4TankC"
 - "13StulinProject9TankWorldC"
 - !private "s14_ArrayProtocolP"
 - !private "s23_BidirectionalIndexableP"
@@ -401,4 +405,4 @@ depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-interface-hash: "fe6682b1997aaf4f869d775ba20079c1"
+interface-hash: "0aba644c4a7538e125a2f0eb48c9d43e"
