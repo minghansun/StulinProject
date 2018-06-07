@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import Glibc
+
 extension TankWorld {
     func formatToGrid(_ value: String)-> String{
         var yes = ""

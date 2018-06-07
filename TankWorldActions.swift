@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import Glibc
+
 
 extension TankWorld {
     func actionSendMessage(tank: Tank, sendMessageAction: SendMessageAction){
@@ -47,13 +49,14 @@ extension TankWorld {
         }
 
         applyCost(tank, amount: Constants.costOfRadarByUnitDistance[r])
-
+        
         var result = RadarResult()
-        for e in findObjectsWithinRange(tank.position, range: r) {
-            result.information.append((position:e.position,id:e.id, energy:e.energy))
+        for e in findObjectsWithinRange(tank.position, range: r) where distance(e, tank.position) != 0{
+            result.information.append((e,grid[e.row][e.col]!.id,grid[e.row][e.col]!.energy))
         }
 
         tank.newRadarResult(result: result)
+        logger.addLog(tank, "radar is deployed successfully and results collected: \(result)")
     }
 
     func actionSetShield (tank: Tank, setShieldsAction: ShieldAction) {
@@ -142,7 +145,7 @@ extension TankWorld {
         for e in getSurroundingPositions(destination) where grid[e.row][e.col] != nil {
             let currentEnergy = grid[e.row][e.col]!.energy
             grid[e.row][e.col]!.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple / 4)
-            logger.addLog(tank, "hit \(grid[e.row][e.col]!.id) at \(e) causing \(fireMissleAction.power * Constants.missileStrikeMultiple / 4) Splash damage")
+            logger.addLog(tank, "Splash hit \(grid[e.row][e.col]!.id) at \(e) causing \(fireMissleAction.power * Constants.missileStrikeMultiple / 4) Splash damage")
             if isDead(grid[e.row][e.col]!) {
                 tank.addEnergy(amount: currentEnergy / 4)
                 logger.addLog(tank, "took \(currentEnergy / 4) energy from \(grid[e.row][e.col]!.id)")

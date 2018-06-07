@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import Glibc
+
 
 enum Direction {
     case north, south, east, west, northeast, northwest, southeast, southwest

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import Glibc
+
 
 protocol Action: CustomStringConvertible {
     var action: Actions {get}
@@ -86,8 +88,12 @@ struct RadarResult : CustomStringConvertible{
     
     var description: String {
         var string = ""
+        if information.count == 0 {
+            string += "none"
+        } else {
         for e in information {
-            string += "\(e.0) \(e.1) \(e.2)"
+            string += "\(e.1) \(e.0) \(e.2)  "
+        }
         }
         return string
     }
