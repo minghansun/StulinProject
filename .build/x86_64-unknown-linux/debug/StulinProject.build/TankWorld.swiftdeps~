@@ -19,6 +19,7 @@ depends-top-level:
 - "Int"
 - "IntegerLiteralType"
 - "Logger"
+- !private "Mine"
 - !private "MissileAction"
 - !private "MoveAction"
 - !private "RadarAction"
@@ -182,6 +183,7 @@ depends-member:
 - !private ["13StulinProject6LoggerV", "newRound"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["13StulinProject4MineC", "init"]
 - !private ["13StulinProject4MineC", "moveDirection"]
 - !private ["13StulinProject4MineC", "position"]
 - !private ["s10MirrorPathP", "init"]
@@ -227,6 +229,7 @@ depends-member:
 - ["13StulinProject9TankWorldC", "GameObject"]
 - ["13StulinProject9TankWorldC", "Int"]
 - ["13StulinProject9TankWorldC", "Logger"]
+- !private ["13StulinProject9TankWorldC", "Mine"]
 - !private ["13StulinProject9TankWorldC", "MissileAction"]
 - !private ["13StulinProject9TankWorldC", "MoveAction"]
 - !private ["13StulinProject9TankWorldC", "RadarAction"]

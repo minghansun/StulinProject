@@ -17,7 +17,6 @@ depends-top-level:
 - !private "-="
 - !private "/"
 - !private "=="
-- !private ">"
 - !private ">="
 - "AssignmentPrecedence"
 - "CastingPrecedence"
@@ -36,7 +35,6 @@ depends-top-level:
 - "Tank"
 - "TankWorld"
 - "TernaryPrecedence"
-- !private "currentEnergy"
 depends-member:
 - !private ["13StulinProject6ActionP", "absoluteDestination"]
 - !private ["13StulinProject6ActionP", "direction"]
@@ -203,6 +201,7 @@ depends-member:
 - !private ["13StulinProject4TankC", "newRadarResult"]
 - !private ["13StulinProject4TankC", "position"]
 - !private ["13StulinProject4TankC", "setReceivedMessage"]
+- !private ["13StulinProject4TankC", "shield"]
 - !private ["13StulinProject4TankC", "useEnergy"]
 - !private ["13StulinProject9TankWorldC", "Constants"]
 - ["13StulinProject9TankWorldC", "DropMineAction"]
@@ -224,7 +223,6 @@ depends-member:
 - ["13StulinProject9TankWorldC", "actionSendMessage"]
 - ["13StulinProject9TankWorldC", "actionSetShield"]
 - !private ["13StulinProject9TankWorldC", "applyCost"]
-- !private ["13StulinProject9TankWorldC", "currentEnergy"]
 - !private ["13StulinProject9TankWorldC", "distance"]
 - !private ["13StulinProject9TankWorldC", "doTheMoving"]
 - !private ["13StulinProject9TankWorldC", "findFreeAdjacent"]

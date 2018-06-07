@@ -25,7 +25,6 @@ provides-member:
 - ["13StulinProject9TankWorldC", "getRandomInt"]
 depends-top-level:
 - !private "!="
-- !private "%"
 - !private "&&"
 - !private "*"
 - !private "+"
@@ -50,7 +49,8 @@ depends-top-level:
 - "Position"
 - "Tank"
 - "TankWorld"
-- !private "rand"
+- !private "UInt32"
+- !private "arc4random_uniform"
 - !private "sqrt"
 depends-member:
 - !private ["Sa", "append"]
@@ -227,7 +227,9 @@ depends-member:
 - ["13StulinProject9TankWorldC", "Mine"]
 - ["13StulinProject9TankWorldC", "Position"]
 - ["13StulinProject9TankWorldC", "Tank"]
+- !private ["13StulinProject9TankWorldC", "UInt32"]
 - ["13StulinProject9TankWorldC", "applyCost"]
+- !private ["13StulinProject9TankWorldC", "arc4random_uniform"]
 - ["13StulinProject9TankWorldC", "distance"]
 - ["13StulinProject9TankWorldC", "doTheMoving"]
 - ["13StulinProject9TankWorldC", "findAllGameObjects"]
@@ -246,7 +248,6 @@ depends-member:
 - ["13StulinProject9TankWorldC", "isPositionEmpty"]
 - ["13StulinProject9TankWorldC", "isValidPosition"]
 - ["13StulinProject9TankWorldC", "newPosition"]
-- !private ["13StulinProject9TankWorldC", "rand"]
 - ["13StulinProject9TankWorldC", "randomizeDirection"]
 - ["13StulinProject9TankWorldC", "randomizeGameObjects"]
 - !private ["13StulinProject9TankWorldC", "sqrt"]

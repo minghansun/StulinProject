@@ -37,15 +37,13 @@ class TankWorld {
 
     func populateTheTankWorld () {
         addGameObject(adding: tankSY(row: 3, col: 5, energy: 100000, id: "t2", instructions: "none"))
-<<<<<<< HEAD
         //addGameObject(adding: moveUp(row: 4, col: 5, energy: 100000, id: "t1", instructions: "none"))
         addGameObject(adding: Mine(mineorRover: .Mine, row: 3, col: 7, energy: 1000, id: "mine", moveDirection: nil))
-=======
-        addGameObject(adding: tankSY(row: 6, col: 6, energy: 230000, id: "t3", instructions: "none"))
-        addGameObject(adding: fire(row: 4, col: 5, energy: 240000, id: "t1", instructions: "none"))
-        
+
+        //addGameObject(adding: tankSY(row: 6, col: 6, energy: 230000, id: "t3", instructions: "none"))
+        //addGameObject(adding: fire(row: 4, col: 5, energy: 240000, id: "t1", instructions: "none"))
+
         /*addGameObject(adding: Mine(mineorRover: .Mine, row: 3, col: 7, energy: 1000, id: "mine", moveDirection: nil))*/
->>>>>>> 4859a1e22a63c04cb960555f351dff5d5cc3b97b
     }
 
     //handling helpers
@@ -127,7 +125,7 @@ class TankWorld {
 
         allTanks = randomizeGameObjects(gameObjects: allTanks)
         for b in allTanks {
-            
+
             b.computePostActions()
             handleDropMine(tank: b)
             handleMissle(tank: b)

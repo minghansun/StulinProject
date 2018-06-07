@@ -7,8 +7,6 @@
 //
 
 import Foundation
-//import Glibc
-
 
 extension TankWorld {
     func actionSendMessage(tank: Tank, sendMessageAction: SendMessageAction){
@@ -49,14 +47,13 @@ extension TankWorld {
         }
 
         applyCost(tank, amount: Constants.costOfRadarByUnitDistance[r])
-        
+
         var result = RadarResult()
-        for e in findObjectsWithinRange(tank.position, range: r) where distance(e, tank.position) != 0{
-            result.information.append((e,grid[e.row][e.col]!.id,grid[e.row][e.col]!.energy))
+        for e in findObjectsWithinRange(tank.position, range: r) {
+            result.information.append((position: e.position, id: e.id, energy: e.energy))
         }
 
         tank.newRadarResult(result: result)
-        logger.addLog(tank, "radar is deployed successfully and results collected: \(result)")
     }
 
     func actionSetShield (tank: Tank, setShieldsAction: ShieldAction) {
@@ -121,14 +118,14 @@ extension TankWorld {
             let objective = grid[destination.row][destination.col]!
             var power = fireMissleAction.power
             if objective.objectType == .Tank{
-                let preShield = objective.shield
+                let tankObj = objective as! Tank
+                let preShield = tankObj.shield
                 if preShield >= power{
-                    objective.shield Tank -= power
+                    tankObj.shield -= power
                     logger.addLog(tank, "Hit \(objective.id), but all the energy was absorbed by shields")
-                    logger.addLog(objective, "Shields depleated from \(preShield) to \(objective.shield)")
+                    logger.addLog(tankObj, "Shields depleated from \(preShield) to \(tankObj.shield)")
                 }else{
                     power -= preShield
-                    objective.shield = 0
                     objective.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple)
                     logger.addLog(objective, "Shields breached")
                     logger.addLog(tank, "Hit \(objective.id) at \(objective.position) causing \( fireMissleAction.power * Constants.missileStrikeMultiple) damage")
@@ -137,7 +134,7 @@ extension TankWorld {
             }
             logger.addLog(tank, "hit \(objective.id) at \(objective.position) causing \( fireMissleAction.power * Constants.missileStrikeMultiple) damage")
             if isDead(objective) {
-                tank.addEnergy(amount: currentEnergy / 4)
+                tank.addEnergy(amount: objective.energy / 4)
                 logger.addLog(tank, "took \(objective.energy / 4) energy from \(objective.id)")
             }
         } // this could be a major source of error
@@ -145,7 +142,7 @@ extension TankWorld {
         for e in getSurroundingPositions(destination) where grid[e.row][e.col] != nil {
             let currentEnergy = grid[e.row][e.col]!.energy
             grid[e.row][e.col]!.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple / 4)
-            logger.addLog(tank, "Splash hit \(grid[e.row][e.col]!.id) at \(e) causing \(fireMissleAction.power * Constants.missileStrikeMultiple / 4) Splash damage")
+            logger.addLog(tank, "hit \(grid[e.row][e.col]!.id) at \(e) causing \(fireMissleAction.power * Constants.missileStrikeMultiple / 4) Splash damage")
             if isDead(grid[e.row][e.col]!) {
                 tank.addEnergy(amount: currentEnergy / 4)
                 logger.addLog(tank, "took \(currentEnergy / 4) energy from \(grid[e.row][e.col]!.id)")

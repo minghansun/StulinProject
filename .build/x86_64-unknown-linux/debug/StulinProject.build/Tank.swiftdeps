@@ -31,7 +31,9 @@ depends-member:
 - !private ["13StulinProject6ActionP", "action"]
 - ["13StulinProject7ActionsO", "deinit"]
 - !private ["Sa", "append"]
+- ["Sa", "init"]
 - !private ["s23BidirectionalCollectionP", "append"]
+- ["s23BidirectionalCollectionP", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["s10CollectionP", "append"]
 - ["s10CollectionP", "init"]
@@ -53,6 +55,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "Constants"]
 - ["s23CustomStringConvertibleP", "PostAction"]
 - ["s23CustomStringConvertibleP", "PreAction"]
+- ["s23CustomStringConvertibleP", "RadarResult"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "action"]
 - !private ["s23CustomStringConvertibleP", "append"]
@@ -84,6 +87,7 @@ depends-member:
 - !private ["s9EquatableP", "Tank"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s25ExpressibleByArrayLiteralP", "append"]
+- ["s25ExpressibleByArrayLiteralP", "init"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - ["s30ExpressibleByDictionaryLiteralP", "init"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
@@ -140,11 +144,14 @@ depends-member:
 - !private ["13StulinProject4MineC", "objectType"]
 - !private ["13StulinProject4MineC", "useEnergy"]
 - !private ["s17MutableCollectionP", "append"]
+- ["s17MutableCollectionP", "init"]
 - !private ["Sq", "Mine"]
 - !private ["13StulinProject10PostActionP", "action"]
 - !private ["13StulinProject9PreActionP", "action"]
 - !private ["s22RandomAccessCollectionP", "append"]
+- ["s22RandomAccessCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "append"]
+- ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s8SequenceP", "append"]
 - ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "subscript"]
@@ -176,12 +183,15 @@ depends-member:
 - ["13StulinProject4TankC", "shield"]
 - !private ["13StulinProject4TankC", "useEnergy"]
 - !private ["s14_ArrayProtocolP", "append"]
+- ["s14_ArrayProtocolP", "init"]
 - !private ["s23_BidirectionalIndexableP", "append"]
+- ["s23_BidirectionalIndexableP", "init"]
 - !private ["10Foundation13_CFBridgeableP", "_getBuiltinLogicValue"]
 - !private ["10Foundation13_CFBridgeableP", "append"]
 - ["10Foundation13_CFBridgeableP", "init"]
 - !private ["10Foundation13_CFBridgeableP", "subscript"]
 - !private ["s24_DestructorSafeContainerP", "append"]
+- ["s24_DestructorSafeContainerP", "init"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
@@ -193,6 +203,7 @@ depends-member:
 - ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "subscript"]
 - !private ["s17_MutableIndexableP", "append"]
+- ["s17_MutableIndexableP", "init"]
 - !private ["10Foundation13_NSBridgeableP", "append"]
 - ["10Foundation13_NSBridgeableP", "init"]
 - !private ["10Foundation13_NSBridgeableP", "subscript"]
@@ -206,12 +217,14 @@ depends-member:
 - !private ["10Foundation21_ObjectTypeBridgeableP", "subscript"]
 - !private ["s26_OptionalNilComparisonTypeV", "Mine"]
 - !private ["s22_RandomAccessIndexableP", "append"]
+- ["s22_RandomAccessIndexableP", "init"]
 - !private ["s26_RangeReplaceableIndexableP", "append"]
+- ["s26_RangeReplaceableIndexableP", "init"]
 depends-nominal:
 - !private "13StulinProject6ActionP"
 - "13StulinProject7ActionsO"
-- !private "Sa"
-- !private "s23BidirectionalCollectionP"
+- "Sa"
+- "s23BidirectionalCollectionP"
 - !private "Sb"
 - "s10CollectionP"
 - !private "13StulinProject9ConstantsV"
@@ -223,7 +236,7 @@ depends-nominal:
 - "s10DictionaryV"
 - "s9EncodableP"
 - !private "s9EquatableP"
-- !private "s25ExpressibleByArrayLiteralP"
+- "s25ExpressibleByArrayLiteralP"
 - !private "s27ExpressibleByBooleanLiteralP"
 - "s30ExpressibleByDictionaryLiteralP"
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
@@ -235,32 +248,32 @@ depends-nominal:
 - !private "s8HashableP"
 - !private "s25LosslessStringConvertibleP"
 - "13StulinProject4MineC"
-- !private "s17MutableCollectionP"
+- "s17MutableCollectionP"
 - !private "Sq"
 - !private "13StulinProject10PostActionP"
 - !private "13StulinProject9PreActionP"
-- !private "s22RandomAccessCollectionP"
-- !private "s26RangeReplaceableCollectionP"
+- "s22RandomAccessCollectionP"
+- "s26RangeReplaceableCollectionP"
 - "s8SequenceP"
 - !private "s12StaticStringV"
 - "13StulinProject4TankC"
-- !private "s14_ArrayProtocolP"
-- !private "s23_BidirectionalIndexableP"
+- "s14_ArrayProtocolP"
+- "s23_BidirectionalIndexableP"
 - "10Foundation13_CFBridgeableP"
-- !private "s24_DestructorSafeContainerP"
+- "s24_DestructorSafeContainerP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - "s10_IndexableP"
 - "s14_IndexableBaseP"
-- !private "s17_MutableIndexableP"
+- "s17_MutableIndexableP"
 - "10Foundation13_NSBridgeableP"
 - "10Foundation17_ObjectBridgeableP"
 - "10Foundation21_ObjectTypeBridgeableP"
 - !private "s26_OptionalNilComparisonTypeV"
-- !private "s22_RandomAccessIndexableP"
-- !private "s26_RangeReplaceableIndexableP"
+- "s22_RandomAccessIndexableP"
+- "s26_RangeReplaceableIndexableP"
 depends-dynamic-lookup:
 depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
@@ -269,4 +282,4 @@ depends-external:
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/home/learnswift/Downloads/swift-4.0.2-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-interface-hash: "526bcd8906cfd69d206e06065f5ad007"
+interface-hash: "6f460f5e0a9dc1d960e9d5994f83031a"

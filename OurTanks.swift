@@ -33,12 +33,7 @@ class tankSY : Tank { //this is our tank
     }
 
     override func computePreActions() {
-<<<<<<< HEAD:Tanks.swift
-        addPreAction(adding: ShieldAction(power: 300))
-=======
-        addPreAction(preAction: RadarAction(range: 3))
         super.computePreActions()
->>>>>>> 4859a1e22a63c04cb960555f351dff5d5cc3b97b:OurTanks.swift
     }
 
     override func computePostActions() {
@@ -50,7 +45,7 @@ class tankSY : Tank { //this is our tank
 }
 
 class fire: Tank {
-    
+
     override func computePreActions() {
         addPreAction(preAction: RadarAction(range: 3))
     }
