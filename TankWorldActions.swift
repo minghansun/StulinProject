@@ -49,9 +49,10 @@ extension TankWorld {
         applyCost(tank, amount: Constants.costOfRadarByUnitDistance[r])
 
         var result = RadarResult()
-        for e in findObjectsWithinRange(tank.position, range: r) {
-            result.information.append((position: e.position, id: e.id, energy: e.energy))
+        for e in findObjectsWithinRange(tank.position, range: r)  {
+            result.information.append((e,grid[e.row][e.col]!.id,grid[e.row][e.col]!.energy))
         }
+        logger.addLog(tank, "the radar has been successfully deployed and information collected: \(result)")
 
         tank.newRadarResult(result: result)
     }

@@ -92,12 +92,12 @@ extension TankWorld {
         return result.filter{isValidPosition($0)}
     }
 
-    func findObjectsWithinRange (_ position: Position, range: Int) -> [GameObject] {
-        var result = [GameObject]()
+    func findObjectsWithinRange (_ position: Position, range: Int) -> [Position] {
+        var result = [Position]()
         for e in 0...14 {
             for h in 0...14 {
-                if grid[e][h] != nil && distance(position, Position(e,h)) <= range  {
-                    result.append(grid[e][h]!)
+                if grid[e][h] != nil && distance(position, Position(e,h)) <= range && distance(position, Position(e,h)) != 0 {
+                    result.append(Position(e,h))
                 }
             }
         }
