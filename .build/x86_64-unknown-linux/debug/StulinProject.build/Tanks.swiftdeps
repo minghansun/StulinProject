@@ -19,6 +19,7 @@ depends-top-level:
 - !private "MissileAction"
 - !private "MoveAction"
 - !private "Position"
+- !private "ShieldAction"
 - "String"
 - "Tank"
 - "moveUp"
@@ -50,7 +51,9 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "MissileAction"]
 - !private ["s23CustomStringConvertibleP", "MoveAction"]
 - !private ["s23CustomStringConvertibleP", "Position"]
+- !private ["s23CustomStringConvertibleP", "ShieldAction"]
 - !private ["s23CustomStringConvertibleP", "addPostAction"]
+- !private ["s23CustomStringConvertibleP", "addPreAction"]
 - !private ["s23CustomStringConvertibleP", "append"]
 - !private ["s23CustomStringConvertibleP", "computePostActions"]
 - !private ["s23CustomStringConvertibleP", "getRandomInt"]
@@ -90,8 +93,10 @@ depends-member:
 - !private ["13StulinProject10GameObjectC", "MissileAction"]
 - !private ["13StulinProject10GameObjectC", "MoveAction"]
 - !private ["13StulinProject10GameObjectC", "Position"]
+- !private ["13StulinProject10GameObjectC", "ShieldAction"]
 - ["13StulinProject10GameObjectC", "String"]
 - !private ["13StulinProject10GameObjectC", "addPostAction"]
+- !private ["13StulinProject10GameObjectC", "addPreAction"]
 - ["13StulinProject10GameObjectC", "chanceOf"]
 - ["13StulinProject10GameObjectC", "computePostActions"]
 - ["13StulinProject10GameObjectC", "computePreActions"]
@@ -119,6 +124,7 @@ depends-member:
 - !private ["s7NumericP", "init"]
 - !private ["13StulinProject8PositionV", "init"]
 - !private ["13StulinProject10PostActionP", "init"]
+- !private ["13StulinProject9PreActionP", "init"]
 - !private ["s22RandomAccessCollectionP", "append"]
 - !private ["s22RandomAccessCollectionP", "init"]
 - !private ["s22RandomAccessCollectionP", "subscript"]
@@ -128,6 +134,8 @@ depends-member:
 - !private ["s8SequenceP", "append"]
 - !private ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "subscript"]
+- !private ["13StulinProject12ShieldActionV", "deinit"]
+- !private ["13StulinProject12ShieldActionV", "init"]
 - !private ["s13SignedIntegerP", "init"]
 - !private ["s13SignedNumericP", "init"]
 - !private ["s10StrideableP", "init"]
@@ -137,8 +145,10 @@ depends-member:
 - !private ["13StulinProject4TankC", "MissileAction"]
 - !private ["13StulinProject4TankC", "MoveAction"]
 - !private ["13StulinProject4TankC", "Position"]
+- !private ["13StulinProject4TankC", "ShieldAction"]
 - ["13StulinProject4TankC", "String"]
 - !private ["13StulinProject4TankC", "addPostAction"]
+- !private ["13StulinProject4TankC", "addPreAction"]
 - ["13StulinProject4TankC", "chanceOf"]
 - ["13StulinProject4TankC", "computePostActions"]
 - ["13StulinProject4TankC", "computePreActions"]
@@ -196,8 +206,10 @@ depends-member:
 - ["13StulinProject6tankSYC", "Direction"]
 - ["13StulinProject6tankSYC", "Int"]
 - !private ["13StulinProject6tankSYC", "MoveAction"]
+- !private ["13StulinProject6tankSYC", "ShieldAction"]
 - ["13StulinProject6tankSYC", "String"]
 - !private ["13StulinProject6tankSYC", "addPostAction"]
+- !private ["13StulinProject6tankSYC", "addPreAction"]
 - ["13StulinProject6tankSYC", "chanceOf"]
 - ["13StulinProject6tankSYC", "computePostActions"]
 - ["13StulinProject6tankSYC", "computePreActions"]
@@ -236,9 +248,11 @@ depends-nominal:
 - !private "s7NumericP"
 - !private "13StulinProject8PositionV"
 - !private "13StulinProject10PostActionP"
+- !private "13StulinProject9PreActionP"
 - !private "s22RandomAccessCollectionP"
 - !private "s26RangeReplaceableCollectionP"
 - !private "s8SequenceP"
+- !private "13StulinProject12ShieldActionV"
 - !private "s13SignedIntegerP"
 - !private "s13SignedNumericP"
 - !private "s10StrideableP"

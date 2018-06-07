@@ -30,7 +30,7 @@ class tankSY : Tank { //this is our tank
     }
 
     override func computePreActions() {
-
+        addPreAction(adding: ShieldAction(power: 300))
     }
 
     override func computePostActions() {

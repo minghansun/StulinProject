@@ -65,7 +65,7 @@ extension TankWorld {
             return
         }
 
-        tank.addEnergyToShield(amount: setShieldsAction.power)
+        tank.addEnergyToShield(amount: setShieldsAction.power * Constants.shieldPowerMultiple)
     }
 
     func actionMove (tank: Tank, moveAction: MoveAction) {
@@ -116,13 +116,26 @@ extension TankWorld {
 
         if !isPositionEmpty(destination) {
             let objective = grid[destination.row][destination.col]!
+            var power = fireMissleAction.power
+            if objective.objectType == .Tank{
+                let preShield = objective.shield
+                if preShield >= power{
+                    objective.shield Tank -= power
+                    logger.addLog(tank, "Hit \(objective.id), but all the energy was absorbed by shields")
+                    logger.addLog(objective, "Shields depleated from \(preShield) to \(objective.shield)")
+                }else{
+                    power -= preShield
+                    objective.shield = 0
+                    objective.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple)
+                    logger.addLog(objective, "Shields breached")
+                    logger.addLog(tank, "Hit \(objective.id) at \(objective.position) causing \( fireMissleAction.power * Constants.missileStrikeMultiple) damage")
+                }
 
-            let currentEnergy = objective.energy
-            objective.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple)
+            }
             logger.addLog(tank, "hit \(objective.id) at \(objective.position) causing \( fireMissleAction.power * Constants.missileStrikeMultiple) damage")
             if isDead(objective) {
                 tank.addEnergy(amount: currentEnergy / 4)
-                logger.addLog(tank, "took \(currentEnergy / 4) energy from \(objective.id)")
+                logger.addLog(tank, "took \(objective.energy / 4) energy from \(objective.id)")
             }
         } // this could be a major source of error
 

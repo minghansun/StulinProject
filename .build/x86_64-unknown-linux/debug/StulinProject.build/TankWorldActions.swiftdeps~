@@ -14,9 +14,13 @@ depends-top-level:
 - !private "!"
 - !private "!="
 - !private "*"
+- !private "-="
 - !private "/"
 - !private "=="
+- !private ">"
+- !private ">="
 - "AssignmentPrecedence"
+- "CastingPrecedence"
 - !private "Constants"
 - "DropMineAction"
 - !private "MessageCenter"
@@ -32,6 +36,7 @@ depends-top-level:
 - "Tank"
 - "TankWorld"
 - "TernaryPrecedence"
+- !private "currentEnergy"
 depends-member:
 - !private ["13StulinProject6ActionP", "absoluteDestination"]
 - !private ["13StulinProject6ActionP", "direction"]
@@ -63,6 +68,7 @@ depends-member:
 - !private ["13StulinProject9ConstantsV", "costOfSendingMessage"]
 - !private ["13StulinProject9ConstantsV", "mineStrikeMultiple"]
 - !private ["13StulinProject9ConstantsV", "missileStrikeMultiple"]
+- !private ["13StulinProject9ConstantsV", "shieldPowerMultiple"]
 - !private ["s28CustomDebugStringConvertibleP", "Tank"]
 - !private ["s28CustomDebugStringConvertibleP", "append"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
@@ -97,6 +103,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "range"]
 - !private ["s23CustomStringConvertibleP", "row"]
 - !private ["s23CustomStringConvertibleP", "setReceivedMessage"]
+- !private ["s23CustomStringConvertibleP", "shield"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "useEnergy"]
 - !private ["s9DecodableP", "Tank"]
@@ -133,6 +140,7 @@ depends-member:
 - !private ["13StulinProject10GameObjectC", "objectType"]
 - !private ["13StulinProject10GameObjectC", "position"]
 - !private ["13StulinProject10GameObjectC", "setReceivedMessage"]
+- !private ["13StulinProject10GameObjectC", "shield"]
 - !private ["13StulinProject10GameObjectC", "useEnergy"]
 - !private ["13StulinProject14GameObjectTypeO", "Mine"]
 - !private ["13StulinProject14GameObjectTypeO", "Rover"]
@@ -216,6 +224,7 @@ depends-member:
 - ["13StulinProject9TankWorldC", "actionSendMessage"]
 - ["13StulinProject9TankWorldC", "actionSetShield"]
 - !private ["13StulinProject9TankWorldC", "applyCost"]
+- !private ["13StulinProject9TankWorldC", "currentEnergy"]
 - !private ["13StulinProject9TankWorldC", "distance"]
 - !private ["13StulinProject9TankWorldC", "doTheMoving"]
 - !private ["13StulinProject9TankWorldC", "findFreeAdjacent"]

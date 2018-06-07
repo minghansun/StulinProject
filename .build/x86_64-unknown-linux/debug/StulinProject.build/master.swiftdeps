@@ -1,6 +1,6 @@
 version: "Swift version 4.0.2 (swift-4.0.2-RELEASE)"
 options: "07e30828b74a042aaab332f6ae0b49e2"
-build_time: [1528257301, 474602593]
+build_time: [1528307098, 224145640]
 inputs:
   "/home/learnswift/Programs/StulinProject/Actions.swift": [1528244747, 0]
   "/home/learnswift/Programs/StulinProject/Constants.swift": [1526926146, 0]
@@ -11,8 +11,8 @@ inputs:
   "/home/learnswift/Programs/StulinProject/MessageCenter.swift": [1528244747, 0]
   "/home/learnswift/Programs/StulinProject/Position.swift": [1528244747, 0]
   "/home/learnswift/Programs/StulinProject/Tank.swift": [1528256589, 0]
-  "/home/learnswift/Programs/StulinProject/Tanks.swift": [1528257297, 0]
-  "/home/learnswift/Programs/StulinProject/TankWorld.swift": [1528257256, 0]
-  "/home/learnswift/Programs/StulinProject/TankWorldActions.swift": [1528256259, 0]
+  "/home/learnswift/Programs/StulinProject/Tanks.swift": [1528295938, 0]
+  "/home/learnswift/Programs/StulinProject/TankWorld.swift": [1528295981, 0]
+  "/home/learnswift/Programs/StulinProject/TankWorldActions.swift": !private [1528307094, 0]
   "/home/learnswift/Programs/StulinProject/TankWorldDisplay.swift": [1528244747, 0]
   "/home/learnswift/Programs/StulinProject/TankWorldSupport.swift": [1528256005, 0]

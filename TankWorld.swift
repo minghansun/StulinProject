@@ -36,7 +36,7 @@ class TankWorld {
     func populateTheTankWorld () {
         addGameObject(adding: tankSY(row: 3, col: 5, energy: 100000, id: "t2", instructions: "none"))
         //addGameObject(adding: moveUp(row: 4, col: 5, energy: 100000, id: "t1", instructions: "none"))
-        //addGameObject(adding: Mine(mineorRover: .Mine, row: 3, col: 7, energy: 1000, id: "mine", moveDirection: nil))
+        addGameObject(adding: Mine(mineorRover: .Mine, row: 3, col: 7, energy: 1000, id: "mine", moveDirection: nil))
     }
 
     //handling helpers
