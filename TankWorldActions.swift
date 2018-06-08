@@ -11,10 +11,10 @@ import Foundation
 extension TankWorld {
     func actionSendMessage(tank: Tank, sendMessageAction: SendMessageAction){
         if isDead(tank){return}
-        logger.addLog(tank, "Sending Message \(sendMessageAction)")
+        logger.addLog(tank, "sending message \(sendMessageAction)")
 
         if !isEnergyAvailable(tank, amount: Constants.costOfSendingMessage){
-            logger.addLog(tank, "Insufficient energy to send message")
+            logger.addLog(tank, "insufficient energy to send message")
             return
         }
 
@@ -24,10 +24,10 @@ extension TankWorld {
 
     func actionReceiveMessage(tank: Tank, receiveMessageAction: ReceiveMessageAction){
         if isDead(tank){return}
-        logger.addLog(tank, "Receiving Message \(receiveMessageAction)")
+        logger.addLog(tank, "receiving message \(receiveMessageAction)")
 
         if !isEnergyAvailable(tank, amount: Constants.costOfReceivingMessage){
-            logger.addLog(tank, "Insufficient energy to send message")
+            logger.addLog(tank, "insufficient energy to receive message")
             return
         }
 
@@ -40,9 +40,9 @@ extension TankWorld {
         let r = runRadarAction.range //for simplicity
         if isDead(tank){return}
 
-        logger.addLog(tank, "Running radar with radius \(r)")
+        logger.addLog(tank, "\(runRadarAction)")
         if !isEnergyAvailable(tank, amount: Constants.costOfRadarByUnitDistance[r]) {
-            logger.addLog(tank, "Insufficient energy to run radar")
+            logger.addLog(tank, "insufficient energy to run radar")
             return
         }
 
@@ -60,21 +60,22 @@ extension TankWorld {
     func actionSetShield (tank: Tank, setShieldsAction: ShieldAction) {
         if isDead(tank) {return}
 
-        logger.addLog(tank, "setting sheild with energy \(setShieldsAction.power)")
+        logger.addLog(tank, "\(setShieldsAction)")
         if !isEnergyAvailable(tank, amount: setShieldsAction.power) {
-            logger.addLog(tank, "Insufficient energy to set shield")
+            logger.addLog(tank, "insufficient energy to set shield")
             return
         }
 
         tank.addEnergyToShield(amount: setShieldsAction.power * Constants.shieldPowerMultiple)
+        logger.addLog(tank, "a shield with strength \(setShieldsAction.power) has been set")
     }
 
     func actionMove (tank: Tank, moveAction: MoveAction) {
         if isDead(tank) {return}
 
-        logger.addLog(tank, "Moving \(moveAction.distance) towards \(moveAction.direction)")
+        logger.addLog(tank, "\(moveAction)")
         if !isEnergyAvailable(tank, amount: Constants.costOfFMovingTanksPerUnitDistance[moveAction.distance]) {
-            logger.addLog(tank, "Insufficient energy to move")
+            logger.addLog(tank, "insufficient energy to move")
             return
         }
 
@@ -96,60 +97,79 @@ extension TankWorld {
 
             }
         // this switch statement could be a source of error
-
         }
 
 
     func actionFireMissle (tank: Tank, fireMissleAction: MissileAction) {
         let destination = fireMissleAction.absoluteDestination
         if isDead(tank) {return}
-        tank.useEnergy(amount: fireMissleAction.power)
+        applyCost(tank, amount: fireMissleAction.power)
 
-        logger.addLog(tank, "firing missle to \(destination) with \(fireMissleAction.power) power")
+        logger.addLog(tank, "\(fireMissleAction)")
+        
         if !isEnergyAvailable(tank, amount: Constants.costOfLaunchingMissle * distance(tank.position, destination)) {
-            logger.addLog(tank, "Insufficient energy to fire missile")
+            logger.addLog(tank, "insufficient energy to fire missile")
             return
         }
 
         if !isValidPosition(destination) {
-            logger.addLog(tank, "Firing missile failed because \(destination) is not a valid location")
-            return}
+            logger.addLog(tank, "firing missile failed because \(destination) is not a valid location")
+            return
+        }
 
         if !isPositionEmpty(destination) {
             let objective = grid[destination.row][destination.col]!
-            var power = fireMissleAction.power
+            var power = fireMissleAction.power * Constants.missileStrikeMultiple
+            let energyToBeCollected = objective.energy / 4
             if objective.objectType == .Tank{
                 let tankObj = objective as! Tank
                 let preShield = tankObj.shield
                 if preShield >= power{
                     tankObj.shield -= power
-                    logger.addLog(tank, "Hit \(objective.id), but all the energy was absorbed by shields")
-                    logger.addLog(tankObj, "Shields depleated from \(preShield) to \(tankObj.shield)")
-                }else{
+                    logger.addLog(tank, "hit \(objective.id), but all the damage was absorbed by shields")
+                    logger.addLog(tankObj, "shields strength reduced from \(preShield) units to \(tankObj.shield) units")
+                } else {
                     power -= preShield
-                    objective.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple)
-                    logger.addLog(objective, "Shields breached")
-                    logger.addLog(tank, "Hit \(objective.id) at \(objective.position) causing \( fireMissleAction.power * Constants.missileStrikeMultiple) damage")
+                    objective.useEnergy(amount: power)
+                    logger.addLog(tank, "hit \(tankObj.id) at \(tankObj.position) causing \(power) units of damage; the shields of \(tankObj.id) is breached")
+                    //logger.addLog(tankObj, "shields breached")
+
                 }
 
             }
-            logger.addLog(tank, "hit \(objective.id) at \(objective.position) causing \( fireMissleAction.power * Constants.missileStrikeMultiple) damage")
+            
             if isDead(objective) {
-                tank.addEnergy(amount: objective.energy / 4)
-                logger.addLog(tank, "took \(objective.energy / 4) energy from \(objective.id)")
+                tank.addEnergy(amount: energyToBeCollected)
+                logger.addLog(tank, "took \(energyToBeCollected) units of energy from \(objective.id)")
             }
-        } // this could be a major source of error
+        }  
 
-        for e in getSurroundingPositions(destination) where grid[e.row][e.col] != nil {
-            let currentEnergy = grid[e.row][e.col]!.energy
-            grid[e.row][e.col]!.useEnergy(amount: fireMissleAction.power * Constants.missileStrikeMultiple / 4)
-            logger.addLog(tank, "hit \(grid[e.row][e.col]!.id) at \(e) causing \(fireMissleAction.power * Constants.missileStrikeMultiple / 4) Splash damage")
+        //now this is for collateral damages, and I don't think you can damage yourself, so I modified a few things
+        for e in getSurroundingPositions(destination) where grid[e.row][e.col] != nil && distance(Position(e.row,e.col), tank.position) != 0 {
+            let objective = grid[e.row][e.col]!
+            var power = fireMissleAction.power * Constants.missileStrikeMultipleCollateral
+            let energyToBeCollected = objective.energy
+            if objective.objectType == .Tank{
+                let tankObj = objective as! Tank
+                let preShield = tankObj.shield
+                if preShield >= power {
+                    tankObj.shield -= power
+                    logger.addLog(tank, "splash hit \(objective.id), but all the damage was absorbed by shields")
+                    logger.addLog(tankObj, "shields strength reduced from \(preShield) units to \(tankObj.shield) units")
+                } else {
+                    power -= preShield
+                    objective.useEnergy(amount: power)
+                    logger.addLog(tank, "splash hit \(objective.id) at \(objective.position) causing \(power) units of collateral damage; the shields of \(tankObj.id) is breached")
+                }
+            }
+            
             if isDead(grid[e.row][e.col]!) {
-                tank.addEnergy(amount: currentEnergy / 4)
-                logger.addLog(tank, "took \(currentEnergy / 4) energy from \(grid[e.row][e.col]!.id)")
+                tank.addEnergy(amount: energyToBeCollected)
+                logger.addLog(tank, "took \(energyToBeCollected) units of energy from \(grid[e.row][e.col]!.id)")
             }
 
         }
+        //checkAndRemove()
     }
 
     func actionDropMine (tank: Tank, dropMineAction: DropMineAction) {
@@ -159,10 +179,11 @@ extension TankWorld {
         logger.addLog(tank, "dropping \(type) with energy \(dropMineAction.power)")
 
         if !isEnergyAvailable(tank, amount: Constants.costOfReleasingMine) {
-            logger.addLog(tank, "Insufficient energy to drop \(type)")
+            logger.addLog(tank, "insufficient energy to drop \(type)")
             return
         }
-        if findFreeAdjacent(tank.position) == nil{
+        
+        if findFreeAdjacent(tank.position) == nil {
             logger.addLog(tank, "no free adjacent space to drop \(type)")
         }
 
@@ -173,7 +194,7 @@ extension TankWorld {
         } else if isEnergyAvailable(tank, amount: Constants.costOfReleasingRover) {
             let dropPosition = findFreeAdjacent(tank.position)!
             grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Rover, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection : nil)
-            logger.addLog(tank, "a rover has been dropped, at \(dropPosition), with \(dropMineAction.power) units of power")
+            logger.addLog(tank, "a rover has been dropped, at \(dropPosition), with \(dropMineAction.power) units of energy")
 
         }
     } // I assumed that the drop direction is always random

@@ -29,7 +29,7 @@ struct MoveAction : PostAction {
     let direction : Direction
 
     var description: String {
-        return "\(action) \(distance) \(direction)"
+        return "moving \(distance) units towards the \(direction)"
     }
 
     init(distance: Int, direction: Direction) {
@@ -45,7 +45,7 @@ struct MissileAction : PostAction {
     let absoluteDestination : Position
 
     var description: String {
-        return "\(action) \(power) \(absoluteDestination)"
+        return "firing missle to \(absoluteDestination) with \(power) units of power"
     }
 
     init (power: Int, destination: Position) {
@@ -60,7 +60,7 @@ struct ShieldAction : PreAction {
     let action : Actions
 
     var description: String {
-        return "\(action) \(power)"
+        return "setting sheild with strength \(power) units"
     }
 
     init (power: Int) {
@@ -74,7 +74,7 @@ struct RadarAction : PreAction {
     let action : Actions
 
     var description: String {
-        return "\(action) \(range)"
+        return "running radar with radius \(range) units"
     }
 
     init (range: Int) {

@@ -166,6 +166,63 @@ extension TankWorld {
     func getRandomInt (range: Int) -> Int {
         return Int(arc4random_uniform(UInt32(range)))
     }
+    
+    func checkAndRemove () {
+        for e in findAllGameObjects() {
+            if isDead(e) {
+                grid[e.position.row][e.position.col] = nil
+            }
+        }
+    }
+    
+    func remove (_ obj: GameObject) {
+        grid[obj.position.row][obj.position.col] = nil
+    }
+    
+    func movingRovers () {
+        let allRovers = randomizeGameObjects(gameObjects: findAllRovers())
+        for e in allRovers where !isDead(e) {
+            if !isEnergyAvailable(e, amount: Constants.costOfMovingRover) {
+                logger.addLog(e, "insufficient energy to move rover")
+            }
+            
+            applyCost(e, amount: Constants.costOfMovingRover)
+            
+            if e.moveDirection != nil {
+                logger.addLog(e, "about to move rover in the fixed direction \(e.moveDirection!)")
+                let newPlace = newPosition(position: e.position, direction: e.moveDirection!, magnitude: 1)
+                if !isValidPosition(newPlace) {
+                    logger.addLog(e, "the move fails as the new position \(newPlace) dictated by the fixed direction is not valid")
+                    return
+                }
+                if isPositionEmpty(newPlace) {
+                    doTheMoving(object: e, destination: newPlace)
+                    logger.addLog(e, "the move succeeds as \(newPlace) is empty")
+                } else {
+                    grid[newPlace.row][newPlace.col]!.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
+                    grid[e.position.row][e.position.col] = nil
+                    logger.addLog(e, "the move fails; however the rover successfully struck \(grid[newPlace.row][newPlace.col]!.id) at \(newPlace), causing \(e.energy * Constants.mineStrikeMultiple) units of damage")
+                }
+            }
+            
+            else {
+                logger.addLog(e, "about to move randomly")
+                let possibles = getSurroundingPositions(e.position)
+                let destination = possibles[getRandomInt(range: possibles.count)]
+                if isPositionEmpty(destination) {
+                    doTheMoving(object: e, destination: destination)
+                    logger.addLog(e, "the move succeeds as \(destination) is empty")
+                } else {
+                    grid[destination.row][destination.col]!.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
+                    grid[e.position.row][e.position.col] = nil
+                    logger.addLog(e, "the move fails; however the rover successfully struck \(grid[destination.row][destination.col]!.id) at \(destination), causing \(e.energy * Constants.mineStrikeMultiple) units of damage")
+                }
+            }
+            
+            
+        }
+    }
+    
     /*func getRandomInt (range: Int) -> Int {
      return Int(rand()) % range
      }*/
