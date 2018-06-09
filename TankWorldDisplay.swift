@@ -10,13 +10,13 @@ import Foundation
 //import Glibc
 
 extension TankWorld {
-    func formatToGrid(_ value: String)-> String{
-        var yes = ""
+    func formatToGrid(_ value: String)-> String {
+        var string = ""
         for _ in 0..<10 - value.count{
-            yes += " "
+            string += " "
         }
-        yes += value + "|"
-        return yes
+        string += value + "|"
+        return string
     }
     
     func gridReport() {
@@ -30,9 +30,9 @@ extension TankWorld {
             var row2 = "|"
             var row3 = "|"
             var row4 = "|"
-            for x in 0...14{
+            for x in 0...14 {
                 row4 += "----------|"
-                if let thing = grid[y][x]{
+                if let thing = grid[y][x] {
                     row0 += formatToGrid(thing.id)
                     row1 += formatToGrid(String(thing.energy))
                     row2 += formatToGrid("(\(y), \(x))")
@@ -52,5 +52,13 @@ extension TankWorld {
             print(row4)
         }
     }
+    
+    /*func succintReport () {
+        
+        for e in findAllGameObjects() {
+            print("\(e.id) \(e.position) \(e.energy)")
+        }
+        
+    }*/
 }
 

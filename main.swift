@@ -10,8 +10,5 @@ import Foundation
 //import Glibc
 
 var x = TankWorld()
-x.populateTheTankWorld()
 
-for _ in 0...5 {
-    x.runOneTurn()
-}
+x.driver()

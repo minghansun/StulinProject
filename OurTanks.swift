@@ -47,15 +47,18 @@ class tankSY : Tank { //this is our tank
 class fire: Tank {
 
     override func computePreActions() {
-        addPreAction(preAction: RadarAction(range: 3))
+        addPreAction(preAction: RadarAction(range: 5))
     }
     override func computePostActions() {
-        
         //addPostAction(postAction: MissileAction(power: 10000, destination: Position(3, 6)))
-        addPostAction(postAction: DropMineAction(power: 2000, isRover: true, dropDirection: nil, moveDirection: .north, id: "r\(turn)"))
+        if Turn <= 5 {
+            addPostAction(postAction: DropMineAction(power: 2000, isRover: true, dropDirection: nil, moveDirection: .north, id: "r\(Turn)")) }
         newTurn()
         super.computePostActions()
     }
 }
 
+class blankTank : Tank {
+    
+}
 

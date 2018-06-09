@@ -11,10 +11,6 @@ import Foundation
 
 
 extension TankWorld {
-    /*func applyCost (tank: Tank, amount: Int){
-        tank.useEnergy(amount: amount)
-    }*/
-
 
     func newPosition (position: Position, direction: Direction, magnitude k: Int) -> Position {
 
@@ -52,7 +48,7 @@ extension TankWorld {
     }
 
     func isDead (_ gameObject: GameObject) -> Bool {
-        return gameObject.energy < 0
+        return gameObject.energy <= 0
     }
 
     func isEnergyAvailable (_ gameObject: GameObject, amount: Int) -> Bool {
@@ -128,13 +124,9 @@ extension TankWorld {
         directions.append(.northwest)
         directions.append(.northeast)
         directions.append(.southeast)
-        directions.append(.southeast)
+        directions.append(.southwest)
         return directions[getRandomInt(range: 7)]
     }
-
-    //func getRandomInt (range: Int) -> Int {
-    //    return Int(arc4random_uniform(UInt32(range)))
-    //}
 
     func randomizeGameObjects<T: GameObject> (gameObjects : [T]) -> [T] {
 
@@ -153,7 +145,8 @@ extension TankWorld {
 
     func findFreeAdjacent (_ position: Position) -> Position? {
         let x = getLegalSurroundingPositions(position)
-        return x[getRandomInt(range: x.count)] // could be a source of error
+        if x.count == 0 {return nil}
+        return x[getRandomInt(range: x.count)]
     }
 
     func doTheMoving (object: GameObject, destination: Position) {
@@ -161,79 +154,16 @@ extension TankWorld {
         grid[object.position.row][object.position.col] = nil
         object.setPosition(newPosition: destination)
     }
+    
     //this can be applied only after all the conditions for a legal move have been met. This changes the grid!!!!!!
 
     func getRandomInt (range: Int) -> Int {
         return Int(arc4random_uniform(UInt32(range)))
     }
     
-    /*func checkAndRemove () {
-        for e in findAllGameObjects() {
-            if isDead(e) {
-                grid[e.position.row][e.position.col] = nil
-            }
-        }
-    }*/
-    
-    func remove (at: Position) {
-        grid[at.row][at.col] = nil
-    }
-    
-    
-    func movingRovers () {
-        let allRovers = randomizeGameObjects(gameObjects: findAllRovers())
-        for e in allRovers where !isDead(e) {
-            if !isEnergyAvailable(e, amount: Constants.costOfMovingRover) {
-                logger.addLog(e, "insufficient energy to move rover")
-            }
-            
-            applyCost(e, amount: Constants.costOfMovingRover)
-            
-            if e.moveDirection != nil {
-                logger.addLog(e, "about to move rover in the fixed direction \(e.moveDirection!)")
-                let newPlace = newPosition(position: e.position, direction: e.moveDirection!, magnitude: 1)
-                if !isValidPosition(newPlace) {
-                    logger.addLog(e, "the move fails as the new position \(newPlace) dictated by the fixed direction is not valid")
-                    return
-                }
-                if isPositionEmpty(newPlace) {
-                    doTheMoving(object: e, destination: newPlace)
-                    logger.addLog(e, "the move succeeds as \(newPlace) is empty")
-                } else {
-                    if grid[newPlace.row][newPlace.col]!.objectType == .Tank {
-                        grid[newPlace.row][newPlace.col]!.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
-                        logger.addLog(e, "the move fails; however the rover successfully struck \(grid[newPlace.row][newPlace.col]!.id) at \(newPlace), causing \(e.energy * Constants.mineStrikeMultiple) units of damage")
-                    }
-                    else {
-                        remove(at:newPlace)
-                        remove(at:e.position)
-                        logger.addLog(e, "the move fails; however the rover successfully struck another explosive at \(newPlace); both objects died and removed")
-                    }
-                }
-            }
-            
-            else {
-                logger.addLog(e, "about to move randomly")
-                let possibles = getSurroundingPositions(e.position)
-                let destination = possibles[getRandomInt(range: possibles.count)]
-                if isPositionEmpty(destination) {
-                    doTheMoving(object: e, destination: destination)
-                    logger.addLog(e, "the move succeeds as \(destination) is empty")
-                } else {
-                    if grid[destination.row][destination.col]!.objectType == .Tank {
-                        grid[destination.row][destination.col]!.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
-                        logger.addLog(e, "the move fails; however the rover successfully struck \(grid[destination.row][destination.col]!.id) at \(destination), causing \(e.energy * Constants.mineStrikeMultiple) units of damage")
-                    }
-                    else {
-                        remove(at: destination)
-                        remove(at:e.position)
-                        logger.addLog(e, "the move fails; however the rover successfully struck another explosive at \(destination); both objects died")
-                    }
-                }
-            }
-            
-            
-        }
+    func killTheObject (_ obj: GameObject) {
+        obj.useEnergy(amount: obj.energy)
+        remove(obj)
     }
     
     /*func getRandomInt (range: Int) -> Int {

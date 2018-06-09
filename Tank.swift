@@ -11,13 +11,13 @@ import Foundation
 
 
 class Tank : GameObject {
-    var shield = 0
+    private (set) var shield = 0
     private var receivedMessage: String?
     private (set) var preActions = [Actions: PreAction]()
     private (set) var postActions = [Actions: PostAction]()
     let initialInstructions: String?
     private (set) var radarResults =  [RadarResult]()
-    private (set) var turn = 1 // for testing
+    private (set) var Turn = 1 // for testing
 
     init(row: Int, col: Int, energy: Int, id: String, instructions: String) {
         initialInstructions = instructions
@@ -25,7 +25,7 @@ class Tank : GameObject {
     }
     
     final func newTurn () { // for testing
-        turn += 1
+        Turn += 1
     }
 
     override func liveSupport () {
@@ -36,6 +36,10 @@ class Tank : GameObject {
         shield += amount
     }
 
+    final func depleteEnergyFromShield (amount: Int) {
+        shield -= amount
+    }
+    
     final func clearShieldEnergy () {
         shield = 0
     }

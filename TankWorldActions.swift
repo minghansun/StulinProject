@@ -52,7 +52,7 @@ extension TankWorld {
         for e in findObjectsWithinRange(tank.position, range: r)  {
             result.information.append((e,grid[e.row][e.col]!.id,grid[e.row][e.col]!.energy))
         }
-        logger.addLog(tank, "the radar has been successfully deployed and information collected: \(result)")
+        logger.addLog(tank, "the results of the radar are: \(result)")
 
         tank.newRadarResult(result: result)
     }
@@ -96,7 +96,7 @@ extension TankWorld {
         logger.addLog(tank, "the move has succeeded, but due to the presence of an explosive, it loses \(grid[newPlace.row][newPlace.col]!.energy * Constants.mineStrikeMultiple)")
         if isDead(tank) {
             logger.addLog(tank, "the tank is dead in the process of moving")
-            remove(at:tank.position)
+            remove(tank)
             return
         }
         else {doTheMoving(object: tank, destination: newPlace)}
@@ -131,13 +131,13 @@ extension TankWorld {
                 let tankObj = objective as! Tank
                 let preShield = tankObj.shield
                 if preShield >= power{
-                    tankObj.shield -= power
+                    tankObj.depleteEnergyFromShield(amount: power)
                     logger.addLog(tank, "hit \(objective.id), but all the damage was absorbed by shields")
-                    logger.addLog(tankObj, "shields strength reduced from \(preShield) units to \(tankObj.shield) units")
+                    logger.addLog(tankObj, "shields strength reduced from \(preShield) to \(tankObj.shield)")
                 } else {
                     power -= preShield
                     objective.useEnergy(amount: power)
-                    logger.addLog(tank, "hit \(tankObj.id) at \(tankObj.position) causing \(power) units of damage; the shields of \(tankObj.id) is breached")
+                    logger.addLog(tank, "hit \(tankObj.id) at \(tankObj.position) causing \(power) damage; the shields of \(tankObj.id) is breached")
                     //logger.addLog(tankObj, "shields breached")
 
                 }
@@ -146,7 +146,7 @@ extension TankWorld {
             
             if isDead(objective) {
                 tank.addEnergy(amount: energyToBeCollected)
-                logger.addLog(tank, "took \(energyToBeCollected) units of energy from \(objective.id)")
+                logger.addLog(tank, "took \(energyToBeCollected) energy from \(objective.id)")
             }
         }  
 
@@ -159,19 +159,19 @@ extension TankWorld {
                 let tankObj = objective as! Tank
                 let preShield = tankObj.shield
                 if preShield >= power {
-                    tankObj.shield -= power
+                    tankObj.depleteEnergyFromShield(amount: power)
                     logger.addLog(tank, "splash hit \(objective.id), but all the damage was absorbed by shields")
-                    logger.addLog(tankObj, "shields strength reduced from \(preShield) units to \(tankObj.shield) units")
+                    logger.addLog(tankObj, "shields strength reduced from \(preShield) to \(tankObj.shield)")
                 } else {
                     power -= preShield
                     objective.useEnergy(amount: power)
-                    logger.addLog(tank, "splash hit \(objective.id) at \(objective.position) causing \(power) units of collateral damage; the shields of \(tankObj.id) is breached")
+                    logger.addLog(tank, "splash hit \(objective.id) at \(objective.position) causing \(power) collateral damage; the shields of \(tankObj.id) is breached")
                 }
             }
             
             if isDead(grid[e.row][e.col]!) {
                 tank.addEnergy(amount: energyToBeCollected)
-                logger.addLog(tank, "took \(energyToBeCollected) units of energy from \(grid[e.row][e.col]!.id)")
+                logger.addLog(tank, "took \(energyToBeCollected) energy from \(grid[e.row][e.col]!.id)")
             }
 
         }
@@ -180,14 +180,14 @@ extension TankWorld {
     func actionDropMine (tank: Tank, dropMineAction: DropMineAction) {
         if isDead(tank) {return}
         let type = (dropMineAction.isRover) ? GameObjectType.Rover : GameObjectType.Mine
-        let directionMessage = (dropMineAction.dropDirection == nil) ? "randomly" : "to the \(dropMineAction.dropDirection)!"
+        let directionMessage = (dropMineAction.dropDirection == nil) ? "randomly" : "to the \(String(describing: dropMineAction.dropDirection))!"
 
-        logger.addLog(tank, "dropping \(type) \(directionMessage) with \(dropMineAction.power) units of energy")
+        logger.addLog(tank, "dropping \(type) \(directionMessage) with \(dropMineAction.power) energy")
         
         if findFreeAdjacent(tank.position) == nil {
             logger.addLog(tank, "the drop fails as there are no free spaces")
+            return
         }
-        
         
         if (type == .Rover && !isEnergyAvailable(tank, amount: Constants.costOfReleasingRover + dropMineAction.power)) || (type == .Mine && !isEnergyAvailable(tank, amount: Constants.costOfReleasingMine + dropMineAction.power)) {
             logger.addLog(tank, "insufficient energy to drop \(type)")
@@ -196,8 +196,8 @@ extension TankWorld {
         
             if dropMineAction.dropDirection == nil {
                 let dropPosition = findFreeAdjacent(tank.position)!
-                grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: type, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
-                logger.addLog(tank, "a \(type) \(dropMineAction.id) has been dropped at \(dropPosition), with \(dropMineAction.power) units of energy")
+                addGameObject(adding: Mine(mineorRover: type, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection))
+                logger.addLog(tank, "a \(type) \(dropMineAction.id) has been dropped at \(dropPosition)")
             }
             //fixed directoion dropping is below
             else {
@@ -207,24 +207,76 @@ extension TankWorld {
                     return
                 }
                 if !isPositionEmpty(dropPosition) {
-                    logger.addLog(tank, "the drop fails as the drop position \(dropPosition) is not emptied")
+                    logger.addLog(tank, "the drop fails as the drop position \(dropPosition) is not empty")
                     return
                 }
-                grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: type, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
-                logger.addLog(tank, "a \(type) \(dropMineAction.id) has been dropped at \(dropPosition), with \(dropMineAction.power) units of energy")
+                addGameObject(adding: Mine(mineorRover: type, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection))
+                logger.addLog(tank, "a \(type) \(dropMineAction.id) has been dropped at \(dropPosition)")
             }
-        // the code below can be deleted. 
-        /*if !dropMineAction.isRover  {
-            let dropPosition = findFreeAdjacent(tank.position)!
-            grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Mine, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
-            logger.addLog(tank, "a mine has been dropped at \(dropPosition), with \(dropMineAction.power) units of energy")
-        } else if isEnergyAvailable(tank, amount: Constants.costOfReleasingRover) {
-            let dropPosition = findFreeAdjacent(tank.position)!
-            grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Rover, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection : nil)
-            logger.addLog(tank, "a rover has been dropped, at \(dropPosition), with \(dropMineAction.power) units of energy")
-
-        } */
-    } 
-
-
+    }
+    
+    func movingIndividualRover (e: Mine) {
+        
+        if isDead(e) {return}
+        
+        if !isEnergyAvailable(e, amount: Constants.costOfMovingRover) {
+            logger.addLog(e, "insufficient energy to move rover")
+            return 
+        }
+        
+        applyCost(e, amount: Constants.costOfMovingRover)
+        
+        if e.moveDirection != nil {
+            logger.addLog(e, "about to move \(e.id) to the \(e.moveDirection!)")
+            let newPlace = newPosition(position: e.position, direction: e.moveDirection!, magnitude: 1)
+            if !isValidPosition(newPlace) {
+                logger.addLog(e, "the move fails as the new position \(newPlace) is not valid")
+                return
+            }
+            if isPositionEmpty(newPlace) {
+                doTheMoving(object: e, destination: newPlace)
+                logger.addLog(e, "the move succeeds as \(newPlace) is empty")
+            } else {
+                let obstacle = grid[newPlace.row][newPlace.col]!
+                if obstacle.objectType == .Tank {
+                    obstacle.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
+                    logger.addLog(e, "the move fails; however \(e.id) struck \(obstacle.id) at \(newPlace), causing \(e.energy * Constants.mineStrikeMultiple) damage")
+                    killTheObject(e)
+                }
+                else {
+                    killTheObject(e)
+                    killTheObject(obstacle as! Mine)
+                    logger.addLog(e, "the move fails; however \(e.id) struck another \(obstacle.objectType) \(obstacle.id) at \(newPlace); both objects died")
+                }
+            }
+        }
+            
+        else {
+            logger.addLog(e, "about to move randomly")
+            let possibles = getSurroundingPositions(e.position)
+            let destination = possibles[getRandomInt(range: possibles.count)]
+            if isPositionEmpty(destination) {
+                doTheMoving(object: e, destination: destination)
+                logger.addLog(e, "the move succeeds as \(destination) is empty")
+            } else {
+                let obstacle = grid[destination.row][destination.col]!
+                if obstacle.objectType == .Tank {
+                    obstacle.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
+                    logger.addLog(e, "the move fails; however \(e.id) struck \(obstacle.id) at \(destination), causing \(e.energy * Constants.mineStrikeMultiple) damage")
+                    killTheObject(e)
+                }
+                else {
+                    logger.addLog(e, "the move fails; however \(e.id) struck another \(obstacle.objectType) \(obstacle.id) at \(destination); both objects died")
+                    
+                    killTheObject(obstacle as! Mine)
+                    killTheObject(e)
+                }
+            }
+        }
+    }
+    
+    func movingRovers () {
+        let allRovers = randomizeGameObjects(gameObjects: findAllRovers())
+        for e in allRovers { movingIndividualRover(e: e) }
+    }
 }

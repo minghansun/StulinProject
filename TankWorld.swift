@@ -16,15 +16,6 @@ class TankWorld {
     var numberLivingTanks = 0
     var logger = Logger()
 
-    /*subscript (_ index1: Int, _ index2: Int) -> GameObject? {
-        get {
-            return grid[index1][index2]
-        }
-        set {
-            grid[index1][index2] = newValue
-        }
-    }*/
-
     init () {
         grid = Array(repeating: Array(repeating: nil, count: 15), count: 15)
         turn = 1
@@ -35,15 +26,16 @@ class TankWorld {
         if gameObject.objectType == .Tank {numberLivingTanks += 1}
     }
     
-    func removeGameObject (removing gameObject: GameObject) {
-        grid[gameObject.position.row][gameObject.position.col] = nil
-        if gameObject.objectType == .Tank {numberLivingTanks -= 1}
+    func remove (_ obj: GameObject) {
+        grid[obj.position.row][obj.position.col] = nil
+        if obj.objectType == .Tank {numberLivingTanks -= 1}
     }
 
     func populateTheTankWorld () {
         //addGameObject(adding: tankSY(row: 3, col: 6, energy: 100000, id: "t2", instructions: "none"))
         //addGameObject(adding: tankSY(row: 4, col: 6, energy: 200000, id: "t3", instructions: "none"))
-        addGameObject(adding: fire(row: 2, col: 4, energy: 300000, id: "t1", instructions: "none"))
+        addGameObject(adding: fire(row: 4, col: 4, energy: 5000000, id: "t1", instructions: "none"))
+        addGameObject(adding: blankTank(row: 2, col: 2, energy: 2000000, id: "bt", instructions: "none"))
         //addGameObject(adding: Mine(mineorRover: .Rover, row: 4, col: 4, energy: 4000, id: "rover1", moveDirection: .north))
         /*addGameObject(adding: Mine(mineorRover: .Mine, row: 3, col: 7, energy: 1000, id: "mine", moveDirection: nil))*/
     }
@@ -87,36 +79,22 @@ class TankWorld {
     //end of handling helpers
 
     func doTurn () {
-        let allObjects  = randomizeGameObjects(gameObjects: findAllGameObjects())
+        let allObjects = randomizeGameObjects(gameObjects: findAllGameObjects())
 
         for e in allObjects {
             e.liveSupport()
             if e.objectType == .Tank{
-                logger.addLog(e, "used \(Constants.costLiveSupportTank) units of energy as life support and now has \(e.energy) units left")
+                logger.addLog(e, "used \(Constants.costLiveSupportTank) energy as life support and has \(e.energy) left")
             }
             if e.objectType == .Mine{
-                logger.addLog(e, "used \(Constants.costLiveSupportMine) units of energy as life support and now has \(e.energy) units left")
+                logger.addLog(e, "used \(Constants.costLiveSupportMine) energy as life support and has \(e.energy)  left")
             }
             if e.objectType == .Rover{
-                logger.addLog(e, "used \(Constants.costLiveSupportRover) units of energy as life support and now has \(e.energy) units left")
+                logger.addLog(e, "used \(Constants.costLiveSupportRover) energy as life support and has \(e.energy) left")
             }
         }
         
-
-        var allRovers = findAllRovers()
-        allRovers = randomizeGameObjects(gameObjects: allRovers)
         movingRovers()
-        
-
-        /*for e in allRovers {if findFreeAdjacent(e.position) != nil {
-            if e.moveDirection == nil {
-                doTheMoving(object: e, destination: findFreeAdjacent(e.position)!)
-            }
-            else {
-                doTheMoving(object: e, destination: newPosition(position: e.position, direction: e.moveDirection!, magnitude: 1))
-            }
-        }
-    }*/
 
         var allTanks = findAllTanks()
             allTanks = randomizeGameObjects(gameObjects: allTanks)
@@ -141,20 +119,22 @@ class TankWorld {
         for e in logger.data[turn]! {
             print (e)
         }
+        
         logger.newRound()
-        
+
         turn += 1
-        
+
         for e in allTanks {
             e.clearActions()
             e.clearShieldEnergy()
         }
     }
-
+    
     func runOneTurn () {
         print ("")
         print ("RUNNING TURN \(turn)")
         print ("number of tanks standing \(numberLivingTanks)")
+        print ("number of rovers standing \(findAllRovers().count)")
         print ("")
         doTurn()
         gridReport()
@@ -162,7 +142,7 @@ class TankWorld {
 
     func driver () {
         populateTheTankWorld()
-        print(gridReport())
+        gridReport()
         while findWinner() == nil {
             runOneTurn()
         }
