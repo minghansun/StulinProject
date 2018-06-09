@@ -213,7 +213,7 @@ extension TankWorld {
                 grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: type, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
                 logger.addLog(tank, "a \(type) \(dropMineAction.id) has been dropped at \(dropPosition), with \(dropMineAction.power) units of energy")
             }
-        
+        // the code below can be deleted. 
         /*if !dropMineAction.isRover  {
             let dropPosition = findFreeAdjacent(tank.position)!
             grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Mine, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
