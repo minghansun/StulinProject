@@ -50,7 +50,10 @@ class fire: Tank {
         addPreAction(preAction: RadarAction(range: 3))
     }
     override func computePostActions() {
-        addPostAction(postAction: MissileAction(power: 10000, destination: Position(3, 6)))
+        
+        //addPostAction(postAction: MissileAction(power: 10000, destination: Position(3, 6)))
+        addPostAction(postAction: DropMineAction(power: 2000, isRover: true, dropDirection: nil, moveDirection: .north, id: "r\(turn)"))
+        newTurn()
         super.computePostActions()
     }
 }

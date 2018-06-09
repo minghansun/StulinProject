@@ -12,6 +12,6 @@ import Foundation
 var x = TankWorld()
 x.populateTheTankWorld()
 
-for _ in 0...6 {
+for _ in 0...5 {
     x.runOneTurn()
 }

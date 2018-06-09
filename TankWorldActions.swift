@@ -74,6 +74,7 @@ extension TankWorld {
         if isDead(tank) {return}
 
         logger.addLog(tank, "\(moveAction)")
+        
         if !isEnergyAvailable(tank, amount: Constants.costOfFMovingTanksPerUnitDistance[moveAction.distance]) {
             logger.addLog(tank, "insufficient energy to move")
             return
@@ -93,7 +94,12 @@ extension TankWorld {
         default :
         tank.useEnergy(amount: grid[newPlace.row][newPlace.col]!.energy * Constants.mineStrikeMultiple)
         logger.addLog(tank, "the move has succeeded, but due to the presence of an explosive, it loses \(grid[newPlace.row][newPlace.col]!.energy * Constants.mineStrikeMultiple)")
-        doTheMoving(object: tank, destination: newPlace)
+        if isDead(tank) {
+            logger.addLog(tank, "the tank is dead in the process of moving")
+            remove(at:tank.position)
+            return
+        }
+        else {doTheMoving(object: tank, destination: newPlace)}
 
             }
         // this switch statement could be a source of error
@@ -169,25 +175,46 @@ extension TankWorld {
             }
 
         }
-        //checkAndRemove()
     }
 
     func actionDropMine (tank: Tank, dropMineAction: DropMineAction) {
         if isDead(tank) {return}
-        let type = (dropMineAction.isRover) ? "rover" : "mine"
+        let type = (dropMineAction.isRover) ? GameObjectType.Rover : GameObjectType.Mine
+        let directionMessage = (dropMineAction.dropDirection == nil) ? "randomly" : "to the \(dropMineAction.dropDirection)!"
 
-        logger.addLog(tank, "dropping \(type) with energy \(dropMineAction.power)")
-
-        if !isEnergyAvailable(tank, amount: Constants.costOfReleasingMine) {
+        logger.addLog(tank, "dropping \(type) \(directionMessage) with \(dropMineAction.power) units of energy")
+        
+        if findFreeAdjacent(tank.position) == nil {
+            logger.addLog(tank, "the drop fails as there are no free spaces")
+        }
+        
+        
+        if (type == .Rover && !isEnergyAvailable(tank, amount: Constants.costOfReleasingRover + dropMineAction.power)) || (type == .Mine && !isEnergyAvailable(tank, amount: Constants.costOfReleasingMine + dropMineAction.power)) {
             logger.addLog(tank, "insufficient energy to drop \(type)")
             return
         }
         
-        if findFreeAdjacent(tank.position) == nil {
-            logger.addLog(tank, "no free adjacent space to drop \(type)")
-        }
-
-        if !dropMineAction.isRover  {
+            if dropMineAction.dropDirection == nil {
+                let dropPosition = findFreeAdjacent(tank.position)!
+                grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: type, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
+                logger.addLog(tank, "a \(type) \(dropMineAction.id) has been dropped at \(dropPosition), with \(dropMineAction.power) units of energy")
+            }
+            //fixed directoion dropping is below
+            else {
+                let dropPosition = newPosition(position: tank.position, direction: dropMineAction.dropDirection!, magnitude: 1)
+                if !isValidPosition(dropPosition) {
+                    logger.addLog(tank, "the drop fails as the drop position \(dropPosition) in not valid")
+                    return
+                }
+                if !isPositionEmpty(dropPosition) {
+                    logger.addLog(tank, "the drop fails as the drop position \(dropPosition) is not emptied")
+                    return
+                }
+                grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: type, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
+                logger.addLog(tank, "a \(type) \(dropMineAction.id) has been dropped at \(dropPosition), with \(dropMineAction.power) units of energy")
+            }
+        
+        /*if !dropMineAction.isRover  {
             let dropPosition = findFreeAdjacent(tank.position)!
             grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Mine, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection: dropMineAction.moveDirection)
             logger.addLog(tank, "a mine has been dropped at \(dropPosition), with \(dropMineAction.power) units of energy")
@@ -196,8 +223,8 @@ extension TankWorld {
             grid[dropPosition.row][dropPosition.col] = Mine(mineorRover: .Rover, row: dropPosition.row, col: dropPosition.col, energy: dropMineAction.power, id: dropMineAction.id, moveDirection : nil)
             logger.addLog(tank, "a rover has been dropped, at \(dropPosition), with \(dropMineAction.power) units of energy")
 
-        }
-    } // I assumed that the drop direction is always random
+        } */
+    } 
 
 
 }

@@ -167,17 +167,18 @@ extension TankWorld {
         return Int(arc4random_uniform(UInt32(range)))
     }
     
-    func checkAndRemove () {
+    /*func checkAndRemove () {
         for e in findAllGameObjects() {
             if isDead(e) {
                 grid[e.position.row][e.position.col] = nil
             }
         }
+    }*/
+    
+    func remove (at: Position) {
+        grid[at.row][at.col] = nil
     }
     
-    func remove (_ obj: GameObject) {
-        grid[obj.position.row][obj.position.col] = nil
-    }
     
     func movingRovers () {
         let allRovers = randomizeGameObjects(gameObjects: findAllRovers())
@@ -199,9 +200,15 @@ extension TankWorld {
                     doTheMoving(object: e, destination: newPlace)
                     logger.addLog(e, "the move succeeds as \(newPlace) is empty")
                 } else {
-                    grid[newPlace.row][newPlace.col]!.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
-                    grid[e.position.row][e.position.col] = nil
-                    logger.addLog(e, "the move fails; however the rover successfully struck \(grid[newPlace.row][newPlace.col]!.id) at \(newPlace), causing \(e.energy * Constants.mineStrikeMultiple) units of damage")
+                    if grid[newPlace.row][newPlace.col]!.objectType == .Tank {
+                        grid[newPlace.row][newPlace.col]!.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
+                        logger.addLog(e, "the move fails; however the rover successfully struck \(grid[newPlace.row][newPlace.col]!.id) at \(newPlace), causing \(e.energy * Constants.mineStrikeMultiple) units of damage")
+                    }
+                    else {
+                        remove(at:newPlace)
+                        remove(at:e.position)
+                        logger.addLog(e, "the move fails; however the rover successfully struck another explosive at \(newPlace); both objects died and removed")
+                    }
                 }
             }
             
@@ -213,9 +220,15 @@ extension TankWorld {
                     doTheMoving(object: e, destination: destination)
                     logger.addLog(e, "the move succeeds as \(destination) is empty")
                 } else {
-                    grid[destination.row][destination.col]!.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
-                    grid[e.position.row][e.position.col] = nil
-                    logger.addLog(e, "the move fails; however the rover successfully struck \(grid[destination.row][destination.col]!.id) at \(destination), causing \(e.energy * Constants.mineStrikeMultiple) units of damage")
+                    if grid[destination.row][destination.col]!.objectType == .Tank {
+                        grid[destination.row][destination.col]!.useEnergy(amount: e.energy * Constants.mineStrikeMultiple)
+                        logger.addLog(e, "the move fails; however the rover successfully struck \(grid[destination.row][destination.col]!.id) at \(destination), causing \(e.energy * Constants.mineStrikeMultiple) units of damage")
+                    }
+                    else {
+                        remove(at: destination)
+                        remove(at:e.position)
+                        logger.addLog(e, "the move fails; however the rover successfully struck another explosive at \(destination); both objects died")
+                    }
                 }
             }
             

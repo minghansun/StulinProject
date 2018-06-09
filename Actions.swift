@@ -147,6 +147,9 @@ struct DropMineAction : PostAction{
         self.isRover = isRover
         self.dropDirection = dropDirection
         self.moveDirection = moveDirection
+        /*if !isRover {
+            assert(moveDirection == nil, "fatal error: mines cannot move. change the initialization")
+        }*/
         self.power = power
         self.id = id
     }

@@ -17,10 +17,15 @@ class Tank : GameObject {
     private (set) var postActions = [Actions: PostAction]()
     let initialInstructions: String?
     private (set) var radarResults =  [RadarResult]()
+    private (set) var turn = 1 // for testing
 
     init(row: Int, col: Int, energy: Int, id: String, instructions: String) {
         initialInstructions = instructions
         super.init(row: row, col: col, objectType: .Tank, energy: energy, id: id)
+    }
+    
+    final func newTurn () { // for testing
+        turn += 1
     }
 
     override func liveSupport () {

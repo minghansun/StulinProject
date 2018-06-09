@@ -34,6 +34,11 @@ class TankWorld {
         grid[gameObject.position.row][gameObject.position.col] = gameObject
         if gameObject.objectType == .Tank {numberLivingTanks += 1}
     }
+    
+    func removeGameObject (removing gameObject: GameObject) {
+        grid[gameObject.position.row][gameObject.position.col] = nil
+        if gameObject.objectType == .Tank {numberLivingTanks -= 1}
+    }
 
     func populateTheTankWorld () {
         //addGameObject(adding: tankSY(row: 3, col: 6, energy: 100000, id: "t2", instructions: "none"))
@@ -149,6 +154,7 @@ class TankWorld {
     func runOneTurn () {
         print ("")
         print ("RUNNING TURN \(turn)")
+        print ("number of tanks standing \(numberLivingTanks)")
         print ("")
         doTurn()
         gridReport()
